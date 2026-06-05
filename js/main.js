@@ -25,15 +25,15 @@ const EDGE_STYLE = {
   customer:    {color:0x38bdf8,opacity:0.5, dashed:false,flow:true, label:"Customer / dependency"},
   partnership: {color:0x94a3b8,opacity:0.34,dashed:true, flow:false,label:"Partnership / JV"}
 };
-const RING = 270;            // galaxy cluster ring radius (wider = more space between clusters)
+const RING = 340;            // distance of each galaxy from the centre (more = galaxies further apart)
 const easeInOut = t => t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
 const mulberry32 = a => ()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};
 const hash = s => {let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;};
 
 // ---------------- state ----------------
 let scene,camera,renderer,labelRenderer,controls,composer,bloom,raycaster;
-let nodes=[], nodeMeshes=[], edges=[], clusterLabels=[], byId={}, companies=[], relationships=[];
-let hovered=null, selected=null, layerMode=false, idleRotate=false, lastInteract=0;
+let nodes=[], nodeMeshes=[], edges=[], clusterLabels=[], cores=[], diskClouds=[], byId={}, companies=[], relationships=[];
+let hovered=null, selected=null, layerMode=false, idleRotate=false, lastInteract=0, decorAlpha=1;
 const domainOn={}, listedOn={listed:true, private:true};
 const pointer=new THREE.Vector2(-2,-2);
 let camTween=null, clock;
@@ -67,10 +67,10 @@ function hasWebGL(){ try{const c=document.createElement("canvas");return !!(wind
 // ---------------- scene ----------------
 function initScene(){
   scene=new THREE.Scene();
-  scene.fog=new THREE.FogExp2(0x05060d,0.0008);
+  scene.fog=new THREE.FogExp2(0x05060d,0.0006);
   const W=innerWidth,H=innerHeight;
-  camera=new THREE.PerspectiveCamera(55,W/H,0.1,5000);
-  camera.position.set(0,110,700);
+  camera=new THREE.PerspectiveCamera(55,W/H,0.1,6000);
+  camera.position.set(0,140,880);
 
   renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:"high-performance"});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
@@ -83,7 +83,7 @@ function initScene(){
 
   controls=new OrbitControls(camera,renderer.domElement);
   controls.enableDamping=true; controls.dampingFactor=0.06;
-  controls.minDistance=40; controls.maxDistance=1700; controls.autoRotateSpeed=0.3;
+  controls.minDistance=30; controls.maxDistance=2600; controls.autoRotateSpeed=0.25;
   controls.addEventListener("start",()=>{ lastInteract=performance.now(); controls.autoRotate=false; });
 
   // post: bloom
@@ -153,53 +153,77 @@ function clusterCenter(i,n){ // fibonacci sphere -> even 3D spread of domain clu
   return new THREE.Vector3(Math.cos(th)*r, y*0.78, Math.sin(th)*r).multiplyScalar(RING);
 }
 function buildGalaxy(){
-  const sphereGeo=new THREE.SphereGeometry(1,20,20);
+  const sphereGeo=new THREE.SphereGeometry(1,18,18);
   const byDomain={}; DOMAINS.forEach(d=>byDomain[d]=[]);
   companies.forEach(c=>{ (byDomain[c.domain]||(byDomain[c.domain]=[])).push(c); });
+  const TURNS=1.75;
 
   DOMAINS.forEach((dom,di)=>{
     const center=clusterCenter(di,DOMAINS.length);
-    const list=byDomain[dom]||[]; const spread=34+Math.sqrt(list.length)*16;
-    const stratumY=(STACK_ORDER.indexOf(dom)-(STACK_ORDER.length-1)/2)*46;
-    const hd=document.createElement("div"); hd.className="cluster-label"; hd.textContent=dom; hd.style.color=DOMAIN_COLORS[dom]||"#fff";
+    const list=(byDomain[dom]||[]).slice().sort((a,b)=>(b.size_eur||0)-(a.size_eur||0)); // big -> near core
+    const n=list.length;
+    const diskR=36+n*7.5, coreR=diskR*0.16, thick=diskR*0.13;
+    const colHex=DOMAIN_COLORS[dom]||"#7c9cff"; const color=new THREE.Color(colHex);
+    const stratumY=(STACK_ORDER.indexOf(dom)-(STACK_ORDER.length-1)/2)*48;
+
+    // deterministic disk orientation so each galaxy tilts differently
+    const g=mulberry32(hash(dom));
+    const wv=new THREE.Vector3(g()*2-1,g()*2-1,g()*2-1).normalize();
+    const arb=Math.abs(wv.y)<0.92?new THREE.Vector3(0,1,0):new THREE.Vector3(1,0,0);
+    const uv=new THREE.Vector3().crossVectors(wv,arb).normalize();
+    const vv=new THREE.Vector3().crossVectors(wv,uv).normalize();
+    const place=(rad,ang,z)=>center.clone()
+      .addScaledVector(uv,Math.cos(ang)*rad).addScaledVector(vv,Math.sin(ang)*rad).addScaledVector(wv,z);
+
+    // --- decorative galaxy: dust + spiral arms + central bulge ---
+    const K=150+n*46, pos=new Float32Array(K*3), col=new Float32Array(K*3);
+    for(let i=0;i<K;i++){
+      const t=Math.pow(g(),0.6), arm=g()<.5?0:1;
+      const ang=arm*Math.PI + t*TURNS*Math.PI*2 + (g()-.5)*0.55;
+      const rad=coreR + t*diskR + (g()-.5)*diskR*0.10;
+      const z=(g()-.5)*thick*(1.35-t);   // thicker bulge near core
+      const p=place(rad,ang,z); pos[i*3]=p.x;pos[i*3+1]=p.y;pos[i*3+2]=p.z;
+      const b=0.45+g()*0.55; col[i*3]=color.r*b;col[i*3+1]=color.g*b;col[i*3+2]=color.b*b;
+    }
+    const dgeo=new THREE.BufferGeometry();
+    dgeo.setAttribute("position",new THREE.BufferAttribute(pos,3));
+    dgeo.setAttribute("color",new THREE.BufferAttribute(col,3));
+    const dmat=new THREE.PointsMaterial({size:1.7,sizeAttenuation:true,vertexColors:true,transparent:true,opacity:0.5,depthWrite:false,blending:THREE.AdditiveBlending});
+    scene.add(new THREE.Points(dgeo,dmat)); diskClouds.push({mat:dmat,base:0.5,dom});
+
+    // --- galactic core: domain-tinted halo + hot white centre ---
+    const c1=new THREE.Sprite(new THREE.SpriteMaterial({map:tex("glow"),color:color,transparent:true,opacity:0.55,blending:THREE.AdditiveBlending,depthWrite:false}));
+    c1.scale.setScalar(diskR*0.62); c1.position.copy(center); scene.add(c1); cores.push({mat:c1.material,base:0.55,dom});
+    const c2=new THREE.Sprite(new THREE.SpriteMaterial({map:tex("glow"),color:0xffffff,transparent:true,opacity:0.5,blending:THREE.AdditiveBlending,depthWrite:false}));
+    c2.scale.setScalar(diskR*0.26); c2.position.copy(center); scene.add(c2); cores.push({mat:c2.material,base:0.5,dom});
+
+    // --- domain heading ---
+    const hd=document.createElement("div"); hd.className="cluster-label"; hd.textContent=dom; hd.style.color=colHex;
     const headObj=new CSS2DObject(hd);
-    const headGalaxy=center.clone().add(new THREE.Vector3(0,spread*0.92+20,0));
+    const headGalaxy=center.clone().add(new THREE.Vector3(0,diskR*0.95+20,0));
     const headLayer=new THREE.Vector3(-300,stratumY,0);
     headObj.position.copy(headGalaxy); scene.add(headObj);
     clusterLabels.push({obj:headObj,div:hd,dom,galaxyPos:headGalaxy,layerPos:headLayer,curPos:headGalaxy.clone()});
-    const stackY=(STACK_ORDER.indexOf(dom)-(STACK_ORDER.length-1)/2)*46;
+
+    // --- company stars on the spiral arms ---
+    const cols=Math.ceil(Math.sqrt(n));
     list.forEach((c,ci)=>{
       const rnd=mulberry32(hash(c.id));
-      const u=rnd(),v=rnd(),w=rnd();
-      // even angular placement (fibonacci sphere) so companies in a cluster fan out, not clump
-      const ny = list.length>1 ? 1-(ci/(list.length-1))*2 : 0;
-      const nr = Math.sqrt(Math.max(0,1-ny*ny));
-      const nth = Math.PI*(3-Math.sqrt(5))*ci + u*0.5;
-      const dir = new THREE.Vector3(Math.cos(nth)*nr, ny, Math.sin(nth)*nr);
-      const off = dir.multiplyScalar(spread*(0.66+0.34*v));
-      off.x+=(u-.5)*spread*0.12; off.y+=(v-.5)*spread*0.12; off.z+=(w-.5)*spread*0.12;
-      const galaxyPos=center.clone().add(off);
-      // layered position
-      const cols=Math.ceil(Math.sqrt(list.length));
-      const layerPos=new THREE.Vector3(((ci%cols)-(cols-1)/2)*42 + (w-.5)*8, stackY+(rnd()-.5)*10, (Math.floor(ci/cols)-(Math.ceil(list.length/cols)-1)/2)*42 + (rnd()-.5)*8);
+      const t = n>1 ? ci/(n-1) : 0;                 // largest -> near core
+      const ang = (ci%2)*Math.PI + t*TURNS*Math.PI*2 + 0.42 + (rnd()-.5)*0.16;
+      const rad = coreR*2.4 + t*diskR*0.82 + (rnd()-.5)*diskR*0.05;
+      const galaxyPos=place(rad,ang,(rnd()-.5)*thick*0.5);
+      const layerPos=new THREE.Vector3(((ci%cols)-(cols-1)/2)*44 + (rnd()-.5)*8, stratumY+(rnd()-.5)*10, (Math.floor(ci/cols)-(Math.ceil(n/cols)-1)/2)*44 + (rnd()-.5)*8);
 
-      const color=new THREE.Color(DOMAIN_COLORS[dom]||"#7c9cff");
-      const rad=sizeRadius(c.size_eur);
-      const priv=!c.is_listed;
+      const rad2=sizeRadius(c.size_eur); const priv=!c.is_listed;
       const mesh=new THREE.Mesh(sphereGeo,new THREE.MeshBasicMaterial({color:color.clone().multiplyScalar(priv?0.72:1),transparent:true,opacity:priv?0.72:1}));
-      mesh.scale.setScalar(rad); mesh.position.copy(galaxyPos); mesh.userData.id=c.id;
-      scene.add(mesh); nodeMeshes.push(mesh);
-
-      const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:tex(priv?"ring":"glow"),color:color,
-        transparent:true,opacity:priv?0.85:0.95,blending:THREE.AdditiveBlending,depthWrite:false}));
-      glow.scale.setScalar(rad*(priv?4.5:3.7)); glow.position.copy(galaxyPos); scene.add(glow);
-
+      mesh.scale.setScalar(rad2); mesh.position.copy(galaxyPos); mesh.userData.id=c.id; scene.add(mesh); nodeMeshes.push(mesh);
+      const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:tex(priv?"ring":"glow"),color:color,transparent:true,opacity:priv?0.85:0.95,blending:THREE.AdditiveBlending,depthWrite:false}));
+      glow.scale.setScalar(rad2*(priv?4.4:3.6)); glow.position.copy(galaxyPos); scene.add(glow);
       const div=document.createElement("div"); div.className="label"; div.textContent=c.name;
       const label=new CSS2DObject(div); label.position.set(0,1.5,0); mesh.add(label);
-
-      nodes.push({c,mesh,glow,div,rad,color,galaxyPos,layerPos,
-        curPos:galaxyPos.clone(),baseGlow:priv?0.8:0.9,baseMesh:priv?0.72:1,
-        alpha:1,scaleMul:1,priv});
+      nodes.push({c,mesh,glow,div,rad:rad2,color,galaxyPos,layerPos,curPos:galaxyPos.clone(),
+        baseGlow:priv?0.8:0.9,baseMesh:priv?0.72:1,alpha:1,scaleMul:1,priv});
     });
   });
 }
@@ -368,7 +392,12 @@ function animate(){
 
   // in-space domain headings: always-on orientation, fade slightly with distance, hide if domain filtered out
   clusterLabels.forEach(cl=>{ const vis=domainOn[cl.dom]; cl.div.style.display=vis?"block":"none";
-    if(vis){ const d=camera.position.distanceTo(cl.curPos); cl.div.style.opacity=Math.max(0.2,Math.min(0.95,(1550-d)/980)).toFixed(2); } });
+    if(vis){ const d=camera.position.distanceTo(cl.curPos); cl.div.style.opacity=Math.max(0.2,Math.min(0.95,(1900-d)/1200)).toFixed(2); } });
+
+  // galaxy decoration (cores + dust) fades out in stack-layers mode and hides with domain filter
+  const dT=layerMode?0:1; decorAlpha+=(dT-decorAlpha)*Math.min(1,dt*4);
+  cores.forEach(o=>{ o.mat.opacity=o.base*decorAlpha*(domainOn[o.dom]?1:0); });
+  diskClouds.forEach(o=>{ o.mat.opacity=o.base*decorAlpha*(domainOn[o.dom]?1:0); });
 
   composer.render();
   labelRenderer.render(scene,camera);

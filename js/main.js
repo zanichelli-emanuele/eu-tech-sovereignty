@@ -67,10 +67,10 @@ function hasWebGL(){ try{const c=document.createElement("canvas");return !!(wind
 // ---------------- scene ----------------
 function initScene(){
   scene=new THREE.Scene();
-  scene.fog=new THREE.FogExp2(0x05060d,0.0009);
+  scene.fog=new THREE.FogExp2(0x05060d,0.0008);
   const W=innerWidth,H=innerHeight;
   camera=new THREE.PerspectiveCamera(55,W/H,0.1,5000);
-  camera.position.set(0,100,620);
+  camera.position.set(0,110,700);
 
   renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:"high-performance"});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
@@ -159,15 +159,18 @@ function buildGalaxy(){
 
   DOMAINS.forEach((dom,di)=>{
     const center=clusterCenter(di,DOMAINS.length);
-    const list=byDomain[dom]||[]; const spread=24+Math.sqrt(list.length)*9;
+    const list=byDomain[dom]||[]; const spread=34+Math.sqrt(list.length)*16;
     const stackY=(STACK_ORDER.indexOf(dom)-(STACK_ORDER.length-1)/2)*46;
     list.forEach((c,ci)=>{
       const rnd=mulberry32(hash(c.id));
-      // position inside cluster sphere
       const u=rnd(),v=rnd(),w=rnd();
-      const rr=spread*Math.cbrt(rnd());
-      const th=u*Math.PI*2, ph=Math.acos(2*v-1);
-      const off=new THREE.Vector3(Math.sin(ph)*Math.cos(th),Math.sin(ph)*Math.sin(th),Math.cos(ph)).multiplyScalar(rr);
+      // even angular placement (fibonacci sphere) so companies in a cluster fan out, not clump
+      const ny = list.length>1 ? 1-(ci/(list.length-1))*2 : 0;
+      const nr = Math.sqrt(Math.max(0,1-ny*ny));
+      const nth = Math.PI*(3-Math.sqrt(5))*ci + u*0.5;
+      const dir = new THREE.Vector3(Math.cos(nth)*nr, ny, Math.sin(nth)*nr);
+      const off = dir.multiplyScalar(spread*(0.66+0.34*v));
+      off.x+=(u-.5)*spread*0.12; off.y+=(v-.5)*spread*0.12; off.z+=(w-.5)*spread*0.12;
       const galaxyPos=center.clone().add(off);
       // layered position
       const cols=Math.ceil(Math.sqrt(list.length));
@@ -182,7 +185,7 @@ function buildGalaxy(){
 
       const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:tex(priv?"ring":"glow"),color:color,
         transparent:true,opacity:priv?0.85:0.95,blending:THREE.AdditiveBlending,depthWrite:false}));
-      glow.scale.setScalar(rad*(priv?5.2:4.4)); glow.position.copy(galaxyPos); scene.add(glow);
+      glow.scale.setScalar(rad*(priv?4.5:3.7)); glow.position.copy(galaxyPos); scene.add(glow);
 
       const div=document.createElement("div"); div.className="label"; div.textContent=c.name;
       const label=new CSS2DObject(div); label.position.set(0,1.5,0); mesh.add(label);
@@ -257,7 +260,7 @@ function buildUI(){
   document.getElementById("btn-layout").onclick=e=>{ layerMode=!layerMode; e.target.classList.toggle("active",layerMode); e.target.textContent=layerMode?"✦ Free cosmos":"⬚ Stack layers"; startLayout(); };
   const rb=document.getElementById("btn-rotate"); rb.classList.toggle("active",idleRotate);
   rb.onclick=()=>{ idleRotate=!idleRotate; rb.classList.toggle("active",idleRotate); if(!idleRotate) controls.autoRotate=false; lastInteract=performance.now(); };
-  document.getElementById("btn-reset").onclick=()=>{ selected=null; hidePanel(); flyTo(new THREE.Vector3(0,100,620),new THREE.Vector3(0,0,0)); };
+  document.getElementById("btn-reset").onclick=()=>{ selected=null; hidePanel(); flyTo(new THREE.Vector3(0,110,700),new THREE.Vector3(0,0,0)); };
 }
 
 let layoutTween=null;
@@ -331,7 +334,7 @@ function animate(){
     n.mesh.material.opacity=n.baseMesh*n.alpha;
     n.glow.material.opacity=n.baseGlow*n.alpha;
     n.mesh.scale.setScalar(n.rad*n.scaleMul);
-    n.glow.scale.setScalar(n.rad*(n.priv?5.2:4.4)*n.scaleMul);
+    n.glow.scale.setScalar(n.rad*(n.priv?4.5:3.7)*n.scaleMul);
     // label visibility
     const dist=camera.position.distanceTo(n.curPos);
     const show = fin && (focusId===n.c.id || (focusSet&&focusSet.has(n.c.id)));

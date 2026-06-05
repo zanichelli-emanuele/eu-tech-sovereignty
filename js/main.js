@@ -32,7 +32,7 @@ const hash = s => {let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(
 
 // ---------------- state ----------------
 let scene,camera,renderer,labelRenderer,controls,composer,bloom,raycaster;
-let nodes=[], nodeMeshes=[], edges=[], byId={}, companies=[], relationships=[];
+let nodes=[], nodeMeshes=[], edges=[], clusterLabels=[], byId={}, companies=[], relationships=[];
 let hovered=null, selected=null, layerMode=false, idleRotate=false, lastInteract=0;
 const domainOn={}, listedOn={listed:true, private:true};
 const pointer=new THREE.Vector2(-2,-2);
@@ -89,7 +89,7 @@ function initScene(){
   // post: bloom
   composer=new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene,camera));
-  bloom=new UnrealBloomPass(new THREE.Vector2(W,H),0.85,0.6,0.12); // strength,radius,threshold
+  bloom=new UnrealBloomPass(new THREE.Vector2(W,H),0.6,0.5,0.2); // strength,radius,threshold — softer so nodes stay crisp
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
 
@@ -160,6 +160,13 @@ function buildGalaxy(){
   DOMAINS.forEach((dom,di)=>{
     const center=clusterCenter(di,DOMAINS.length);
     const list=byDomain[dom]||[]; const spread=34+Math.sqrt(list.length)*16;
+    const stratumY=(STACK_ORDER.indexOf(dom)-(STACK_ORDER.length-1)/2)*46;
+    const hd=document.createElement("div"); hd.className="cluster-label"; hd.textContent=dom; hd.style.color=DOMAIN_COLORS[dom]||"#fff";
+    const headObj=new CSS2DObject(hd);
+    const headGalaxy=center.clone().add(new THREE.Vector3(0,spread*0.92+20,0));
+    const headLayer=new THREE.Vector3(-300,stratumY,0);
+    headObj.position.copy(headGalaxy); scene.add(headObj);
+    clusterLabels.push({obj:headObj,div:hd,dom,galaxyPos:headGalaxy,layerPos:headLayer,curPos:headGalaxy.clone()});
     const stackY=(STACK_ORDER.indexOf(dom)-(STACK_ORDER.length-1)/2)*46;
     list.forEach((c,ci)=>{
       const rnd=mulberry32(hash(c.id));
@@ -179,7 +186,7 @@ function buildGalaxy(){
       const color=new THREE.Color(DOMAIN_COLORS[dom]||"#7c9cff");
       const rad=sizeRadius(c.size_eur);
       const priv=!c.is_listed;
-      const mesh=new THREE.Mesh(sphereGeo,new THREE.MeshBasicMaterial({color:color.clone().multiplyScalar(priv?0.6:1),transparent:true,opacity:priv?0.55:0.95}));
+      const mesh=new THREE.Mesh(sphereGeo,new THREE.MeshBasicMaterial({color:color.clone().multiplyScalar(priv?0.72:1),transparent:true,opacity:priv?0.72:1}));
       mesh.scale.setScalar(rad); mesh.position.copy(galaxyPos); mesh.userData.id=c.id;
       scene.add(mesh); nodeMeshes.push(mesh);
 
@@ -191,7 +198,7 @@ function buildGalaxy(){
       const label=new CSS2DObject(div); label.position.set(0,1.5,0); mesh.add(label);
 
       nodes.push({c,mesh,glow,div,rad,color,galaxyPos,layerPos,
-        curPos:galaxyPos.clone(),baseGlow:priv?0.85:0.95,baseMesh:priv?0.55:0.95,
+        curPos:galaxyPos.clone(),baseGlow:priv?0.8:0.9,baseMesh:priv?0.72:1,
         alpha:1,scaleMul:1,priv});
     });
   });
@@ -315,6 +322,7 @@ function animate(){
 
   if(layoutTween){ layoutTween.t=Math.min(1,layoutTween.t+dt/layoutTween.dur); const k=easeInOut(layoutTween.t);
     nodes.forEach(n=>{ const a=layerMode?n.galaxyPos:n.layerPos, b=layerMode?n.layerPos:n.galaxyPos; n.curPos.lerpVectors(a,b,k); n.mesh.position.copy(n.curPos); n.glow.position.copy(n.curPos); });
+    clusterLabels.forEach(cl=>{ const a=layerMode?cl.galaxyPos:cl.layerPos, b=layerMode?cl.layerPos:cl.galaxyPos; cl.curPos.lerpVectors(a,b,k); cl.obj.position.copy(cl.curPos); });
     refreshEdgeGeometry(); if(layoutTween.t>=1) layoutTween=null; }
 
   // static by default — rotation only when the user enables the Auto-rotate button
@@ -357,6 +365,10 @@ function animate(){
       f.sp.material.opacity=Math.min(1,ed.alpha)* (vis?0.95:0); f.sp.visible=ed.alpha>0.05;
     });
   });
+
+  // in-space domain headings: always-on orientation, fade slightly with distance, hide if domain filtered out
+  clusterLabels.forEach(cl=>{ const vis=domainOn[cl.dom]; cl.div.style.display=vis?"block":"none";
+    if(vis){ const d=camera.position.distanceTo(cl.curPos); cl.div.style.opacity=Math.max(0.2,Math.min(0.95,(1550-d)/980)).toFixed(2); } });
 
   composer.render();
   labelRenderer.render(scene,camera);

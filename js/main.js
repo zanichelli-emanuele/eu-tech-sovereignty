@@ -25,7 +25,7 @@ const EDGE_STYLE = {
   customer:    {color:0x38bdf8,opacity:0.5, dashed:false,flow:true, label:"Customer / dependency"},
   partnership: {color:0x94a3b8,opacity:0.34,dashed:true, flow:false,label:"Partnership / JV"}
 };
-const RING = 152;            // galaxy cluster ring radius
+const RING = 270;            // galaxy cluster ring radius (wider = more space between clusters)
 const easeInOut = t => t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
 const mulberry32 = a => ()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};
 const hash = s => {let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;};
@@ -33,7 +33,7 @@ const hash = s => {let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(
 // ---------------- state ----------------
 let scene,camera,renderer,labelRenderer,controls,composer,bloom,raycaster;
 let nodes=[], nodeMeshes=[], edges=[], byId={}, companies=[], relationships=[];
-let hovered=null, selected=null, layerMode=false, idleRotate=true, lastInteract=0;
+let hovered=null, selected=null, layerMode=false, idleRotate=false, lastInteract=0;
 const domainOn={}, listedOn={listed:true, private:true};
 const pointer=new THREE.Vector2(-2,-2);
 let camTween=null, clock;
@@ -67,10 +67,10 @@ function hasWebGL(){ try{const c=document.createElement("canvas");return !!(wind
 // ---------------- scene ----------------
 function initScene(){
   scene=new THREE.Scene();
-  scene.fog=new THREE.FogExp2(0x05060d,0.0016);
+  scene.fog=new THREE.FogExp2(0x05060d,0.0009);
   const W=innerWidth,H=innerHeight;
-  camera=new THREE.PerspectiveCamera(55,W/H,0.1,4000);
-  camera.position.set(0,70,360);
+  camera=new THREE.PerspectiveCamera(55,W/H,0.1,5000);
+  camera.position.set(0,100,620);
 
   renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:"high-performance"});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
@@ -83,7 +83,7 @@ function initScene(){
 
   controls=new OrbitControls(camera,renderer.domElement);
   controls.enableDamping=true; controls.dampingFactor=0.06;
-  controls.minDistance=40; controls.maxDistance=900; controls.autoRotateSpeed=0.35;
+  controls.minDistance=40; controls.maxDistance=1700; controls.autoRotateSpeed=0.3;
   controls.addEventListener("start",()=>{ lastInteract=performance.now(); controls.autoRotate=false; });
 
   // post: bloom
@@ -159,8 +159,8 @@ function buildGalaxy(){
 
   DOMAINS.forEach((dom,di)=>{
     const center=clusterCenter(di,DOMAINS.length);
-    const list=byDomain[dom]||[]; const spread=16+Math.sqrt(list.length)*7;
-    const stackY=(STACK_ORDER.indexOf(dom)-(STACK_ORDER.length-1)/2)*36;
+    const list=byDomain[dom]||[]; const spread=24+Math.sqrt(list.length)*9;
+    const stackY=(STACK_ORDER.indexOf(dom)-(STACK_ORDER.length-1)/2)*46;
     list.forEach((c,ci)=>{
       const rnd=mulberry32(hash(c.id));
       // position inside cluster sphere
@@ -171,7 +171,7 @@ function buildGalaxy(){
       const galaxyPos=center.clone().add(off);
       // layered position
       const cols=Math.ceil(Math.sqrt(list.length));
-      const layerPos=new THREE.Vector3(((ci%cols)-(cols-1)/2)*30 + (w-.5)*8, stackY+(rnd()-.5)*10, (Math.floor(ci/cols)-(Math.ceil(list.length/cols)-1)/2)*30 + (rnd()-.5)*8);
+      const layerPos=new THREE.Vector3(((ci%cols)-(cols-1)/2)*42 + (w-.5)*8, stackY+(rnd()-.5)*10, (Math.floor(ci/cols)-(Math.ceil(list.length/cols)-1)/2)*42 + (rnd()-.5)*8);
 
       const color=new THREE.Color(DOMAIN_COLORS[dom]||"#7c9cff");
       const rad=sizeRadius(c.size_eur);
@@ -257,7 +257,7 @@ function buildUI(){
   document.getElementById("btn-layout").onclick=e=>{ layerMode=!layerMode; e.target.classList.toggle("active",layerMode); e.target.textContent=layerMode?"✦ Free cosmos":"⬚ Stack layers"; startLayout(); };
   const rb=document.getElementById("btn-rotate"); rb.classList.toggle("active",idleRotate);
   rb.onclick=()=>{ idleRotate=!idleRotate; rb.classList.toggle("active",idleRotate); if(!idleRotate) controls.autoRotate=false; lastInteract=performance.now(); };
-  document.getElementById("btn-reset").onclick=()=>{ selected=null; hidePanel(); flyTo(new THREE.Vector3(0,70,360),new THREE.Vector3(0,0,0)); };
+  document.getElementById("btn-reset").onclick=()=>{ selected=null; hidePanel(); flyTo(new THREE.Vector3(0,100,620),new THREE.Vector3(0,0,0)); };
 }
 
 let layoutTween=null;
@@ -314,8 +314,8 @@ function animate(){
     nodes.forEach(n=>{ const a=layerMode?n.galaxyPos:n.layerPos, b=layerMode?n.layerPos:n.galaxyPos; n.curPos.lerpVectors(a,b,k); n.mesh.position.copy(n.curPos); n.glow.position.copy(n.curPos); });
     refreshEdgeGeometry(); if(layoutTween.t>=1) layoutTween=null; }
 
-  // idle auto-rotate
-  if(idleRotate && !camTween && (now-lastInteract>5000)) controls.autoRotate=true;
+  // static by default — rotation only when the user enables the Auto-rotate button
+  controls.autoRotate = idleRotate && !camTween;
   controls.update();
 
   // focus / filter visuals
@@ -334,9 +334,8 @@ function animate(){
     n.glow.scale.setScalar(n.rad*(n.priv?5.2:4.4)*n.scaleMul);
     // label visibility
     const dist=camera.position.distanceTo(n.curPos);
-    const big=n.rad>=4.2;
-    const show = fin && (big || focusId===n.c.id || (focusSet&&focusSet.has(n.c.id)));
-    let lop = show ? Math.max(0,Math.min(1,(620-dist)/360)) : 0;
+    const show = fin && (focusId===n.c.id || (focusSet&&focusSet.has(n.c.id)));
+    let lop = show ? Math.max(0,Math.min(1,(900-dist)/520)) : 0;
     if(focusId===n.c.id) lop=1;
     n.div.style.opacity=lop.toFixed(2);
     n.div.style.display=lop<0.04?"none":"block";

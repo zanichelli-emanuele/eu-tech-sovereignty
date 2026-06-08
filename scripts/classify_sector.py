@@ -27,6 +27,7 @@ KW = json.load(open(os.path.join(DATA, "keywords.json")))
 SCORING = KW["_meta"]["scoring"]
 PROMOTE = int(os.environ.get("THRESHOLD", SCORING["promote_score"]))
 CANDIDATE = SCORING["candidate_score"]
+PROMOTE_REQ_KW = SCORING.get("promote_requires_keyword", False)
 DOMAINS = [d for d in KW if not d.startswith("_")]
 
 def norm(s):
@@ -43,7 +44,7 @@ def hits(terms, text):
 
 def score_domain(cfg, sector, industry, summary):
     if hits(cfg.get("exclude_keywords", []), summary):
-        return 0, []   # vetoed
+        return 0, [], 0   # vetoed
     rat = []
     s = 0
     ind_set = {norm(x) for x in cfg.get("industry_match", [])}
@@ -55,19 +56,21 @@ def score_domain(cfg, sector, industry, summary):
     kw = hits(cfg.get("keywords", []), summary)
     s += SCORING["keyword_weight_each"] * len(kw)
     if kw: rat.append("keywords[" + ", ".join(kw[:6]) + ("…" if len(kw) > 6 else "") + "]")
-    return s, rat
+    return s, rat, len(kw)
 
 def classify(cand):
     summary = norm(cand.get("summary"))
     best = None
     for dom in DOMAINS:
-        s, rat = score_domain(KW[dom], cand.get("sector"), cand.get("industry"), summary)
+        s, rat, nkw = score_domain(KW[dom], cand.get("sector"), cand.get("industry"), summary)
         if s >= CANDIDATE and (best is None or s > best[1] or (s == best[1] and "industry=" in " ".join(rat))):
-            best = (dom, s, rat)
+            best = (dom, s, rat, nkw)
     if not best: return None
-    dom, s, rat = best
+    dom, s, rat, nkw = best
     conf = round(min(0.95, 0.45 + 0.12 * s), 2)
-    band = "promote" if s >= PROMOTE else "candidate"
+    band = "promote" if (s >= PROMOTE and (nkw > 0 or not PROMOTE_REQ_KW)) else "candidate"
+    if s >= PROMOTE and nkw == 0 and PROMOTE_REQ_KW:
+        rat.append("(code-only → capped at candidate)")
     return {"yahoo_ticker": cand["yahoo_ticker"], "name": cand["name"], "domain": dom,
             "band": band, "confidence": conf, "score": s, "rationale": " + ".join(rat),
             "market_cap_eur": cand.get("market_cap_eur")}

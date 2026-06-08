@@ -1,81 +1,31 @@
 {
   "_meta": {
-    "purpose": "Deterministic, KEYLESS, LIST-BASED classification for the two THEMATIC instruments (EU Open Source Strategy -> 'Open source', Strategic Roadmap for Digitalisation & AI in Energy -> 'AI in energy'). These are THEMES, not equity sectors, so they are NOT keyword-guessed off the screener. A company is classified iff it appears on one of the rosters below. Used by scripts/classify_theme.py.",
-    "why_lists": "Membership is the credibility line: 'included because it is an Eclipse Foundation member' / 'a smartEn flexibility member' is a citable, falsifiable claim — not a heuristic guess. Thematic companies may be added even if absent from STOXX 600.",
-    "rules": {
-      "match": "A roster member is classified into the roster's category. rationale = 'Member of <roster.list>'. confidence = 1.0 (membership is binary).",
-      "ticker_cross_reference": "For each member, classify_theme.py resolves a Yahoo ticker via yfinance where the entity is a listed equity (so Layer-1 live financials work). If private / a foundation / a public body, it is added as a static, clearly-labeled non-listed entry (is_listed:false, financials:null) — never invented price data.",
-      "provenance": "source = 'auto-theme'; rationale = roster name; confidence = 1.0. sovereignty_role on the created record is set to the auto rationale and labeled auto-derived.",
-      "reconciliation": "On each run, classify_theme.py refreshes each roster's members[] from its source_url — a PLAIN HTTP fetch + parse of the public member directory, NOT a model call — and updates last_checked. A member that drops off the live roster is demoted/removed on the next run (logged in universe_log.json).",
-      "seed_status": "members[] below are intentionally EMPTY in this first commit. The rosters, scopes, and source URLs are what you sanity-check now; classify_theme.py populates verified members from source_url on the first run after your OK. See member_schema for the entry shape."
-    },
-    "member_schema": {
-      "name": "Company or organisation legal name",
-      "hq_country": "EU/EEA country (members outside EU/EEA are dropped)",
-      "is_listed": "true | false | \"unknown\"  (resolved via yfinance)",
-      "yahoo_ticker": "Yahoo symbol incl. suffix, or null for private/foundation/public-body",
-      "roster_source_url": "the parent roster's source_url (carried onto the record's sources[])",
-      "verified": "true once confirmed against source_url on a run; false in hand-seeds",
-      "note": "optional, e.g. membership tier or relevance",
-      "example_only_illustrative": {
-        "name": "<example, not asserted>", "hq_country": "DE", "is_listed": false,
-        "yahoo_ticker": null, "verified": false, "note": "shape illustration only"
-      }
-    }
+    "purpose": "Deterministic, KEYLESS, LIST-BASED classification for the two THEMATIC instruments (EU Open Source Strategy -> 'Open source', Strategic Roadmap for Digitalisation & AI in Energy -> 'AI in energy'). A company is classified iff it appears on a roster's members[]. No model calls. Used by scripts/classify_theme.py.",
+    "why_lists": "Membership is the credibility line: 'included because it is a smartEn member / IPCEI participant' is a citable, falsifiable claim — not a heuristic guess.",
+    "tag_vs_primary": "Membership does NOT auto-recategorize. sync_universe.py resolves the PRIMARY category: (1) if the company classifies into a SECTOR instrument (Semiconductors/Cloud & AI) by codes+keywords, that sector stays PRIMARY and the roster becomes a secondary tag in affiliations[]; (2) a member with no sector hit gets the thematic category as PRIMARY, UNLESS market_cap_eur > CAP_EUR (default 20e9, env CAP_EUR) -> demoted to tag-only (a large diversified member is not a pure-play theme); (3) private/foundation members (<=cap or unpriced) -> thematic primary as a static non-listed entry.",
+    "record_fields": "auto-theme entries set source='auto-theme', confidence=1.0, rationale='Member of <roster>'; affiliations[] carries the roster tag(s) on ANY record (curated, auto-sector, or auto-theme).",
+    "DATA_SOURCE_STATUS_2026-06-08": "PROBED — none of the chosen public member directories are keyless-parseable via plain HTTP, so auto-fetch is DISABLED for all rosters and members[] are maintainer-curated (mode:'manual'). classify_theme.py logs this every run; it does NOT scrape JS or invent members. Findings: smartEn (members rendered client-side via JS templates {{data.display_name}}); OpenForum Europe (no member names in static HTML); Eclipse Foundation (JS shell; membership API redirects to API docs, no keyless member JSON). NEEDS-DECISION: how to source verified thematic membership — (a) maintainer-curated members[] transcribed from the cited directories / EC IPCEI press releases (static, sourced, dated, reviewed); (b) reverse-engineer a site's members AJAX/JSON endpoint (brittle); (c) drop thematic auto-discovery and keep thematic companies purely curated. members[] are intentionally EMPTY until this is decided — the dry run reports 0 thematic members rather than faking them.",
+    "disabled_rosters": [
+      {"list": "Linux Foundation Europe members", "source_url": "https://linuxfoundation.eu/members", "disabled": "HTTP 404 — no EU-scoped members directory exists (only the global members.linuxfoundation.org, not EU/EEA-filterable). Dropped 2026-06-08."}
+    ],
+    "member_schema": {"name": "", "hq_country": "EU/EEA", "is_listed": "true|false|\"unknown\"", "yahoo_ticker": "or null", "roster_source_url": "", "verified": "true once confirmed against source_url", "note": ""}
   },
 
   "Open source": {
     "instrument": "open-source-strategy",
     "rosters": [
-      {
-        "list": "Eclipse Foundation members",
-        "scope": "EU/EEA corporate members (Brussels-based foundation)",
-        "source_url": "https://www.eclipse.org/membership/exploreMembership.php",
-        "last_checked": "2026-06-08",
-        "members": []
-      },
-      {
-        "list": "Linux Foundation Europe members",
-        "scope": "EU/EEA members",
-        "source_url": "https://linuxfoundation.eu/members",
-        "last_checked": "2026-06-08",
-        "members": []
-      },
-      {
-        "list": "OpenForum Europe (OFE) supporters",
-        "scope": "EU/EEA open-source advocacy supporters",
-        "source_url": "https://openforumeurope.org/who-we-are/",
-        "last_checked": "2026-06-08",
-        "members": []
-      }
+      {"list": "Eclipse Foundation members", "scope": "EU/EEA corporate members", "source_url": "https://www.eclipse.org/membership/exploreMembership.php", "last_checked": "2026-06-08", "autofetch": "disabled", "autofetch_reason": "JS-rendered shell; no keyless member JSON (api.eclipse.org/membership/members redirects to API docs).", "mode": "manual", "members": []},
+      {"list": "OpenForum Europe (OFE) supporters", "scope": "EU/EEA open-source advocacy supporters", "source_url": "https://openforumeurope.org/who-we-are/", "last_checked": "2026-06-08", "autofetch": "disabled", "autofetch_reason": "Member names not present in static HTML (rendered/asset-based).", "mode": "manual", "members": []}
     ]
   },
 
   "AI in energy": {
     "instrument": "ai-in-energy",
     "rosters": [
-      {
-        "list": "smartEn (Smart Energy Europe) members",
-        "scope": "EU/EEA demand-side flexibility, DER and smart-grid software members",
-        "source_url": "https://smarten.eu/members/",
-        "last_checked": "2026-06-08",
-        "members": []
-      },
-      {
-        "list": "IPCEI participants (energy / microelectronics, energy-digitalisation-relevant)",
-        "scope": "EU/EEA companies named as direct/indirect participants in approved IPCEIs touching energy digitalisation",
-        "source_url": "https://competition-policy.ec.europa.eu/state-aid/ipcei_en",
-        "last_checked": "2026-06-08",
-        "members": []
-      },
-      {
-        "list": "EU Digitalisation & AI in Energy roadmap — named organisations",
-        "scope": "organisations explicitly named in the roadmap / its annexes",
-        "source_url": "https://digital-strategy.ec.europa.eu/en/policies/eu-tech-sovereignty",
-        "last_checked": "2026-06-08",
-        "members": []
-      }
+      {"list": "smartEn (Smart Energy Europe) members", "scope": "EU/EEA demand-side flexibility, DER and smart-grid software members", "source_url": "https://smarten.eu/members/", "last_checked": "2026-06-08", "autofetch": "disabled", "autofetch_reason": "Members rendered client-side via JS templates ({{data.display_name}}); not in static HTML.", "mode": "manual", "members": []},
+      {"list": "IPCEI participants (energy-digitalisation-relevant)", "scope": "EU/EEA companies named as IPCEI participants touching energy digitalisation", "source_url": "https://competition-policy.ec.europa.eu/state-aid/ipcei_en", "last_checked": "2026-06-08", "autofetch": "disabled", "autofetch_reason": "Participant names are in EC press-release prose/PDF, not a structured keyless list.", "mode": "manual", "members": []},
+      {"list": "EU Digitalisation & AI in Energy roadmap — named organisations", "scope": "organisations explicitly named in the roadmap / its annexes", "source_url": "https://digital-strategy.ec.europa.eu/en/policies/eu-tech-sovereignty", "last_checked": "2026-06-08", "autofetch": "disabled", "autofetch_reason": "Names are in roadmap prose/annex, not a structured keyless list.", "mode": "manual", "members": []}
     ],
-    "notes": "ENTSO-E membership is national TSOs (grid operators, mostly state-owned, not listed software vendors) — deliberately NOT used as a roster here; smartEn is the right software/flexibility roster. Can be added later if you want TSOs in scope."
+    "notes": "ENTSO-E membership is national TSOs (not listed software vendors) — deliberately not used; smartEn is the right software/flexibility roster."
   }
 }

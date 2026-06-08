@@ -11,6 +11,8 @@
       "formula": "score = 2*(industry name in industry_match) + 1*(sector name in sector_match) + 1*(# distinct keyword hits); if ANY exclude_keyword hits, score := 0 (domain vetoed).",
       "promote_score": 3,
       "candidate_score": 2,
+      "promote_requires_keyword": true,
+      "promote_requires_keyword_note": "If true, a candidate with NO business-summary keyword hit (i.e. matched only by sector/industry code) caps at 'candidate' and is never promoted — stops broad Yahoo buckets like 'Software - Infrastructure' (payments/security/SaaS, e.g. Adyen) from auto-promoting on code alone.",
       "below_candidate": "not classified in this domain",
       "tie_break": "assign to the highest-scoring sector domain; equal scores -> the one with the industry_match hit, else neither (left for theme/none).",
       "confidence_formula": "round(min(0.95, 0.45 + 0.12*score), 2)  -- a transparent function of matched signals, NOT a model probability",

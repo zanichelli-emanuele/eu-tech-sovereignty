@@ -208,9 +208,10 @@ def main():
         print(f"new auto records: {len(newrecs)}")
         for c in newrecs:
             print(f"  +{c['source']}/{c['band']:9} {c['domain']:13} {c['yahoo_ticker']:11} conf {c['confidence']:.2f}  mc=€{(c['size_eur'] or 0)/1e9:.1f}B  {c['name'][:30]}")
-        # guards
-        if len(proposed) < len(companies) or n_cur != len(companies):
-            sys.exit(f"ABORT guard: proposed={len(proposed)} curated={n_cur} vs existing={len(companies)} — refusing degenerate write.")
+        # guards: never drop below input size, and preserve the curated set exactly (pinned)
+        in_curated = sum(1 for c in companies if (c.get("source") or "curated") == "curated")
+        if len(proposed) < len(companies) or n_cur != in_curated:
+            sys.exit(f"ABORT guard: proposed={len(proposed)} curated_out={n_cur} vs curated_in={in_curated} / existing={len(companies)} — refusing degenerate write.")
         if changed:
             sys.exit(f"ABORT: curated records would change beyond +source ({changed}). Investigate before writing.")
         if APPLY:

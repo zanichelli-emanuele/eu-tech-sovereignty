@@ -139,7 +139,7 @@ function onKey(e){
 function buildEdgeLegend(){ $("edge-legend").innerHTML=Object.values(EDGE_TYPES).map(t=>
   `<span class="ek"><span class="el" style="border-top:2px ${t.dash.length?'dashed':'solid'} ${t.color}"></span>${t.label}</span>`).join(""); }
 function buildStatus(){
-  $("stat-counts").textContent=`${companies.length} COS · ${DOMAINS.length} DOMAINS · ${rels.length} LINKS · 37 PRICED`;
+  $("stat-counts").textContent=`${companies.length} COS · ${DOMAINS.length} DOMAINS · ${rels.length} LINKS · ${companies.filter(c=>c.is_listed).length} LISTED`;
   $("legend").innerHTML=DOMAINS.map(d=>`<span class="lg"><span class="sq" style="background:${DOMAIN_COLORS[d]}"></span>${DOM_ABBR[d]}</span>`).join("");
   $("keys").innerHTML=`<span class="k"><b>/</b> search</span><span class="k"><b>↑↓</b> nav</span><span class="k"><b>M/X</b> view</span><span class="k"><b>1-9</b> domain</span>`;
 }

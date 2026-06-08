@@ -55,7 +55,12 @@
         <canvas id="map-canvas"></canvas>
         <canvas id="matrix-canvas" hidden></canvas>
         <div id="tip" class="tip" hidden></div>
-        <div id="map-hint" class="canvas-hint">hover to trace links · click to load · scroll to zoom · drag to pan</div>
+        <div id="map-hint" class="canvas-hint">hover traces links · click loads · scroll / +− zoom · drag pans · ⤢ reset</div>
+        <div id="map-ctrls" class="map-ctrls">
+          <button data-z="in" title="Zoom in">+</button>
+          <button data-z="out" title="Zoom out">−</button>
+          <button data-z="fit" title="Reset view">⤢</button>
+        </div>
       </div>
     </section>
 

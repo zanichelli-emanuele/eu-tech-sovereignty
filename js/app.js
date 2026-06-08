@@ -114,7 +114,8 @@ function buildDatalist(){ const dl=$("cmd-list"); companies.slice().sort((a,b)=>
 function buildTabs(){ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>setTab(t.dataset.tab)); }
 function setTab(tab){ state.tab=tab; document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.tab===tab));
   $("map-canvas").hidden=tab!=="map"; $("matrix-canvas").hidden=tab!=="matrix";
-  $("map-hint").style.display=tab==="map"?"":"none"; renderActive(); }
+  $("map-hint").style.display=tab==="map"?"":"none";
+  const mc=$("map-ctrls"); if(mc)mc.style.display=tab==="map"?"":"none"; renderActive(); }
 
 // ---------------- command bar ----------------
 const cmd=$("cmd");
@@ -163,14 +164,16 @@ async function applyLiveSnapshot(initial){ const ind=$("live-ind");
       if(x.change_pct!=null) c._liveChange=x.change_pct;
       const mc=liveMktCap(c,x); if(mc!=null){ c._liveMktCap=mc; c.size_eur=mc; } // drives table value + node size
       n++; });
-    if(j.ts){ const t=new Date(j.ts*1000).toLocaleTimeString("en-GB",{hour12:false});
+    if(j.ts){ const d=new Date(j.ts*1000);
+      const upd=d.toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",hour12:false});
       if(ind){ ind.innerHTML='<span class="live-dot"></span>LIVE'; ind.classList.add("on");
         ind.title=`Live market data — ${n} listed cos · auto-refreshed · Yahoo ~15-min delayed`; }
-      $("asof").textContent="LIVE "+t; $("asof").title="Live market data, last snapshot "+t+" — auto-refreshed"; }
+      $("asof").innerHTML='<span class="asof-lbl">UPDATED</span> '+upd;
+      $("asof").title="Data last updated "+d.toLocaleString()+" (your local time) · Yahoo ~15-min delayed · auto-refreshes ~every 15 min"; }
     const sel=state.selectedId; buildTable(); renderActive();                  // re-sort/redraw with fresh caps
     if(sel){ const tr=document.querySelector(`#uni-body tr[data-id="${sel}"]`); if(tr)tr.scrollIntoView({block:"nearest"}); }
   }catch(e){
     if(initial){ if(ind){ ind.textContent="◌ SNAPSHOT"; ind.classList.remove("on"); ind.title="Static snapshot — start serve.py for live data"; }
-      $("asof").textContent="AS OF "+metaAsOf; $("asof").title="Static snapshot — start serve.py (python3 serve.py 8000) for live data"; }
+      $("asof").innerHTML='<span class="asof-lbl">AS OF</span> '+metaAsOf; $("asof").title="Static snapshot — start serve.py (python3 serve.py 8000) for live data"; }
   }
 }

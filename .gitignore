@@ -4,3 +4,5 @@ __pycache__/
 .cache/
 *.log
 data/candidates.json
+data/classified_sector.json
+data/classified_theme.json

@@ -2,7 +2,7 @@
  "meta": {
   "title": "EU Tech Sovereignty Universe",
   "context": "Companies that could form the EU's sovereign technology stack, mapped to the European Technological Sovereignty Package (adopted 3 June 2026: Chips Act 2.0, Cloud & AI Development Act, Open Source Strategy).",
-  "as_of": "2026-06-05",
+  "as_of": "2026-06-08",
   "fx_note": "Listed market caps & multiples are point-in-time via yfinance/Yahoo Finance on 2026-06-05; non-EUR converted at EUR=USD 1.1585 / GBP 0.8633 / SEK 10.90 / NOK 10.88 / CHF 0.918. Revenues are latest reported FY (FY ends differ: Infineon=Sep, Soitec=Mar, Eutelsat=Jun). size_eur = market cap (listed) or last valuation / funding / revenue (private); null => default node size.",
   "disclaimer": "Informational only. NOT investment advice. Figures are point-in-time and may be stale; verify live quotes and primary filings before any decision.",
   "domains": [

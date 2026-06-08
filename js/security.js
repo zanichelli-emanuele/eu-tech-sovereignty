@@ -57,14 +57,14 @@ function cell(k,v,cls){ return `<div class="cell"><div class="k">${k}</div><div 
 function buildFin(c){
   const box=$("sec-fin"), src=$("sec-fin-src");
   if(c.is_listed&&c.financials){ const f=c.financials;
-    box.innerHTML=cell("Market cap",fmtEur(f.market_cap_eur))+cell("Revenue FY",fmtEur(f.revenue_eur))
+    box.innerHTML=cell("Market cap",fmtEur(c._liveMktCap??f.market_cap_eur))+cell("Revenue FY",fmtEur(f.revenue_eur))
       +cell("Rev growth",fmtPct(f.revenue_growth_pct),f.revenue_growth_pct>0?"pos":(f.revenue_growth_pct<0?"neg":""))
       +cell("Gross margin",fmtPct(f.gross_margin_pct))
       +cell("Net margin",fmtPct(f.net_margin_pct),f.net_margin_pct>0?"pos":(f.net_margin_pct<0?"neg":""))
       +cell("P / E",f.pe_ratio!=null?f.pe_ratio.toFixed(1):"—")
       +cell("Net "+((f.net_debt_eur||0)<0?"cash":"debt"),f.net_debt_eur!=null?fmtEur(Math.abs(f.net_debt_eur)):"—",(f.net_debt_eur||0)<0?"pos":"")
       +cell("Employees",fmtNum(f.employees));
-    src.innerHTML=`as of ${f.as_of_date||"—"} · ${f.source_url?`<a href="${f.source_url}" target="_blank" rel="noopener">source ↗</a>`:""} · mkt data via yfinance`;
+    src.innerHTML=`${c._liveMktCap?'<span style="color:#36d399;font-weight:700">● LIVE</span> mkt cap · ':''}fundamentals as of ${f.as_of_date||"—"} · ${f.source_url?`<a href="${f.source_url}" target="_blank" rel="noopener">source ↗</a>`:""} · via yfinance`;
   } else if(c.private_data){ const p=c.private_data;
     box.innerHTML=cell("Last valuation",fmtEur(p.last_valuation_eur))+cell("Total funding",fmtEur(p.total_funding_eur))
       +(p.key_investors&&p.key_investors.length?`<div class="cell" style="grid-column:1/3"><div class="k">Key investors / owners</div><div class="v" style="font-size:11px;font-weight:500">${p.key_investors.join(" · ")}</div></div>`:"");

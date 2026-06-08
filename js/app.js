@@ -20,7 +20,7 @@ export const EDGE_TYPES={ supply_chain:{color:"#ff9e3d",label:"Supply",dash:[],a
 const $=id=>document.getElementById(id);
 const growth=c=>c.is_listed&&c.financials?c.financials.revenue_growth_pct:null;
 
-let companies=[], rels=[], byId={};
+let companies=[], rels=[], byId={}, metaAsOf="";
 const state={ selectedId:null, filters:{domains:new Set(DOMAINS), listed:true, priv:true}, sort:{k:"size_eur",dir:-1}, tab:"map" };
 
 const ctx={ get companies(){return companies}, byId, get rels(){return rels}, DOMAINS, DOMAIN_COLORS, DOM_ABBR, EDGE_TYPES, state,
@@ -40,9 +40,12 @@ function select(id){ state.selectedId=id; try{history.replaceState(null,"","#"+i
     const [cR,rR]=await Promise.all([fetch("data/companies.json"),fetch("data/relationships.json")]);
     const cj=await cR.json(); rels=(await rR.json()).relationships; companies=cj.companies;
     companies.forEach(c=>byId[c.id]=c);
-    $("asof").textContent="AS OF "+(cj.meta?.as_of||"");
+    metaAsOf=cj.meta?.as_of||""; $("asof").textContent="AS OF "+metaAsOf;
     initSecurity(ctx); initMap(ctx,$("map-canvas"),$("tip")); initMatrix(ctx,$("matrix-canvas"),$("tip"));
-    buildFilters(); buildTable(); buildDatalist(); buildEdgeLegend(); buildStatus(); buildTabs(); clock(); pingLive();
+    buildFilters(); buildTable(); buildDatalist(); buildEdgeLegend(); buildStatus(); buildTabs(); clock();
+    applyLiveSnapshot(true);
+    setInterval(()=>applyLiveSnapshot(false),300000);                                  // keep a long-open page fresh
+    document.addEventListener("visibilitychange",()=>{ if(!document.hidden) applyLiveSnapshot(false); }); // refresh when you return to the tab
     window.addEventListener("resize",()=>renderActive());
     document.addEventListener("keydown",onKey);
     const params=new URLSearchParams(location.search);
@@ -144,8 +147,30 @@ function buildStatus(){
   $("keys").innerHTML=`<span class="k"><b>/</b> search</span><span class="k"><b>↑↓</b> nav</span><span class="k"><b>M/X</b> view</span><span class="k"><b>1-9</b> domain</span>`;
 }
 function clock(){ const t=()=>{ const d=new Date(); $("clock").textContent=d.toLocaleTimeString("en-GB",{hour12:false}); }; t(); setInterval(t,1000); }
-function pingLive(){ const el=$("live-ind"); if(!el)return;
-  fetch("api/quote?t=ASML.AS",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(q=>{
-    if(q&&!q.error&&q.price_eur!=null){ el.innerHTML='<span class="live-dot"></span>LIVE'; el.classList.add("on"); el.title="Live quotes via local server (Yahoo, ~15-min delayed)"; }
-    else { el.textContent="◌ SNAPSHOT"; el.title="Static snapshot — run serve.py for live quotes"; }
-  }).catch(()=>{ el.textContent="◌ SNAPSHOT"; el.title="Static snapshot — run serve.py for live quotes"; }); }
+// Pull the server's live snapshot (price + market cap, EUR) and overlay it on the universe.
+// Reject a glitchy market cap (>4× / <0.25× the vetted static value); fall back to static when absent.
+function liveMktCap(c,x){ const stat=c.financials?c.financials.market_cap_eur:null; const mc=x.market_cap_eur;
+  if(mc==null||mc<=0) return null; if(stat&&(mc<stat*0.25||mc>stat*4)) return stat; return mc; }
+async function applyLiveSnapshot(initial){ const ind=$("live-ind");
+  try{
+    let j=null;
+    try{ const r=await fetch("api/snapshot",{cache:"no-store"}); if(r.ok) j=await r.json(); }catch(e){}            // local serve.py = true live
+    if(!j||!j.quotes){ const r=await fetch("data/live_snapshot.json",{cache:"no-store"}); if(!r.ok) throw 0; j=await r.json(); } // GitHub Pages: Action-refreshed snapshot
+    const q=j.quotes||{}; let n=0;
+    companies.forEach(c=>{ if(!c.is_listed) return;
+      if(c.size_eur_static===undefined) c.size_eur_static=c.size_eur;          // remember the vetted snapshot value once
+      const x=q[c.id]; if(!x) return;
+      if(x.change_pct!=null) c._liveChange=x.change_pct;
+      const mc=liveMktCap(c,x); if(mc!=null){ c._liveMktCap=mc; c.size_eur=mc; } // drives table value + node size
+      n++; });
+    if(j.ts){ const t=new Date(j.ts*1000).toLocaleTimeString("en-GB",{hour12:false});
+      if(ind){ ind.innerHTML='<span class="live-dot"></span>LIVE'; ind.classList.add("on");
+        ind.title=`Live market data — ${n} listed cos · auto-refreshed · Yahoo ~15-min delayed`; }
+      $("asof").textContent="LIVE "+t; $("asof").title="Live market data, last snapshot "+t+" — auto-refreshed"; }
+    const sel=state.selectedId; buildTable(); renderActive();                  // re-sort/redraw with fresh caps
+    if(sel){ const tr=document.querySelector(`#uni-body tr[data-id="${sel}"]`); if(tr)tr.scrollIntoView({block:"nearest"}); }
+  }catch(e){
+    if(initial){ if(ind){ ind.textContent="◌ SNAPSHOT"; ind.classList.remove("on"); ind.title="Static snapshot — start serve.py for live data"; }
+      $("asof").textContent="AS OF "+metaAsOf; $("asof").title="Static snapshot — start serve.py (python3 serve.py 8000) for live data"; }
+  }
+}

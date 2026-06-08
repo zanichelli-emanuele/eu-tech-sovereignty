@@ -6,15 +6,98 @@
   "fx_note": "Listed market caps & multiples are point-in-time via yfinance/Yahoo Finance on 2026-06-05; non-EUR converted at EUR=USD 1.1585 / GBP 0.8633 / SEK 10.90 / NOK 10.88 / CHF 0.918. Revenues are latest reported FY (FY ends differ: Infineon=Sep, Soitec=Mar, Eutelsat=Jun). size_eur = market cap (listed) or last valuation / funding / revenue (private); null => default node size.",
   "disclaimer": "Informational only. NOT investment advice. Figures are point-in-time and may be stale; verify live quotes and primary filings before any decision.",
   "domains": [
-   "Materials & fab equipment",
    "Semiconductors",
-   "Connectivity / telecom infrastructure",
-   "Cloud & data infrastructure",
-   "AI & foundation models",
-   "Cybersecurity & defence",
-   "Enterprise / industrial software",
-   "Quantum computing",
-   "Space & sovereign infrastructure"
+   "Cloud & AI",
+   "Open source",
+   "AI in energy"
+  ],
+  "scope": "Scoped to the four instruments of the European Technological Sovereignty Package (proposed 3 June 2026). Domains outside the package (defence, space, quantum, connectivity, enterprise software) are intentionally excluded.",
+  "instruments": [
+   {
+    "id": "communication",
+    "name": "Communication on European Tech Sovereignty",
+    "short": "Communication",
+    "type": "Communication",
+    "status": "Adopted 3 Jun 2026",
+    "summary": "The political umbrella of the package: the EU's strategy to cut strategic tech dependencies and back trusted European technologies.",
+    "proposes": [
+     "Sets the direction for the four instruments below"
+    ],
+    "funding": "n/a",
+    "domains": [],
+    "source_url": "https://digital-strategy.ec.europa.eu/en/policies/eu-tech-sovereignty"
+   },
+   {
+    "id": "chips-act-2",
+    "name": "Chips Act 2.0",
+    "short": "Chips Act 2.0",
+    "type": "Legislative proposal",
+    "status": "Proposal — needs Parliament + Council",
+    "summary": "Builds on the 2023 Chips Act to strengthen the EU semiconductor value chain and reduce dependency on third countries.",
+    "proposes": [
+     "Reinforce European strengths incl. mainstream chips",
+     "Build capacity in cutting-edge semiconductor technologies",
+     "Reduce dependency in advanced manufacturing & design"
+    ],
+    "funding": "Not specified in the proposal",
+    "domains": [
+     "Semiconductors"
+    ],
+    "source_url": "https://digital-strategy.ec.europa.eu/en/library/proposal-chips-act-20"
+   },
+   {
+    "id": "cada",
+    "name": "Cloud and AI Development Act (CADA)",
+    "short": "CADA",
+    "type": "Legislative proposal",
+    "status": "Proposal — needs Parliament + Council",
+    "summary": "Strengthens EU sovereignty in cloud and AI: scale data-centre capacity, back frontier/industrial AI, and assess cloud sovereignty.",
+    "proposes": [
+     "Triple EU data-centre capacity in 5–7 years (faster permitting; access to energy, land, water, financing)",
+     "Support next-gen, frontier and industrial AI + public-sector adoption",
+     "A 4-level cloud-sovereignty framework, joint procurement and 'open-source-first'"
+    ],
+    "funding": "Not specified in the proposal",
+    "domains": [
+     "Cloud & AI"
+    ],
+    "source_url": "https://digital-strategy.ec.europa.eu/en/policies/cloud-and-ai-development-act"
+   },
+   {
+    "id": "open-source-strategy",
+    "name": "EU Open Source Strategy",
+    "short": "Open Source",
+    "type": "Strategy",
+    "status": "Adopted 3 Jun 2026",
+    "summary": "Promotes open source for digital sovereignty — transparent, reusable, interoperable public-sector software with less vendor lock-in.",
+    "proposes": [
+     "Embed open source in public tenders + long-term maintenance",
+     "Strengthen the EU Public Sector OSPO network and shared assets",
+     "Common security baselines for open-source repositories"
+    ],
+    "funding": "Not specified",
+    "domains": [
+     "Open source"
+    ],
+    "source_url": "https://interoperable-europe.ec.europa.eu/interoperable-europe/news/tech-sovereignty-package-eu-open-source-strategy"
+   },
+   {
+    "id": "ai-in-energy",
+    "name": "Strategic Roadmap for Digitalisation & AI in Energy",
+    "short": "AI in Energy",
+    "type": "Roadmap",
+    "status": "Adopted 3 Jun 2026",
+    "summary": "Roadmap to digitalise the energy system and apply AI to grids, efficiency, flexibility and power markets.",
+    "proposes": [
+     "Accelerate digitalisation of the energy system",
+     "Deploy AI across grids, efficiency and energy markets"
+    ],
+    "funding": "Not specified",
+    "domains": [
+     "AI in energy"
+    ],
+    "source_url": "https://digital-strategy.ec.europa.eu/en/policies/eu-tech-sovereignty"
+   }
   ]
  },
  "companies": [
@@ -22,7 +105,7 @@
    "id": "asml",
    "name": "ASML Holding",
    "hq_country": "Netherlands",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1984,
    "is_listed": true,
    "ticker": "ASML",
@@ -54,7 +137,7 @@
    "id": "asm-international",
    "name": "ASM International",
    "hq_country": "Netherlands",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1968,
    "is_listed": true,
    "ticker": "ASM",
@@ -85,7 +168,7 @@
    "id": "besi",
    "name": "BE Semiconductor (Besi)",
    "hq_country": "Netherlands",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1995,
    "is_listed": true,
    "ticker": "BESI",
@@ -116,7 +199,7 @@
    "id": "aixtron",
    "name": "AIXTRON",
    "hq_country": "Germany",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1983,
    "is_listed": true,
    "ticker": "AIXA",
@@ -147,7 +230,7 @@
    "id": "soitec",
    "name": "Soitec",
    "hq_country": "France",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1992,
    "is_listed": true,
    "ticker": "SOI",
@@ -178,7 +261,7 @@
    "id": "siltronic",
    "name": "Siltronic AG",
    "hq_country": "Germany",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1968,
    "is_listed": true,
    "ticker": "WAF",
@@ -210,7 +293,7 @@
    "id": "zeiss-smt",
    "name": "Carl Zeiss SMT",
    "hq_country": "Germany",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 2001,
    "is_listed": false,
    "ticker": null,
@@ -243,7 +326,7 @@
    "id": "pva-tepla",
    "name": "PVA TePla",
    "hq_country": "Germany",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1991,
    "is_listed": true,
    "ticker": "TPE",
@@ -274,7 +357,7 @@
    "id": "lpkf",
    "name": "LPKF Laser & Electronics",
    "hq_country": "Germany",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1976,
    "is_listed": true,
    "ticker": "LPK",
@@ -528,417 +611,10 @@
    ]
   },
   {
-   "id": "nokia",
-   "name": "Nokia",
-   "hq_country": "Finland",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1865,
-   "is_listed": true,
-   "ticker": "NOKIA",
-   "yahoo_ticker": "NOKIA.HE",
-   "exchange": "Nasdaq Helsinki",
-   "currency": "EUR",
-   "description": "A global supplier of mobile, fixed and IP/optical network infrastructure (RAN, core, transport), with Bell Labs research and a large 5G/6G patent portfolio.",
-   "sovereignty_role": "One of two European RAN vendors (with Ericsson) underpinning sovereign 5G/6G connectivity and a leader in the EU's SNS-JU 6G programme.",
-   "financials": {
-    "market_cap_eur": 72000000000,
-    "revenue_eur": 19997000000,
-    "revenue_growth_pct": 2.4,
-    "gross_margin_pct": 45.4,
-    "net_margin_pct": 4.0,
-    "pe_ratio": 96.8,
-    "net_debt_eur": null,
-    "employees": 75000,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.nokia.com/about-us/investors/"
-   },
-   "private_data": null,
-   "size_eur": 72000000000,
-   "sources": [
-    "https://www.nokia.com/about-us/investors/"
-   ]
-  },
-  {
-   "id": "ericsson",
-   "name": "Ericsson",
-   "hq_country": "Sweden",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1876,
-   "is_listed": true,
-   "ticker": "ERIC-B",
-   "yahoo_ticker": "ERIC-B.ST",
-   "exchange": "Nasdaq Stockholm",
-   "currency": "SEK",
-   "description": "A global leader in mobile network infrastructure (RAN, core, transport) and enterprise wireless, with a large standards-essential 5G/6G patent portfolio.",
-   "sovereignty_role": "The other European RAN champion underpinning sovereign 5G/6G; holds an IPCEI-CIS cloud-edge project and an SNS-JU governance seat.",
-   "financials": {
-    "market_cap_eur": 37574000000,
-    "revenue_eur": 21190000000,
-    "revenue_growth_pct": -4.5,
-    "gross_margin_pct": 48.0,
-    "net_margin_pct": 10.9,
-    "pe_ratio": 16.3,
-    "net_debt_eur": null,
-    "employees": 94000,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.ericsson.com/en/investors"
-   },
-   "private_data": null,
-   "size_eur": 37574000000,
-   "sources": [
-    "https://www.ericsson.com/en/investors"
-   ]
-  },
-  {
-   "id": "deutsche-telekom",
-   "name": "Deutsche Telekom",
-   "hq_country": "Germany",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1995,
-   "is_listed": true,
-   "ticker": "DTE",
-   "yahoo_ticker": "DTE.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "Europe's largest telecom operator by revenue (fixed, mobile, broadband; majority owner of T-Mobile US). Its T-Systems arm runs the Open Telekom Cloud and managed/sovereign IT services.",
-   "sovereignty_role": "Core European connectivity backbone; operates sovereign/managed cloud and is building a ~€1bn NVIDIA-powered 'Industrial AI Cloud' in Munich.",
-   "financials": {
-    "market_cap_eur": 134932447232,
-    "revenue_eur": 121945997312,
-    "revenue_growth_pct": 0.4,
-    "gross_margin_pct": 44.5,
-    "net_margin_pct": 7.2,
-    "pe_ratio": 15.4,
-    "net_debt_eur": null,
-    "employees": 198079,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.telekom.com/en/investor-relations"
-   },
-   "private_data": null,
-   "size_eur": 134932447232,
-   "sources": [
-    "https://www.telekom.com/en/media/media-information/archive/financial-report-2025-1102218"
-   ]
-  },
-  {
-   "id": "orange",
-   "name": "Orange SA",
-   "hq_country": "France",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1988,
-   "is_listed": true,
-   "ticker": "ORA",
-   "yahoo_ticker": "ORA.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "France's incumbent telecom operator (fixed/mobile across Europe, Africa, Middle East). Orange Business delivers IT/cloud; co-owner of the 'Bleu' sovereign-cloud venture with Capgemini.",
-   "sovereignty_role": "Core European/African connectivity backbone; co-owns the SecNumCloud-targeted 'Bleu' sovereign cloud and partners with Mistral on sovereign generative AI.",
-   "financials": {
-    "market_cap_eur": 46470971392,
-    "revenue_eur": 40396001280,
-    "revenue_growth_pct": null,
-    "gross_margin_pct": 36.9,
-    "net_margin_pct": 1.3,
-    "pe_ratio": 145.6,
-    "net_debt_eur": null,
-    "employees": 124100,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.orange.com/en/investors"
-   },
-   "private_data": null,
-   "size_eur": 46470971392,
-   "sources": [
-    "https://www.orange.com/en/events/2025-full-year-results"
-   ]
-  },
-  {
-   "id": "iliad",
-   "name": "iliad SA",
-   "hq_country": "France",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1991,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "French telecom group (Free in France, plus Italy and Poland) serving ~52m subscribers, controlled by Xavier Niel who took it private in 2021. Wholly owns cloud provider Scaleway and is investing ~€3bn in cloud & AI.",
-   "sovereignty_role": "A major independent European operator and, via Scaleway and a €3bn cloud/AI programme, a builder of European-owned AI infrastructure; Niel is a key funder of EU AI (Mistral, Kyutai).",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": null,
-    "key_investors": [
-     "Xavier Niel (controlling shareholder; took iliad private 2021 at €182/share)"
-    ],
-    "as_of_date": "2025-12-31",
-    "source_url": "https://www.iliad.fr/en"
-   },
-   "size_eur": 10350000000,
-   "sources": [
-    "https://www.iliad.fr/en",
-    "https://www.globenewswire.com/news-release/2021/07/30/2271915/0/en/iliad-press-release.html"
-   ],
-   "uncertain": [
-    "Private since 2021; FY2025 revenue ~€10.35bn used for sizing."
-   ]
-  },
-  {
-   "id": "sap",
-   "name": "SAP",
-   "hq_country": "Germany",
-   "domain": "Enterprise / industrial software",
-   "founded": 1972,
-   "is_listed": true,
-   "ticker": "SAP",
-   "yahoo_ticker": "SAP.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "The largest European tech company by market cap; global leader in enterprise resource planning (ERP) and business software, transitioning to cloud (S/4HANA, RISE with SAP) with sovereign-cloud offerings.",
-   "sovereignty_role": "The default application/ERP layer for European enterprise and a direct IPCEI-CIS participant; its sovereign-cloud launches anchor the EU cloud stack.",
-   "financials": {
-    "market_cap_eur": 193674706944,
-    "revenue_eur": 37340000000,
-    "revenue_growth_pct": 6.0,
-    "gross_margin_pct": 73.7,
-    "net_margin_pct": 19.6,
-    "pe_ratio": 26.6,
-    "net_debt_eur": null,
-    "employees": 109000,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.sap.com/investors"
-   },
-   "private_data": null,
-   "size_eur": 193674706944,
-   "sources": [
-    "https://www.sap.com/investors"
-   ]
-  },
-  {
-   "id": "dassault-systemes",
-   "name": "Dassault Systèmes",
-   "hq_country": "France",
-   "domain": "Enterprise / industrial software",
-   "founded": 1981,
-   "is_listed": true,
-   "ticker": "DSY",
-   "yahoo_ticker": "DSY.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "Industrial software leader: the 3DEXPERIENCE platform, CATIA, SOLIDWORKS, DELMIA, SIMULIA and MEDIDATA for PLM, design, simulation and virtual twins across industry and life sciences.",
-   "sovereignty_role": "Europe's PLM/CAD/simulation backbone for aerospace, defence, automotive and life-sciences manufacturers, a sovereign alternative to US industrial software.",
-   "financials": {
-    "market_cap_eur": 26423433216,
-    "revenue_eur": 6240000000,
-    "revenue_growth_pct": 4.0,
-    "gross_margin_pct": 83.9,
-    "net_margin_pct": 19.9,
-    "pe_ratio": 21.9,
-    "net_debt_eur": null,
-    "employees": 25724,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.3ds.com/investors"
-   },
-   "private_data": null,
-   "size_eur": 26423433216,
-   "sources": [
-    "https://www.3ds.com/investors"
-   ]
-  },
-  {
-   "id": "siemens",
-   "name": "Siemens",
-   "hq_country": "Germany",
-   "domain": "Enterprise / industrial software",
-   "founded": 1847,
-   "is_listed": true,
-   "ticker": "SIE",
-   "yahoo_ticker": "SIE.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "Industrial technology group spanning automation, industrial software (Siemens Xcelerator/Digital Industries), smart infrastructure, mobility and healthcare. A leader in operational-technology and the industrial metaverse.",
-   "sovereignty_role": "Europe's industrial-automation and OT-software anchor; an IPCEI-CIS participant on industrial edge, central to sovereign industrial digitalisation.",
-   "financials": {
-    "market_cap_eur": 206322073600,
-    "revenue_eur": 79690000000,
-    "revenue_growth_pct": 0.0,
-    "gross_margin_pct": 38.8,
-    "net_margin_pct": 9.7,
-    "pe_ratio": 28.0,
-    "net_debt_eur": null,
-    "employees": 312000,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.siemens.com/investor"
-   },
-   "private_data": null,
-   "size_eur": 206322073600,
-   "sources": [
-    "https://www.siemens.com/investor"
-   ]
-  },
-  {
-   "id": "amadeus",
-   "name": "Amadeus IT Group",
-   "hq_country": "Spain",
-   "domain": "Enterprise / industrial software",
-   "founded": 1987,
-   "is_listed": true,
-   "ticker": "AMS",
-   "yahoo_ticker": "AMS.MC",
-   "exchange": "Bolsa de Madrid",
-   "currency": "EUR",
-   "description": "Global travel-technology provider operating the Amadeus GDS and airline/hospitality IT (Altéa/Navitaire passenger service systems), processing a large share of the world's airline bookings and boardings.",
-   "sovereignty_role": "European operator of critical travel/transport IT infrastructure underpinning European aviation distribution and operations.",
-   "financials": {
-    "market_cap_eur": 23664754688,
-    "revenue_eur": 6517000000,
-    "revenue_growth_pct": 3.1,
-    "gross_margin_pct": 44.2,
-    "net_margin_pct": 20.4,
-    "pe_ratio": 18.0,
-    "net_debt_eur": null,
-    "employees": 20605,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://amadeus.com/en/investor-relations"
-   },
-   "private_data": null,
-   "size_eur": 23664754688,
-   "sources": [
-    "https://amadeus.com/en/investor-relations"
-   ]
-  },
-  {
-   "id": "hexagon",
-   "name": "Hexagon AB",
-   "hq_country": "Sweden",
-   "domain": "Enterprise / industrial software",
-   "founded": 1992,
-   "is_listed": true,
-   "ticker": "HEXA-B",
-   "yahoo_ticker": "HEXA-B.ST",
-   "exchange": "Nasdaq Stockholm",
-   "currency": "SEK",
-   "description": "Digital-reality group combining precision metrology and sensors with geospatial and autonomy software across manufacturing, mining, AEC, safety and defence. Reports in EUR despite Stockholm listing.",
-   "sovereignty_role": "European supplier of metrology, geospatial and reality-capture technology used in defence, manufacturing and critical-infrastructure monitoring.",
-   "financials": {
-    "market_cap_eur": 21233000000,
-    "revenue_eur": 5426699776,
-    "revenue_growth_pct": 0.2,
-    "gross_margin_pct": 66.0,
-    "net_margin_pct": 37.5,
-    "pe_ratio": 10.4,
-    "net_debt_eur": null,
-    "employees": 24500,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://hexagon.com/company/investors"
-   },
-   "private_data": null,
-   "size_eur": 21233000000,
-   "sources": [
-    "https://hexagon.com/company/investors"
-   ],
-   "uncertain": [
-    "Trades in SEK on Nasdaq Stockholm but reports financials in EUR (revenue/mcap shown in EUR)."
-   ]
-  },
-  {
-   "id": "capgemini",
-   "name": "Capgemini",
-   "hq_country": "France",
-   "domain": "Enterprise / industrial software",
-   "founded": 1967,
-   "is_listed": true,
-   "ticker": "CAP",
-   "yahoo_ticker": "CAP.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "A global IT services and consulting group (digital transformation, cloud, engineering, data/AI). Co-owns the 'Bleu' sovereign-cloud venture with Orange.",
-   "sovereignty_role": "Europe's large-scale systems integrator delivering sovereign-cloud and public-sector digital programmes (e.g. Bleu).",
-   "financials": {
-    "market_cap_eur": 17474531328,
-    "revenue_eur": 22460000000,
-    "revenue_growth_pct": 3.7,
-    "gross_margin_pct": 27.0,
-    "net_margin_pct": 7.1,
-    "pe_ratio": 11.5,
-    "net_debt_eur": null,
-    "employees": 341000,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.capgemini.com/investors/"
-   },
-   "private_data": null,
-   "size_eur": 17474531328,
-   "sources": [
-    "https://www.capgemini.com/investors/"
-   ]
-  },
-  {
-   "id": "sword",
-   "name": "Sword Group",
-   "hq_country": "Luxembourg",
-   "domain": "Enterprise / industrial software",
-   "founded": 2000,
-   "is_listed": true,
-   "ticker": "SWP",
-   "yahoo_ticker": "SWP.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "IT services and software-engineering group focused on public sector and EU institutions (plus finance, energy). Builds and maintains sovereign EU-institution systems (eu-LISA border IT, EU Parliament, DG-DIGIT).",
-   "sovereignty_role": "A profitable EU-institution systems integrator with direct, named EU sovereignty contracts (eu-LISA Entry/Exit System, EU Parliament, FREIA).",
-   "financials": {
-    "market_cap_eur": 306688064,
-    "revenue_eur": 357700000,
-    "revenue_growth_pct": 9.5,
-    "gross_margin_pct": 40.1,
-    "net_margin_pct": 5.3,
-    "pe_ratio": 16.1,
-    "net_debt_eur": null,
-    "employees": 3500,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.sword-group.com/en/finance/"
-   },
-   "private_data": null,
-   "size_eur": 306688064,
-   "sources": [
-    "https://www.sword-group.com/en/finance/"
-   ]
-  },
-  {
-   "id": "software-ag",
-   "name": "Software AG",
-   "hq_country": "Germany",
-   "domain": "Enterprise / industrial software",
-   "founded": 1969,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Enterprise integration/IoT software firm. Its core webMethods and StreamSets platforms were sold to IBM (€2.13bn, 2024); taken private by Silver Lake and delisted from Frankfurt in February 2024.",
-   "sovereignty_role": "Historically a flagship German integration vendor; sovereignty relevance diminished after its core was sold to US-based IBM and it was taken private by US PE firm Silver Lake.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 2400000000,
-    "total_funding_eur": null,
-    "key_investors": [
-     "Silver Lake (via Mosel Bidco; ~93% at 2024 delisting)"
-    ],
-    "as_of_date": "2024-02-23",
-    "source_url": "https://www.boerse-frankfurt.de/news/Software-AG-Delisting-will-take-effect-at-the-end-of-the-day-on-February-23-2024-ca880d0d-fa5b-4140-a30b-b987fbf9b9d2"
-   },
-   "size_eur": 2400000000,
-   "sources": [
-    "https://newsroom.ibm.com/2023-12-18-IBM-to-Acquire-StreamSets-and-webMethods-Platforms-from-Software-AG"
-   ],
-   "uncertain": [
-    "Delisted Feb 2024; current standalone revenue not publicly reported post-IBM divestiture."
-   ]
-  },
-  {
    "id": "ovhcloud",
    "name": "OVHcloud",
    "hq_country": "France",
-   "domain": "Cloud & data infrastructure",
+   "domain": "Cloud & AI",
    "founded": 1999,
    "is_listed": true,
    "ticker": "OVH",
@@ -969,7 +645,7 @@
    "id": "ionos",
    "name": "IONOS Group",
    "hq_country": "Germany",
-   "domain": "Cloud & data infrastructure",
+   "domain": "Cloud & AI",
    "founded": 1988,
    "is_listed": true,
    "ticker": "IOS",
@@ -1000,7 +676,7 @@
    "id": "atos",
    "name": "Atos / Eviden",
    "hq_country": "France",
-   "domain": "Cloud & data infrastructure",
+   "domain": "Cloud & AI",
    "founded": 1997,
    "is_listed": true,
    "ticker": "ATO",
@@ -1034,7 +710,7 @@
    "id": "stackit",
    "name": "STACKIT (Schwarz Group)",
    "hq_country": "Germany",
-   "domain": "Cloud & data infrastructure",
+   "domain": "Cloud & AI",
    "founded": 2018,
    "is_listed": false,
    "ticker": null,
@@ -1065,7 +741,7 @@
    "id": "scaleway",
    "name": "Scaleway",
    "hq_country": "France",
-   "domain": "Cloud & data infrastructure",
+   "domain": "Cloud & AI",
    "founded": 1999,
    "is_listed": false,
    "ticker": null,
@@ -1096,7 +772,7 @@
    "id": "mistral",
    "name": "Mistral AI",
    "hq_country": "France",
-   "domain": "AI & foundation models",
+   "domain": "Cloud & AI",
    "founded": 2023,
    "is_listed": false,
    "ticker": null,
@@ -1130,7 +806,7 @@
    "id": "aleph-alpha",
    "name": "Aleph Alpha",
    "hq_country": "Germany",
-   "domain": "AI & foundation models",
+   "domain": "Cloud & AI",
    "founded": 2019,
    "is_listed": false,
    "ticker": null,
@@ -1164,7 +840,7 @@
    "id": "deepl",
    "name": "DeepL",
    "hq_country": "Germany",
-   "domain": "AI & foundation models",
+   "domain": "Cloud & AI",
    "founded": 2017,
    "is_listed": false,
    "ticker": null,
@@ -1199,7 +875,7 @@
    "id": "helsing",
    "name": "Helsing",
    "hq_country": "Germany",
-   "domain": "AI & foundation models",
+   "domain": "Cloud & AI",
    "founded": 2021,
    "is_listed": false,
    "ticker": null,
@@ -1231,692 +907,10 @@
    ]
   },
   {
-   "id": "thales",
-   "name": "Thales Group",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 2000,
-   "is_listed": true,
-   "ticker": "HO",
-   "yahoo_ticker": "HO.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "Defence electronics, secure communications, encryption and digital identity/cybersecurity, avionics and space. Parent of Thales Alenia Space (67%) and Thales SIX. Partly French-state owned.",
-   "sovereignty_role": "Anchor of European sovereign defence electronics, secure/encrypted comms and digital identity; key IRIS² subcontractor and supplier of sovereign cryptography.",
-   "financials": {
-    "market_cap_eur": 47507320832,
-    "revenue_eur": 22136399872,
-    "revenue_growth_pct": 7.1,
-    "gross_margin_pct": 26.4,
-    "net_margin_pct": 7.6,
-    "pe_ratio": 28.5,
-    "net_debt_eur": null,
-    "employees": 83000,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.thalesgroup.com/en/investors"
-   },
-   "private_data": null,
-   "size_eur": 47507320832,
-   "sources": [
-    "https://www.thalesgroup.com/en/news-centre/press-releases/thales-reports-its-2025-full-year-results"
-   ]
-  },
-  {
-   "id": "leonardo",
-   "name": "Leonardo S.p.A.",
-   "hq_country": "Italy",
-   "domain": "Cybersecurity & defence",
-   "founded": 1948,
-   "is_listed": true,
-   "ticker": "LDO",
-   "yahoo_ticker": "LDO.MI",
-   "exchange": "Euronext Milan",
-   "currency": "EUR",
-   "description": "Italian defence and aerospace group: electronics for land/sea/air, helicopters, cyber and security. Owns 33% of Thales Alenia Space; Italian state (MEF) is the largest shareholder.",
-   "sovereignty_role": "State-backed pillar of European defence/aerospace electronics and cyber; co-owner of Thales Alenia Space and a player in EU defence consolidation.",
-   "financials": {
-    "market_cap_eur": 29743812608,
-    "revenue_eur": 19500000000,
-    "revenue_growth_pct": 6.9,
-    "gross_margin_pct": 39.5,
-    "net_margin_pct": 5.1,
-    "pe_ratio": 23.1,
-    "net_debt_eur": 1000000000,
-    "employees": 65455,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.leonardo.com/en/investors"
-   },
-   "private_data": null,
-   "size_eur": 29743812608,
-   "sources": [
-    "https://www.leonardo.com/en/press-release-detail/-/detail/12-03-2026-leonardo-board-of-directors-approves-fy2025-results-and-2026-guidance"
-   ]
-  },
-  {
-   "id": "rheinmetall",
-   "name": "Rheinmetall AG",
-   "hq_country": "Germany",
-   "domain": "Cybersecurity & defence",
-   "founded": 1889,
-   "is_listed": true,
-   "ticker": "RHM",
-   "yahoo_ticker": "RHM.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "Germany's largest defence company: land-defence systems, munitions, military vehicles and weapon systems, plus defence electronics, sensors and air defence. Rapidly expanding on European rearmament.",
-   "sovereignty_role": "Central supplier to the Bundeswehr and European armed forces and a flagship of Europe's rearmament and defence-industrial sovereignty.",
-   "financials": {
-    "market_cap_eur": 55999352832,
-    "revenue_eur": 10072999936,
-    "revenue_growth_pct": 7.7,
-    "gross_margin_pct": 53.5,
-    "net_margin_pct": 7.2,
-    "pe_ratio": 76.0,
-    "net_debt_eur": null,
-    "employees": 28815,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.rheinmetall.com/en/investor-relations"
-   },
-   "private_data": null,
-   "size_eur": 55999352832,
-   "sources": [
-    "https://www.rheinmetall.com/en/media/news-watch/news/2026/03/2026-03-11-rheinmetall-presents-annual-report-for-2025"
-   ]
-  },
-  {
-   "id": "saab",
-   "name": "Saab AB",
-   "hq_country": "Sweden",
-   "domain": "Cybersecurity & defence",
-   "founded": 1937,
-   "is_listed": true,
-   "ticker": "SAAB-B",
-   "yahoo_ticker": "SAAB-B.ST",
-   "exchange": "Nasdaq Stockholm",
-   "currency": "SEK",
-   "description": "Swedish defence and aerospace group: Gripen fighter, sensors/radar, electronic warfare (Arexis), naval (Kockums), surveillance and missiles. Strong European order growth.",
-   "sovereignty_role": "Sweden's sovereign defence-aerospace prime supplying fighters, sensors, EW and submarines to Europe/NATO; strategic partner and investor in Helsing.",
-   "financials": {
-    "market_cap_eur": 26211000000,
-    "revenue_eur": 7570000000,
-    "revenue_growth_pct": 21.4,
-    "gross_margin_pct": 21.7,
-    "net_margin_pct": 7.9,
-    "pe_ratio": 44.2,
-    "net_debt_eur": null,
-    "employees": 28667,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.saab.com/investors"
-   },
-   "private_data": null,
-   "size_eur": 26211000000,
-   "sources": [
-    "https://www.saab.com/newsroom/press-releases/2026/saab-year-end-report-2025-record-order-bookings---building-for-growth"
-   ]
-  },
-  {
-   "id": "wallix",
-   "name": "WALLIX Group",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 2003,
-   "is_listed": true,
-   "ticker": "ALLIX",
-   "yahoo_ticker": "ALLIX.PA",
-   "exchange": "Euronext Growth Paris",
-   "currency": "EUR",
-   "description": "European cybersecurity vendor specialising in Privileged Access Management (PAM) and identity, unified under the WALLIX One platform. Dual BSI (Germany) + ANSSI (France) certified.",
-   "sovereignty_role": "The purest listed European sovereign-cyber pure-play (identity/access), positioned for NIS2/DORA-driven sovereign demand.",
-   "financials": {
-    "market_cap_eur": 173149536,
-    "revenue_eur": 40600000,
-    "revenue_growth_pct": 13.4,
-    "gross_margin_pct": 99.2,
-    "net_margin_pct": -1.9,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 350,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.wallix.com/investors/"
-   },
-   "private_data": null,
-   "size_eur": 173149536,
-   "sources": [
-    "https://www.wallix.com/investors/"
-   ]
-  },
-  {
-   "id": "withsecure",
-   "name": "WithSecure",
-   "hq_country": "Finland",
-   "domain": "Cybersecurity & defence",
-   "founded": 1988,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Enterprise cybersecurity vendor (WithSecure Elements: EPP/EDR/XDR, exposure management) spun out of F-Secure in 2022. Taken private by a CVC- and Risto Siilasmaa-led consortium and delisted from Nasdaq Helsinki in March 2026.",
-   "sovereignty_role": "A Finnish/European enterprise-cybersecurity provider offering a sovereign alternative to US endpoint/cloud-security vendors; now privately held.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 292000000,
-    "total_funding_eur": null,
-    "key_investors": [
-     "CVC Capital Partners",
-     "Risto Siilasmaa (via Diana BidCo)"
-    ],
-    "as_of_date": "2026-03-24",
-    "source_url": "https://www.mainsights.io/ma-news/cvc-led-consortium-secures-931-stake-in-withsecure-and-completes-tender-offer"
-   },
-   "size_eur": 292000000,
-   "sources": [
-    "https://www.globenewswire.com/news-release/2025/02/12/3024721/0/en/WithSecure-Financial-Statement-Release-1-January-31-December-2024.html"
-   ],
-   "uncertain": [
-    "Delisted 24 Mar 2026 (taken private at €1.70/share, ~€292m); FY2024 revenue €116m continuing ops."
-   ]
-  },
-  {
-   "id": "iqm",
-   "name": "IQM Quantum Computers",
-   "hq_country": "Finland",
-   "domain": "Quantum computing",
-   "founded": 2018,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Espoo-based builder of full-stack superconducting quantum computers (IQM Radiance/Spark), selling on-prem systems and integrating them into HPC centres. 20+ systems sold by end-2025.",
-   "sovereignty_role": "Europe's leading superconducting quantum-hardware company, supplying on-soil quantum machines to EuroHPC centres (LRZ, VTT/CSC).",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 1550000000,
-    "total_funding_eur": 518000000,
-    "key_investors": [
-     "Ten Eleven Ventures",
-     "Tesi",
-     "BlackRock",
-     "Schwarz Group"
-    ],
-    "as_of_date": "2026-02-23",
-    "source_url": "https://meetiqm.com/press-releases/iqm-quantum-computers-raises-over-300-million-in-series-b-funding-round/"
-   },
-   "size_eur": 1550000000,
-   "sources": [
-    "https://meetiqm.com/press-releases/iqm-quantum-computers-raises-over-300-million-in-series-b-funding-round/"
-   ],
-   "uncertain": [
-    "SPAC merger (RAAQ) board-approved, expected ~June 2026, not yet closed; valuation implied by deal."
-   ]
-  },
-  {
-   "id": "pasqal",
-   "name": "Pasqal",
-   "hq_country": "France",
-   "domain": "Quantum computing",
-   "founded": 2019,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Palaiseau-based neutral-atom quantum computing company building analog/digital processors (100-140+ qubits) and delivering them to HPC centres.",
-   "sovereignty_role": "A leading European neutral-atom quantum-hardware champion supplying EU sovereign HPC-quantum infrastructure (Jülich, GENCI-CEA, CINECA) under France 2030.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 1730000000,
-    "total_funding_eur": 260000000,
-    "key_investors": [
-     "Temasek",
-     "Quantonation",
-     "Bpifrance",
-     "European Innovation Council Fund"
-    ],
-    "as_of_date": "2026-03-04",
-    "source_url": "https://www.pasqal.com/newsroom/pasqal-raises-e100-million-series-b-funding-to-advance-neutral-atoms-quantum-computing/"
-   },
-   "size_eur": 1730000000,
-   "sources": [
-    "https://www.pasqal.com/newsroom/pasqal-raises-e100-million-series-b-funding-to-advance-neutral-atoms-quantum-computing/"
-   ],
-   "uncertain": [
-    "Valuation ~EUR1.73bn is implied by the Bleichroeder (BBCQ) SPAC signed 4 Mar 2026 (not yet closed); >EUR300m total funding to date; remains private as of 2026-06-08."
-   ]
-  },
-  {
-   "id": "quandela",
-   "name": "Quandela",
-   "hq_country": "France",
-   "domain": "Quantum computing",
-   "founded": 2017,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Massy-based photonic quantum computing company building single-photon-source-based machines (Belenos/Canopus), spun out of CNRS/C2N.",
-   "sovereignty_role": "Europe's leading photonic quantum-computing company, delivering on-soil machines to EuroHPC/CEA and offering QPUs on OVHcloud's sovereign cloud.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 107000000,
-    "key_investors": [
-     "Serena",
-     "Crédit Mutuel Innovation",
-     "European Innovation Council Fund",
-     "Bpifrance",
-     "Quantonation"
-    ],
-    "as_of_date": "2023-11-10",
-    "source_url": "https://sifted.eu/articles/french-startup-quandela-raises-e50m"
-   },
-   "size_eur": 107000000,
-   "sources": [
-    "https://sifted.eu/articles/french-startup-quandela-raises-e50m"
-   ],
-   "uncertain": [
-    "No public post-money valuation disclosed."
-   ]
-  },
-  {
-   "id": "airbus",
-   "name": "Airbus SE",
-   "hq_country": "France",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 1970,
-   "is_listed": true,
-   "ticker": "AIR",
-   "yahoo_ticker": "AIR.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "European aerospace and defence prime. Airbus Defence and Space builds Earth-observation, telecom and navigation satellites, is a core IRIS² partner, and (with ArianeGroup) anchors European launchers; also a major military-aircraft prime.",
-   "sovereignty_role": "Anchor European space and defence prime: sovereign satellite manufacturing, launcher industrial base, and IRIS² subcontractor for EU secure connectivity.",
-   "financials": {
-    "market_cap_eur": 140173836288,
-    "revenue_eur": 72529002496,
-    "revenue_growth_pct": -6.6,
-    "gross_margin_pct": 15.4,
-    "net_margin_pct": 6.9,
-    "pe_ratio": 28.1,
-    "net_debt_eur": null,
-    "employees": 166876,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.airbus.com/en/investors"
-   },
-   "private_data": null,
-   "size_eur": 140173836288,
-   "sources": [
-    "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results"
-   ]
-  },
-  {
-   "id": "thales-alenia-space",
-   "name": "Thales Alenia Space",
-   "hq_country": "France",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2007,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Satellite-systems manufacturer (telecom, Earth observation, navigation, exploration, orbital infrastructure), a 67% Thales / 33% Leonardo joint venture. Core industrial subcontractor on IRIS².",
-   "sovereignty_role": "A major European sovereign satellite prime for telecom, observation, navigation and secure connectivity (IRIS²); Franco-Italian pillar of European space autonomy.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": null,
-    "key_investors": [
-     "Thales (67%)",
-     "Leonardo (33%)"
-    ],
-    "as_of_date": "2024-12-31",
-    "source_url": "https://www.thalesaleniaspace.com/en/who-we-are"
-   },
-   "size_eur": 2230000000,
-   "sources": [
-    "https://www.thalesaleniaspace.com/en/who-we-are"
-   ],
-   "uncertain": [
-    "JV; standalone valuation n/a; revenue ~€2.23bn (2024)."
-   ]
-  },
-  {
-   "id": "ohb",
-   "name": "OHB SE",
-   "hq_country": "Germany",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 1981,
-   "is_listed": true,
-   "ticker": "OHB",
-   "yahoo_ticker": "OHB.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "German space and technology group (Bremen): satellite manufacturing and space systems; prime contractor for Galileo navigation satellites and an IRIS² subcontractor. Remains listed (low free float) after KKR's 2023 minority investment.",
-   "sovereignty_role": "Germany's leading independent space-systems prime — Galileo prime contractor and IRIS² subcontractor — central to European navigation and secure-connectivity sovereignty.",
-   "financials": {
-    "market_cap_eur": 7354721280,
-    "revenue_eur": 1272973952,
-    "revenue_growth_pct": 16.8,
-    "gross_margin_pct": 40.1,
-    "net_margin_pct": 4.4,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 3974,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.ohb.de/en/investor-relations"
-   },
-   "private_data": null,
-   "size_eur": 7354721280,
-   "sources": [
-    "https://www.ohb.de/en/ir-mitteilungen/ohb-konzernabschluss-2025"
-   ],
-   "uncertain": [
-    "KKR (~29%) is exiting, placing ~20pp by end-June 2026 to lift free float from ~6% toward ~26%; Fuchs family remains anchor. P/E distorted during the placement."
-   ]
-  },
-  {
-   "id": "eutelsat",
-   "name": "Eutelsat Group",
-   "hq_country": "France",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 1977,
-   "is_listed": true,
-   "ticker": "ETL",
-   "yahoo_ticker": "ETL.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "The first integrated GEO-LEO satellite operator, formed by the 2023 Eutelsat-OneWeb merger (~35 GEO satellites plus the OneWeb LEO constellation). Core member of the SpaceRISE consortium delivering IRIS². French State is largest shareholder (~30%).",
-   "sovereignty_role": "Europe's sovereign GEO+LEO connectivity operator; OneWeb LEO underpins secure/government and Ukraine connectivity, and Eutelsat is a core IRIS² operator.",
-   "financials": {
-    "market_cap_eur": 3699890944,
-    "revenue_eur": 1229100032,
-    "revenue_growth_pct": -2.4,
-    "gross_margin_pct": 80.6,
-    "net_margin_pct": -36.2,
-    "pe_ratio": null,
-    "net_debt_eur": 2600000000,
-    "employees": 1625,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.eutelsat.com/investors/"
-   },
-   "private_data": null,
-   "size_eur": 3699890944,
-   "sources": [
-    "https://www.eutelsat.com/investors/financial-information"
-   ],
-   "uncertain": [
-    "FY ends 30 June; French State became largest shareholder (~29.65%) via 2025 capital raise."
-   ]
-  },
-  {
-   "id": "ses",
-   "name": "SES S.A.",
-   "hq_country": "Luxembourg",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 1985,
-   "is_listed": true,
-   "ticker": "SESG",
-   "yahoo_ticker": "SESG.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "One of the world's largest satellite operators, running a combined GEO + MEO fleet (incl. the O3b mPOWER constellation); consolidated Intelsat in 2025. Serves government/defence, telco, aviation, maritime and media.",
-   "sovereignty_role": "An EU-listed sovereign satellite-communications backbone supplying secure government/NATO connectivity (e.g. NSPA) independent of US/Chinese operators.",
-   "financials": {
-    "market_cap_eur": 3440000000,
-    "revenue_eur": 2627000000,
-    "revenue_growth_pct": 31.3,
-    "gross_margin_pct": 60.1,
-    "net_margin_pct": -4.7,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 3830,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/SESG.PA/"
-   },
-   "private_data": null,
-   "size_eur": 3440000000,
-   "sources": [
-    "https://www.ses.com/news/press-release/full-year-2025-results"
-   ],
-   "uncertain": [
-    "SES reports in EUR; FY2025 revenue EUR2,627m (Intelsat consolidated from Jul 2025); loss-making post-integration; dual-listed Paris/Luxembourg."
-   ]
-  },
-  {
-   "id": "hensoldt",
-   "name": "Hensoldt AG",
-   "hq_country": "Germany",
-   "domain": "Cybersecurity & defence",
-   "founded": 2017,
-   "is_listed": true,
-   "ticker": "HAG",
-   "yahoo_ticker": "HAG.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "German defence-electronics champion in radar, optronics, electronic warfare and sensors (air-defence radars, Eurofighter, PEGASUS). Record FY2025 order intake EUR4.71bn, backlog ~EUR8.8bn.",
-   "sovereignty_role": "Europe's leading independent sensor-and-radar house for sovereign air defence, ISR and electronic warfare; core beneficiary of EU/NATO rearmament.",
-   "financials": {
-    "market_cap_eur": 9130000000,
-    "revenue_eur": 2455000000,
-    "revenue_growth_pct": 25.6,
-    "gross_margin_pct": 21.2,
-    "net_margin_pct": 3.9,
-    "pe_ratio": 73.9,
-    "net_debt_eur": null,
-    "employees": 9362,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/HAG.DE/"
-   },
-   "private_data": null,
-   "size_eur": 9130000000,
-   "sources": [
-    "https://www.hensoldt.net/news/financial-year-2025-hensoldt-achieves-record-order-intake-and-confirms-structural-growth-path"
-   ]
-  },
-  {
-   "id": "indra-sistemas",
-   "name": "Indra Sistemas S.A.",
-   "hq_country": "Spain",
-   "domain": "Cybersecurity & defence",
-   "founded": 1993,
-   "is_listed": true,
-   "ticker": "IDR",
-   "yahoo_ticker": "IDR.MC",
-   "exchange": "Bolsa de Madrid",
-   "currency": "EUR",
-   "description": "Spain's leading defence, aerospace and digital-technology group (radar/EW, air-traffic management, secure comms, IT). In Mar 2026 acquired ~89.7% of satellite operator Hispasat for EUR725m.",
-   "sovereignty_role": "A consolidating Spanish/European defence-tech and space prime anchoring Iberian sovereign radar, ATM, secure comms and satellite capability.",
-   "financials": {
-    "market_cap_eur": 10020000000,
-    "revenue_eur": 5457000000,
-    "revenue_growth_pct": 16.3,
-    "gross_margin_pct": 25.0,
-    "net_margin_pct": 7.9,
-    "pe_ratio": 22.3,
-    "net_debt_eur": null,
-    "employees": 62689,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/IDR.MC/"
-   },
-   "private_data": null,
-   "size_eur": 10020000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/Indra_Sistemas",
-    "https://en.ara.cat/economy/indra-completes-the-purchase-of-hispasat-for-725-million-euros_1_5605818.html"
-   ]
-  },
-  {
-   "id": "kongsberg-gruppen",
-   "name": "Kongsberg Gruppen ASA",
-   "hq_country": "Norway",
-   "domain": "Cybersecurity & defence",
-   "founded": 1814,
-   "is_listed": true,
-   "ticker": "KOG",
-   "yahoo_ticker": "KOG.OL",
-   "exchange": "Oslo Bors",
-   "currency": "NOK",
-   "description": "Norwegian defence and maritime-technology group; ~80% defence/aerospace incl. the Naval/Joint Strike Missile, remote weapon stations and command systems, plus maritime and digital divisions.",
-   "sovereignty_role": "A top-tier European (EEA) missile and defence-systems supplier central to NATO/European deterrence and sovereign munitions/naval capability.",
-   "financials": {
-    "market_cap_eur": 25670000000,
-    "revenue_eur": 2900000000,
-    "revenue_growth_pct": 27.1,
-    "gross_margin_pct": 57.7,
-    "net_margin_pct": 22.0,
-    "pe_ratio": 58.6,
-    "net_debt_eur": null,
-    "employees": 7586,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/KOG.OL/"
-   },
-   "private_data": null,
-   "size_eur": 25670000000,
-   "sources": [
-    "https://stockanalysis.com/quote/osl/KOG/market-cap/"
-   ],
-   "uncertain": [
-    "Norway is EEA/NATO, not EU. Reports in NOK (converted to EUR)."
-   ]
-  },
-  {
-   "id": "secunet",
-   "name": "secunet Security Networks AG",
-   "hq_country": "Germany",
-   "domain": "Cybersecurity & defence",
-   "founded": 1997,
-   "is_listed": true,
-   "ticker": "YSN",
-   "yahoo_ticker": "YSN.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "Germany's leading IT-security company and the Federal Republic's primary IT-security partner (SINA secure networks) for public administration, defence, healthcare and police. Majority-owned by Giesecke+Devrient.",
-   "sovereignty_role": "The trusted supplier of high-assurance, nationally certified cybersecurity for German/EU government and critical infrastructure - a direct embodiment of sovereign cybersecurity.",
-   "financials": {
-    "market_cap_eur": 1320000000,
-    "revenue_eur": 462000000,
-    "revenue_growth_pct": 4.5,
-    "gross_margin_pct": 22.0,
-    "net_margin_pct": 6.5,
-    "pe_ratio": 39.7,
-    "net_debt_eur": null,
-    "employees": 1133,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/YSN.DE/"
-   },
-   "private_data": null,
-   "size_eur": 1320000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/Secunet_Security_Networks"
-   ]
-  },
-  {
-   "id": "dassault-aviation",
-   "name": "Dassault Aviation S.A.",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 1929,
-   "is_listed": true,
-   "ticker": "AM",
-   "yahoo_ticker": "AM.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "French aerospace prime building the Rafale combat aircraft and Falcon business jets. Controlled by Groupe Industriel Marcel Dassault (~66.9%); Airbus holds ~10.7%. Distinct from Dassault Systemes (software).",
-   "sovereignty_role": "Maker of Europe's sovereign Rafale fighter and a pillar of the Future Combat Air System (FCAS) - core to European autonomy in combat aviation.",
-   "financials": {
-    "market_cap_eur": 23530000000,
-    "revenue_eur": 7420000000,
-    "revenue_growth_pct": 22.2,
-    "gross_margin_pct": 35.7,
-    "net_margin_pct": 12.9,
-    "pe_ratio": 24.3,
-    "net_debt_eur": null,
-    "employees": 14573,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/AM.PA/"
-   },
-   "private_data": null,
-   "size_eur": 23530000000,
-   "sources": [
-    "https://www.dassault-aviation.com/en/group/about-us/shareholding-structure-and-organization-chart/"
-   ],
-   "uncertain": [
-    "Founding year ~1929 (Avions Marcel Bloch); wider Dassault origins cited as 1916."
-   ]
-  },
-  {
-   "id": "renk",
-   "name": "RENK Group AG",
-   "hq_country": "Germany",
-   "domain": "Cybersecurity & defence",
-   "founded": 1873,
-   "is_listed": true,
-   "ticker": "R3NK",
-   "yahoo_ticker": "R3NK.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "Augsburg maker of transmissions and drive systems for tracked military vehicles (e.g. Leopard), plus naval and industrial gearboxes. IPO'd Feb 2024.",
-   "sovereignty_role": "A near-irreplaceable supplier of armoured-vehicle transmissions to European land-systems primes - a critical-component chokepoint in the sovereign tank supply chain.",
-   "financials": {
-    "market_cap_eur": 5120000000,
-    "revenue_eur": 1377000000,
-    "revenue_growth_pct": 4.0,
-    "gross_margin_pct": 25.0,
-    "net_margin_pct": 8.4,
-    "pe_ratio": 44.9,
-    "net_debt_eur": null,
-    "employees": 4460,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/R3NK.DE/"
-   },
-   "private_data": null,
-   "size_eur": 5120000000,
-   "sources": [
-    "https://uk.investing.com/news/stock-market-news/renk-makes-trading-debut-on-frankfurt-stock-exchange-3326534"
-   ]
-  },
-  {
-   "id": "knds",
-   "name": "KNDS N.V.",
-   "hq_country": "Netherlands",
-   "domain": "Cybersecurity & defence",
-   "founded": 2015,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Franco-German land-systems champion (2015 merger of Krauss-Maffei Wegmann and Nexter); makes the Leopard 2 tank and CAESAR howitzer. FY2025 revenue ~EUR4.4bn (+16%), backlog ~EUR33bn. A Frankfurt-Paris IPO is targeted for ~mid-2026.",
-   "sovereignty_role": "Europe's flagship sovereign tank-and-artillery maker and backbone of the Main Ground Combat System (MGCS) - central to European land-defence autonomy.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 20000000000,
-    "total_funding_eur": null,
-    "key_investors": [
-     "Wegmann family",
-     "French State (~40%)",
-     "KfW / German State (~40%, pending)"
-    ],
-    "as_of_date": "2026-05-21",
-    "source_url": "https://www.defensenews.com/global/europe/2025/12/17/knds-maker-of-leopard-battle-tank-plans-stock-market-listing-in-2026/"
-   },
-   "size_eur": 20000000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/KNDS",
-    "https://www.rte.ie/news/business/2026/0521/1574583-knds-germany/"
-   ],
-   "uncertain": [
-    "Private as of Jun 2026; Frankfurt/Paris IPO planned summer 2026 - prospective ~EUR20bn valuation, not a closed round."
-   ]
-  },
-  {
    "id": "at-and-s",
    "name": "AT&S",
    "hq_country": "Austria",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1987,
    "is_listed": true,
    "ticker": "ATS",
@@ -1950,7 +944,7 @@
    "id": "suss-microtec",
    "name": "SUSS MicroTec SE",
    "hq_country": "Germany",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1949,
    "is_listed": true,
    "ticker": "SMHN",
@@ -1978,168 +972,10 @@
    ]
   },
   {
-   "id": "telefonica",
-   "name": "Telefonica S.A.",
-   "hq_country": "Spain",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1924,
-   "is_listed": true,
-   "ticker": "TEF",
-   "yahoo_ticker": "TEF.MC",
-   "exchange": "Bolsa de Madrid",
-   "currency": "EUR",
-   "description": "Spain's incumbent telecom operator and one of Europe's largest (fixed, mobile, fibre, B2B/cloud-security) across Europe and Latin America. The Spanish state (SEPI) is a major shareholder.",
-   "sovereignty_role": "A strategically protected European telecom incumbent and critical-infrastructure operator; its fibre/5G networks underpin sovereign connectivity.",
-   "financials": {
-    "market_cap_eur": 21870000000,
-    "revenue_eur": 35906000000,
-    "revenue_growth_pct": -12.4,
-    "gross_margin_pct": 45.1,
-    "net_margin_pct": -9.5,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 82175,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/TEF.MC/"
-   },
-   "private_data": null,
-   "size_eur": 21870000000,
-   "sources": [
-    "https://companiesmarketcap.com/eur/telefonica/marketcap/"
-   ]
-  },
-  {
-   "id": "telecom-italia",
-   "name": "Telecom Italia (TIM)",
-   "hq_country": "Italy",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1994,
-   "is_listed": true,
-   "ticker": "TIT",
-   "yahoo_ticker": "TIT.MI",
-   "exchange": "Borsa Italiana (Milan)",
-   "currency": "EUR",
-   "description": "Italy's incumbent telecom operator (fixed, mobile, enterprise/cloud). Subject to Italian state 'golden power' oversight and state involvement in its strategic fibre backbone (NetCo/FiberCop).",
-   "sovereignty_role": "Operator of Italy's critical fixed/mobile networks and strategic fibre - a core sovereign-connectivity asset under the package's digital-networks priority.",
-   "financials": {
-    "market_cap_eur": 15930000000,
-    "revenue_eur": 13861000000,
-    "revenue_growth_pct": 1.4,
-    "gross_margin_pct": 44.6,
-    "net_margin_pct": 0.9,
-    "pe_ratio": 74.8,
-    "net_debt_eur": null,
-    "employees": 25782,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/TIT.MI/"
-   },
-   "private_data": null,
-   "size_eur": 15930000000,
-   "sources": [
-    "https://companiesmarketcap.com/telecom-italia/marketcap/"
-   ],
-   "uncertain": [
-    "Ordinary shares TIT.MI (savings line TITR.MI excluded)."
-   ]
-  },
-  {
-   "id": "kpn",
-   "name": "Koninklijke KPN N.V.",
-   "hq_country": "Netherlands",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1998,
-   "is_listed": true,
-   "ticker": "KPN",
-   "yahoo_ticker": "KPN.AS",
-   "exchange": "Euronext Amsterdam",
-   "currency": "EUR",
-   "description": "The Netherlands' incumbent telecom operator (fixed, mobile, fibre broadband, plus cloud and security services to consumers, business and wholesale).",
-   "sovereignty_role": "Operator of the Netherlands' critical fibre/mobile infrastructure and national cloud/security services - a sovereign-connectivity backbone for a country hosting ASML and major datacentre capacity.",
-   "financials": {
-    "market_cap_eur": 16520000000,
-    "revenue_eur": 5826000000,
-    "revenue_growth_pct": 2.2,
-    "gross_margin_pct": 53.0,
-    "net_margin_pct": 15.2,
-    "pe_ratio": 20.8,
-    "net_debt_eur": null,
-    "employees": 9293,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/KPN.AS/"
-   },
-   "private_data": null,
-   "size_eur": 16520000000,
-   "sources": [
-    "https://live.euronext.com/en/product/equities/NL0000009082-XAMS"
-   ]
-  },
-  {
-   "id": "bechtle",
-   "name": "Bechtle AG",
-   "hq_country": "Germany",
-   "domain": "Enterprise / industrial software",
-   "founded": 1983,
-   "is_listed": true,
-   "ticker": "BC8",
-   "yahoo_ticker": "BC8.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "Germany's largest IT system house and a leading European IT integrator: IT infrastructure, multi-cloud and managed services, IT security and e-commerce. ~16,000 employees.",
-   "sovereignty_role": "A major channel for deploying sovereign cloud, open-source and security solutions to European public administrations and enterprises.",
-   "financials": {
-    "market_cap_eur": 4070000000,
-    "revenue_eur": 6405900000,
-    "revenue_growth_pct": 1.6,
-    "gross_margin_pct": 18.7,
-    "net_margin_pct": 3.6,
-    "pe_ratio": 18.9,
-    "net_debt_eur": null,
-    "employees": 16496,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/BC8.DE/"
-   },
-   "private_data": null,
-   "size_eur": 4070000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/Bechtle"
-   ]
-  },
-  {
-   "id": "reply",
-   "name": "Reply S.p.A.",
-   "hq_country": "Italy",
-   "domain": "Enterprise / industrial software",
-   "founded": 1996,
-   "is_listed": true,
-   "ticker": "REY",
-   "yahoo_ticker": "REY.MI",
-   "exchange": "Borsa Italiana (Milan)",
-   "currency": "EUR",
-   "description": "Italian IT consulting / system-integration / digital-services network with strong AI, cloud, cybersecurity and Industry-4.0 practices.",
-   "sovereignty_role": "A leading European digital-transformation and AI/cloud integrator delivering sovereign-relevant solutions to European enterprises and the public sector.",
-   "financials": {
-    "market_cap_eur": 3820000000,
-    "revenue_eur": 2487000000,
-    "revenue_growth_pct": 6.2,
-    "gross_margin_pct": 16.7,
-    "net_margin_pct": 10.6,
-    "pe_ratio": 14.6,
-    "net_debt_eur": null,
-    "employees": 17090,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://finance.yahoo.com/quote/REY.MI/"
-   },
-   "private_data": null,
-   "size_eur": 3820000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/Reply_(company)"
-   ]
-  },
-  {
    "id": "black-forest-labs",
    "name": "Black Forest Labs",
    "hq_country": "Germany",
-   "domain": "AI & foundation models",
+   "domain": "Cloud & AI",
    "founded": 2024,
    "is_listed": false,
    "ticker": null,
@@ -2173,7 +1009,7 @@
    "id": "h-company",
    "name": "H Company",
    "hq_country": "France",
-   "domain": "AI & foundation models",
+   "domain": "Cloud & AI",
    "founded": 2024,
    "is_listed": false,
    "ticker": null,
@@ -2205,217 +1041,10 @@
    ]
   },
   {
-   "id": "alice-and-bob",
-   "name": "Alice & Bob",
-   "hq_country": "France",
-   "domain": "Quantum computing",
-   "founded": 2020,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Paris quantum-computing company pursuing fault-tolerant machines based on self-correcting cat qubits; building a EUR50M cat-qubit fab in Paris.",
-   "sovereignty_role": "A French sovereign quantum-hardware champion selected for France's EUR500M PROQCIMA fault-tolerant-quantum programme.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 130000000,
-    "key_investors": [
-     "Future French Champions (Bpifrance)",
-     "AXA Venture Partners",
-     "NVIDIA (NVentures)",
-     "Elaia"
-    ],
-    "as_of_date": "2025-01-31",
-    "source_url": "https://quantumzeitgeist.com/france-quantum-strategy-alice-bob/"
-   },
-   "size_eur": 130000000,
-   "sources": [
-    "https://thequantuminsider.com/2026/05/31/french-national-quantum-update-may-2026/"
-   ],
-   "uncertain": [
-    "EUR100M Series B (Jan 2025) + undisclosed NVentures extension; no public valuation."
-   ]
-  },
-  {
-   "id": "planqc",
-   "name": "planqc GmbH",
-   "hq_country": "Germany",
-   "domain": "Quantum computing",
-   "founded": 2022,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Garching (Munich) quantum company building neutral-atom quantum processors; leading a government-funded project to deliver a 1,000-qubit machine to the Leibniz Supercomputing Centre (LRZ).",
-   "sovereignty_role": "Germany's leading neutral-atom quantum-hardware company, embedded in Munich Quantum Valley, supplying sovereign quantum compute to a national HPC centre.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 50000000,
-    "key_investors": [
-     "CATRON Holding",
-     "DeepTech & Climate Fonds",
-     "UVC Partners",
-     "Speedinvest"
-    ],
-    "as_of_date": "2024-07-31",
-    "source_url": "https://www.datacenterdynamics.com/en/news/planqc-to-lead-development-of-german-government-funded-1000-qubit-quantum-computer/"
-   },
-   "size_eur": 50000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/Planqc"
-   ],
-   "uncertain": [
-    "EUR50M Series A (2024); public projects (LRZ/DLR) separate from equity; no public valuation."
-   ]
-  },
-  {
-   "id": "iceye",
-   "name": "ICEYE",
-   "hq_country": "Finland",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2014,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Finnish operator of the world's largest synthetic-aperture-radar (SAR) satellite constellation, providing all-weather Earth observation for defence, intelligence, disaster and maritime monitoring. 2025 revenue >EUR250m.",
-   "sovereignty_role": "Europe's leading commercial SAR/ISR provider, increasingly supplying sovereign defence and intelligence imagery to European governments.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 2600000000,
-    "total_funding_eur": 680000000,
-    "key_investors": [
-     "Solidium (Finnish state)",
-     "Molten Ventures",
-     "BlackRock",
-     "Seraphim Space",
-     "OTB Ventures"
-    ],
-    "as_of_date": "2025-12-08",
-    "source_url": "https://www.satellitetoday.com/finance/2025/12/08/iceyes-latest-raise-values-company-at-2-8-billion/"
-   },
-   "size_eur": 2600000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/ICEYE"
-   ],
-   "uncertain": [
-    "~$2.8bn valuation (Dec 2025), EUR approx; a larger round (up to ~EUR5bn) reported in talks, not confirmed."
-   ]
-  },
-  {
-   "id": "isar-aerospace",
-   "name": "Isar Aerospace SE",
-   "hq_country": "Germany",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2018,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Munich-area launch-vehicle company developing the Spectrum small/medium orbital rocket; the most capitalised independent New Space company in Europe (>EUR400m raised), with ESA/EC launch agreements.",
-   "sovereignty_role": "A frontrunner for European sovereign access to space via commercial launch, reducing dependence on non-European launchers.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 400000000,
-    "key_investors": [
-     "NATO Innovation Fund",
-     "Eldridge Industries",
-     "HV Capital",
-     "Earlybird VC",
-     "Lakestar"
-    ],
-    "as_of_date": "2025-12-31",
-    "source_url": "https://isaraerospace.com/press/isar-aerospace-extends-series-c-to-over-eur-220m-with-strong-commitment-from-nato-innovation-fund"
-   },
-   "size_eur": 400000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/Isar_Aerospace"
-   ],
-   "uncertain": [
-    ">EUR400m total incl. a EUR150m 2025 convertible; no public valuation; ESA/EC support separate from equity."
-   ]
-  },
-  {
-   "id": "the-exploration-company",
-   "name": "The Exploration Company",
-   "hq_country": "Germany",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2021,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Franco-German space company (Munich/Bordeaux) developing 'Nyx', a reusable orbital cargo (later crew) capsule incl. space-station resupply; flew a demonstrator in 2025.",
-   "sovereignty_role": "Europe's leading effort toward a sovereign orbital cargo/crew capsule - a key gap in European in-space transport autonomy.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 190000000,
-    "key_investors": [
-     "Balderton Capital",
-     "Plural",
-     "EQT Ventures",
-     "Omnes Capital"
-    ],
-    "as_of_date": "2024-11-18",
-    "source_url": "https://spacenews.com/the-exploration-company-raises-160-million-for-nyx-cargo-vehicle/"
-   },
-   "size_eur": 190000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/The_Exploration_Company"
-   ],
-   "uncertain": [
-    "~$160M Series B (2024), EUR approx; no public valuation."
-   ]
-  },
-  {
-   "id": "d-orbit",
-   "name": "D-Orbit S.p.A.",
-   "hq_country": "Italy",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2011,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Italian space-logistics company operating the ION orbital transfer vehicle (satellite deployment, hosted payloads), expanding into in-space computing. Series D led by Azimut from Jan 2026.",
-   "sovereignty_role": "Europe's leading in-space logistics/orbital-services provider - a building block for sovereign, flexible European operations in orbit.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 250000000,
-    "key_investors": [
-     "Azimut Group",
-     "Marubeni",
-     "CDP Venture Capital (Italian state)",
-     "Seraphim Space",
-     "Indaco"
-    ],
-    "as_of_date": "2026-01-22",
-    "source_url": "https://news.satnews.com/2026/01/22/d-orbit-secures-53m-series-d-funding-to-accelerate-ma-and-in-space-computing-capacity/"
-   },
-   "size_eur": 250000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/D-Orbit"
-   ],
-   "uncertain": [
-    "Total funding ~EUR250m approx; no public post-money valuation."
-   ]
-  },
-  {
    "id": "jenoptik",
    "name": "Jenoptik AG",
    "hq_country": "Germany",
-   "domain": "Materials & fab equipment",
+   "domain": "Semiconductors",
    "founded": 1846,
    "is_listed": true,
    "ticker": "JEN",
@@ -2578,178 +1207,10 @@
    ]
   },
   {
-   "id": "telia",
-   "name": "Telia Company AB",
-   "hq_country": "Sweden",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1853,
-   "is_listed": true,
-   "ticker": "TELIA",
-   "yahoo_ticker": "TELIA.ST",
-   "exchange": "Nasdaq Stockholm",
-   "currency": "SEK",
-   "description": "The Nordic/Baltic incumbent telecom operator (fixed, mobile, broadband, B2B/cloud, TV) across Sweden, Finland, Norway, Denmark and the Baltics. Swedish state is the largest shareholder.",
-   "sovereignty_role": "Operator of critical fixed/mobile/subsea infrastructure across the Nordics and Baltics; a state-influenced incumbent central to regional sovereign connectivity on NATO's eastern flank.",
-   "financials": {
-    "market_cap_eur": 17410000000,
-    "revenue_eur": 7430000000,
-    "revenue_growth_pct": 0.0,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": 40.9,
-    "net_debt_eur": null,
-    "employees": 14552,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://stockanalysis.com/quote/sto/TELIA/"
-   },
-   "private_data": null,
-   "size_eur": 17410000000,
-   "sources": [
-    "https://stockanalysis.com/quote/sto/TELIA/"
-   ],
-   "uncertain": [
-    "mcap/revenue converted from SEK at EUR=SEK10.90."
-   ]
-  },
-  {
-   "id": "telenor",
-   "name": "Telenor ASA",
-   "hq_country": "Norway",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1855,
-   "is_listed": true,
-   "ticker": "TEL",
-   "yahoo_ticker": "TEL.OL",
-   "exchange": "Oslo Bors",
-   "currency": "NOK",
-   "description": "Norway's incumbent telecom operator (mobile, fixed, broadband) with Nordic and Asian operations and a towers/infrastructure arm. Norwegian state holds a controlling stake.",
-   "sovereignty_role": "Operator of Norway's critical mobile/fixed and subsea-cable infrastructure; majority state-owned EEA incumbent underpinning sovereign Nordic connectivity for a NATO member.",
-   "financials": {
-    "market_cap_eur": 18860000000,
-    "revenue_eur": 7040000000,
-    "revenue_growth_pct": 1.4,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": 12.1,
-    "net_debt_eur": null,
-    "employees": 9819,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://companiesmarketcap.com/eur/telenor/marketcap/"
-   },
-   "private_data": null,
-   "size_eur": 18860000000,
-   "sources": [
-    "https://stockanalysis.com/quote/osl/TEL/"
-   ],
-   "uncertain": [
-    "Norway = EEA, not EU (consistent with Kongsberg/Nordic Semi). Reports in NOK."
-   ]
-  },
-  {
-   "id": "proximus",
-   "name": "Proximus SA",
-   "hq_country": "Belgium",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1930,
-   "is_listed": true,
-   "ticker": "PROX",
-   "yahoo_ticker": "PROX.BR",
-   "exchange": "Euronext Brussels",
-   "currency": "EUR",
-   "description": "Belgium's incumbent telecom operator (fixed, mobile, fibre, ICT/cloud via Proximus NXT, plus BICS carrier and Telesign digital-identity). Belgian federal state is majority shareholder.",
-   "sovereignty_role": "Operator of Belgium's critical networks serving the EU-institutions home country; majority state-owned sovereign-connectivity backbone for Brussels-hosted EU bodies.",
-   "financials": {
-    "market_cap_eur": 2140000000,
-    "revenue_eur": 6250000000,
-    "revenue_growth_pct": -2.0,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": 5.6,
-    "net_debt_eur": null,
-    "employees": 12790,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://stockanalysis.com/quote/ebr/PROX/"
-   },
-   "private_data": null,
-   "size_eur": 2140000000,
-   "sources": [
-    "https://stockanalysis.com/quote/ebr/PROX/"
-   ],
-   "uncertain": []
-  },
-  {
-   "id": "tele2",
-   "name": "Tele2 AB",
-   "hq_country": "Sweden",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 1993,
-   "is_listed": true,
-   "ticker": "TEL2-B",
-   "yahoo_ticker": "TEL2-B.ST",
-   "exchange": "Nasdaq Stockholm",
-   "currency": "SEK",
-   "description": "Swedish/Baltic telecom operator (mobile, fixed broadband, TV, IoT) operating mainly in Sweden, the Baltics and via a global IoT business.",
-   "sovereignty_role": "A challenger operator of critical mobile/broadband and IoT connectivity in Sweden and the Baltics, adding resilience to Nordic-Baltic sovereign networks.",
-   "financials": {
-    "market_cap_eur": 11710000000,
-    "revenue_eur": 2740000000,
-    "revenue_growth_pct": 1.0,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 4000,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://stockanalysis.com/quote/sto/TEL2.B/"
-   },
-   "private_data": null,
-   "size_eur": 11710000000,
-   "sources": [
-    "https://companiesmarketcap.com/eur/tele2/revenue/"
-   ],
-   "uncertain": [
-    "Converted from SEK at EUR=SEK10.90; employees approximate."
-   ]
-  },
-  {
-   "id": "cellnex",
-   "name": "Cellnex Telecom SA",
-   "hq_country": "Spain",
-   "domain": "Connectivity / telecom infrastructure",
-   "founded": 2015,
-   "is_listed": true,
-   "ticker": "CLNX",
-   "yahoo_ticker": "CLNX.MC",
-   "exchange": "Bolsa de Madrid",
-   "currency": "EUR",
-   "description": "Europe's largest independent wireless telecom-tower operator, with 100k+ sites across 11 countries leased to mobile operators (towers, small cells, broadcast, fibre backhaul).",
-   "sovereignty_role": "The leading neutral-host European mobile-infrastructure owner; operator-independent passive infrastructure underpinning multi-operator 5G and sovereign connectivity.",
-   "financials": {
-    "market_cap_eur": 19140000000,
-    "revenue_eur": 4120000000,
-    "revenue_growth_pct": null,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 2494,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://stockanalysis.com/quote/bme/CLNX/"
-   },
-   "private_data": null,
-   "size_eur": 19140000000,
-   "sources": [
-    "https://stockanalysis.com/quote/bme/CLNX/"
-   ],
-   "uncertain": [
-    "Tower-REIT model: net loss FY2025 (P/E n/a) and high net debt typical of the sector."
-   ]
-  },
-  {
    "id": "cancom",
    "name": "CANCOM SE",
    "hq_country": "Germany",
-   "domain": "Cloud & data infrastructure",
+   "domain": "Cloud & AI",
    "founded": 1992,
    "is_listed": true,
    "ticker": "COK",
@@ -2781,7 +1242,7 @@
    "id": "northern-data",
    "name": "Northern Data AG",
    "hq_country": "Germany",
-   "domain": "Cloud & data infrastructure",
+   "domain": "Cloud & AI",
    "founded": 2008,
    "is_listed": true,
    "ticker": "NB2",
@@ -2815,7 +1276,7 @@
    "id": "lighton",
    "name": "LightOn",
    "hq_country": "France",
-   "domain": "AI & foundation models",
+   "domain": "Cloud & AI",
    "founded": 2016,
    "is_listed": true,
    "ticker": "ALTAI",
@@ -2849,7 +1310,7 @@
    "id": "kyutai",
    "name": "Kyutai",
    "hq_country": "France",
-   "domain": "AI & foundation models",
+   "domain": "Cloud & AI",
    "founded": 2023,
    "is_listed": false,
    "ticker": null,
@@ -2879,1070 +1340,516 @@
    ]
   },
   {
-   "id": "eleqtron",
-   "name": "eleQtron",
-   "hq_country": "Germany",
-   "domain": "Quantum computing",
-   "founded": 2020,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Siegen/Hamburg-based trapped-ion quantum-computing scale-up (University of Siegen spin-off) using proprietary MAGIC microwave control; >EUR60m order backlog. Closed a EUR57m Series A in May 2026.",
-   "sovereignty_role": "A German sovereign trapped-ion quantum-hardware champion (Schwarz Digits / EIC-backed) supplying European research and HPC centres.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 57000000,
-    "key_investors": [
-     "Schwarz Digits",
-     "EIC Fund",
-     "Earlybird",
-     "NRW.BANK"
-    ],
-    "as_of_date": "2026-05-05",
-    "source_url": "https://thequantuminsider.com/2026/05/05/eleqtron-secures-e57-million-in-series-a-funding-round/"
-   },
-   "size_eur": 57000000,
-   "sources": [
-    "https://eleqtron.com/en/quantum-computing-scale-up-eleqtron-secures-57-million-in-one-of-the-largest-series-a-funding-rounds-worldwide/"
-   ],
-   "uncertain": [
-    "No public valuation; EUR57m is the Series A round size."
-   ]
-  },
-  {
-   "id": "aqt",
-   "name": "AQT (Alpine Quantum Technologies)",
-   "hq_country": "Austria",
-   "domain": "Quantum computing",
-   "founded": 2018,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Innsbruck-based trapped-ion quantum-computing company (University of Innsbruck spin-off) building rack-mounted, room-temperature ion-trap systems sold to EU HPC centres.",
-   "sovereignty_role": "Austria's leading sovereign trapped-ion quantum-hardware maker, delivering on-soil rack-format quantum machines to EuroHPC/research centres.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": null,
-    "key_investors": [
-     "University of Innsbruck",
-     "EIC Accelerator",
-     "FFG (Austria)"
-    ],
-    "as_of_date": "2025-09-01",
-    "source_url": "https://www.aqt.eu/about/"
-   },
-   "size_eur": null,
-   "sources": [
-    "https://www.aqt.eu/about/"
-   ],
-   "uncertain": [
-    "Grant- and contract-funded (no disclosed VC round/valuation); size_eur left null."
-   ]
-  },
-  {
-   "id": "parityqc",
-   "name": "ParityQC",
-   "hq_country": "Austria",
-   "domain": "Quantum computing",
-   "founded": 2020,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Innsbruck-based quantum-architecture company providing hardware-agnostic 'ParityQC Architecture' blueprints and the ParityOS operating system for scalable, error-corrected quantum computers.",
-   "sovereignty_role": "A European sovereign quantum-architecture/software-IP provider enabling EU-built quantum machines across hardware platforms.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": null,
-    "key_investors": [
-     "FFG (Austria)",
-     "FWF (Austria)"
-    ],
-    "as_of_date": "2024-01-01",
-    "source_url": "https://www.ffg.at/en/success-stories/parityqc"
-   },
-   "size_eur": null,
-   "sources": [
-    "https://parityqc.com/"
-   ],
-   "uncertain": [
-    "Asset-light (architecture/OS); grant-funded, no disclosed equity round/valuation; size_eur null."
-   ]
-  },
-  {
-   "id": "kipu-quantum",
-   "name": "Kipu Quantum",
-   "hq_country": "Germany",
-   "domain": "Quantum computing",
-   "founded": 2019,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Karlsruhe/Berlin-based quantum-software company building application- and hardware-specific compressed quantum algorithms (hardware-agnostic).",
-   "sovereignty_role": "A German sovereign quantum-algorithm/software layer maximising near-term value from EU quantum hardware across providers.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 13000000,
-    "key_investors": [
-     "HV Capital",
-     "DeepTech & Climate Fonds",
-     "LBBW VC"
-    ],
-    "as_of_date": "2023-12-01",
-    "source_url": "https://thequantuminsider.com/2026/04/18/quantum-computing-companies-in-germany/"
-   },
-   "size_eur": 13000000,
-   "sources": [
-    "https://www.crunchbase.com/organization/kipu-quantum"
-   ],
-   "uncertain": [
-    "~EUR13m total funding; no public valuation."
-   ]
-  },
-  {
-   "id": "quix-quantum",
-   "name": "QuiX Quantum",
-   "hq_country": "Netherlands",
-   "domain": "Quantum computing",
-   "founded": 2019,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Enschede-based photonic quantum-computing company (University of Twente roots) building room-temperature universal photonic quantum computers; sold systems to Germany's DLR QCI.",
-   "sovereignty_role": "The Netherlands' leading sovereign photonic quantum-hardware company, supplying on-soil systems to EU research/aerospace (DLR) and EuroHPC.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 15000000,
-    "key_investors": [
-     "Invest-NL",
-     "EIC Fund",
-     "PhotonVentures",
-     "Oost NL"
-    ],
-    "as_of_date": "2025-07-10",
-    "source_url": "https://thequantuminsider.com/2025/07/10/quix-quantum-secures-e15-million-to-deliver-first-generation-universal-photonic-quantum-computer/"
-   },
-   "size_eur": 15000000,
-   "sources": [
-    "https://www.quixquantum.com/news/quix-quantum-series-a"
-   ],
-   "uncertain": [
-    "EUR15m Series A; no public valuation."
-   ]
-  },
-  {
-   "id": "safran",
-   "name": "Safran SA",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 2005,
-   "is_listed": true,
-   "ticker": "SAF",
-   "yahoo_ticker": "SAF.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "Aerospace & defence group: aircraft engines (CFM/LEAP JV with GE) plus Safran Electronics & Defense (optronics, inertial navigation, sights, drones, avionics).",
-   "sovereignty_role": "European sovereign supplier of military propulsion, inertial navigation and optronics (independent of US GPS/optics) and a pillar of Franco-European combat-air and missile supply chains.",
-   "financials": {
-    "market_cap_eur": 122760000000,
-    "revenue_eur": 31329000000,
-    "revenue_growth_pct": 15.0,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 100000,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.safran-group.com/pressroom/safran-reports-excellent-financial-performance-2025-and-raises-its-2028-ambitions-2026-02-13"
-   },
-   "private_data": null,
-   "size_eur": 122760000000,
-   "sources": [
-    "https://www.safran-group.com/pressroom/safran-reports-excellent-financial-performance-2025-and-raises-its-2028-ambitions-2026-02-13"
-   ],
-   "uncertain": []
-  },
-  {
-   "id": "sopra-steria",
-   "name": "Sopra Steria",
-   "hq_country": "France",
-   "domain": "Enterprise / industrial software",
-   "founded": 1968,
-   "is_listed": true,
-   "ticker": "SOP",
-   "yahoo_ticker": "SOP.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "Major French IT-services / systems-integration group with a software arm (Sopra Banking Software). Significant defence, security and government / sovereign-IT business across the EU.",
-   "sovereignty_role": "Large European sovereign-IT and cyber systems integrator for defence ministries, EU institutions and critical infrastructure.",
-   "financials": {
-    "market_cap_eur": 2780000000,
-    "revenue_eur": 5648000000,
-    "revenue_growth_pct": -2.2,
-    "gross_margin_pct": null,
-    "net_margin_pct": 5.3,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 51000,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.businesswire.com/news/home/20260225261586/en/Sopra-Steria-Group-2025-Results"
-   },
-   "private_data": null,
-   "size_eur": 2780000000,
-   "sources": [
-    "https://www.businesswire.com/news/home/20260225261586/en/Sopra-Steria-Group-2025-Results"
-   ],
-   "uncertain": [
-    "Spans defence/cyber and general IT; classified under Enterprise software (like Capgemini)."
-   ]
-  },
-  {
-   "id": "czechoslovak-group",
-   "name": "Czechoslovak Group (CSG)",
-   "hq_country": "Czech Republic",
-   "domain": "Cybersecurity & defence",
+   "id": "qt-group",
+   "name": "Qt Group Oyj",
+   "hq_country": "Finland",
+   "domain": "Open source",
    "founded": 1995,
    "is_listed": true,
-   "ticker": "CSG",
-   "yahoo_ticker": "CSG.AS",
-   "exchange": "Euronext Amsterdam",
+   "ticker": "QTCOM",
+   "yahoo_ticker": "QTCOM.HE",
+   "exchange": "Nasdaq Helsinki",
    "currency": "EUR",
-   "description": "Vertically integrated European defence and ammunition group (management HQ Prague, Dutch holding): Europe's #1 small-calibre and a top medium/large-calibre ammunition producer, plus military vehicles. IPO'd Jan 2026.",
-   "sovereignty_role": "Central supplier of artillery shells/ammunition to Europe and Ukraine and a key beneficiary of the EU shell-production ramp; a sovereign land-munitions champion in central Europe.",
+   "description": "Finnish software company that develops and commercialises the Qt cross-platform application development framework, offered under both commercial and open-source (GPL/LGPL) licenses.",
+   "sovereignty_role": "A European-controlled open-source software foundation for GUIs and embedded systems, reducing reliance on US-controlled UI/dev toolchains; its dual open-source/commercial model fits the EU Open Source Strategy's asset-reuse and reduced-vendor-lock-in goals.",
    "financials": {
-    "market_cap_eur": 15000000000,
-    "revenue_eur": 3800000000,
-    "revenue_growth_pct": null,
+    "market_cap_eur": 704352187,
+    "revenue_eur": 216300000,
+    "revenue_growth_pct": 3.5,
     "gross_margin_pct": null,
     "net_margin_pct": null,
     "pe_ratio": null,
     "net_debt_eur": null,
-    "employees": 14000,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://live.euronext.com/en/product/equities/NL0015073TS8-XAMS"
-   },
-   "private_data": null,
-   "size_eur": 15000000000,
-   "sources": [
-    "https://www.euronext.com/en/about/media/euronext-press-releases/czechoslovak-group-lists-euronext-0"
-   ],
-   "uncertain": [
-    "IPO'd 23 Jan 2026; market cap volatile (sources span EUR14.9-18.7bn by share-count basis) - ~EUR15bn used."
-   ]
-  },
-  {
-   "id": "exosens",
-   "name": "Exosens SA",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 1937,
-   "is_listed": true,
-   "ticker": "EXENS",
-   "yahoo_ticker": "EXENS.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "Electro-optical technology group (Photonis, Telops, Xenics): image-intensifier tubes for night vision, plus infrared/thermal cameras and detectors. Defence & surveillance ~75% of revenue.",
-   "sovereignty_role": "Europe's sovereign maker of night-vision image-intensifier tubes (a critical, export-controlled component) - the key non-US/non-Chinese supplier to European night-vision and ISR programmes.",
-   "financials": {
-    "market_cap_eur": 3130000000,
-    "revenue_eur": 468200000,
-    "revenue_growth_pct": 22.1,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": null,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://live.euronext.com/en/products/equities/company-news/2026-02-23-exosens-exceeds-2025-guidance-driven-strong-defense"
-   },
-   "private_data": null,
-   "size_eur": 3130000000,
-   "sources": [
-    "https://stockanalysis.com/quote/epa/EXENS/market-cap/"
-   ],
-   "uncertain": [
-    "Founded year reflects Photonis heritage (1937); listed since 2024 IPO."
-   ]
-  },
-  {
-   "id": "theon-international",
-   "name": "Theon International Plc",
-   "hq_country": "Cyprus",
-   "domain": "Cybersecurity & defence",
-   "founded": 1997,
-   "is_listed": true,
-   "ticker": "THEON",
-   "yahoo_ticker": "THEON.AS",
-   "exchange": "Euronext Amsterdam",
-   "currency": "EUR",
-   "description": "Manufacturer of night-vision goggles, thermal imaging and electro-optical ISR systems for European/NATO armed forces; production in Greece/Germany/Baltics. Holds a ~9.8% stake in Exosens.",
-   "sovereignty_role": "Leading European sovereign supplier of soldier night-vision/optronics, a core dismounted-soldier capability for EU/NATO procurement.",
-   "financials": {
-    "market_cap_eur": 2430000000,
-    "revenue_eur": 443400000,
-    "revenue_growth_pct": 26.0,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 618,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://theon.com/theon-announces-q3-2025-trading-update-and-fy-2026-revenue-target/"
-   },
-   "private_data": null,
-   "size_eur": 2430000000,
-   "sources": [
-    "https://www.euronext.com/en/about/media/euronext-press-releases/theon-international-plc-lists-euronext-amsterdam"
-   ],
-   "uncertain": [
-    "Employee count (618) is end-2024; likely higher now."
-   ]
-  },
-  {
-   "id": "exail",
-   "name": "Exail Technologies SA",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 2022,
-   "is_listed": true,
-   "ticker": "EXA",
-   "yahoo_ticker": "EXA.PA",
-   "exchange": "Euronext Paris",
-   "currency": "EUR",
-   "description": "Robotics, maritime and navigation-technology group (ECA Group / iXblue lineage): autonomous naval drones (USVs/AUVs), inertial navigation systems, sonars and photonics.",
-   "sovereignty_role": "European sovereign provider of inertial navigation (GPS-independent) and naval autonomous systems / mine-countermeasure drones for European navies.",
-   "financials": {
-    "market_cap_eur": 2240000000,
-    "revenue_eur": 479000000,
-    "revenue_growth_pct": 28.0,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": null,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://companiesmarketcap.com/exail-technologies/marketcap/"
-   },
-   "private_data": null,
-   "size_eur": 2240000000,
-   "sources": [
-    "https://stockanalysis.com/quote/epa/EXA/"
-   ],
-   "uncertain": [
-    "'Founded 2022' = Exail brand from iXblue/ECA merger; corporate lineage older."
-   ]
-  },
-  {
-   "id": "rohde-schwarz",
-   "name": "Rohde & Schwarz",
-   "hq_country": "Germany",
-   "domain": "Cybersecurity & defence",
-   "founded": 1933,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Privately held Munich technology group: test & measurement, secure communications and cryptography, radiomonitoring/EW, and network/IT cybersecurity. One of Europe's largest private defence-electronics firms.",
-   "sovereignty_role": "German sovereign supplier of secure/encrypted government and military communications, crypto and signals intelligence - a privately controlled European alternative.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": null,
-    "key_investors": [
-     "Rohde and Schwarz founding families (privately held)"
-    ],
-    "as_of_date": "2025-06-30",
-    "source_url": "https://www.rohde-schwarz.com/about/news-press/all-news/rohde-schwarz-shows-resilience-in-a-challenging-environment-revenue-exceeds-three-billion-euros-for-the-first-time_229356-1598656.html"
-   },
-   "size_eur": 3160000000,
-   "sources": [
-    "https://www.rohde-schwarz.com/"
-   ],
-   "uncertain": [
-    "Private (family-owned); no equity valuation. Net revenue ~EUR3.16bn FY2024/25 used for sizing; >15,000 employees."
-   ]
-  },
-  {
-   "id": "diehl",
-   "name": "Diehl Stiftung & Co. KG",
-   "hq_country": "Germany",
-   "domain": "Cybersecurity & defence",
-   "founded": 1902,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Family-owned German industrial group; Diehl Defence makes the IRIS-T air-to-air and IRIS-T SLM/SLS ground-based air-defence missile systems and guided munitions (group also spans metering, aviation, controls).",
-   "sovereignty_role": "Germany's sovereign air-defence-missile maker (IRIS-T), central to European ground-based air defence (incl. European Sky Shield) and supplies to Ukraine.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": null,
-    "key_investors": [
-     "Diehl family (via Diehl Stiftung)"
-    ],
-    "as_of_date": "2024-12-31",
-    "source_url": "https://new.diehl.com/group/en/press-media/news/brief-report-on-business-performance-in-2024-and-prospects-for-2025"
-   },
-   "size_eur": 4695800000,
-   "sources": [
-    "https://www.diehl.com/annual-report-2024/flipbook.pdf"
-   ],
-   "uncertain": [
-    "Private (family/foundation). Group FY2024 sales ~EUR4.70bn used for sizing; Diehl Defence segment ~EUR1.83bn."
-   ]
-  },
-  {
-   "id": "patria",
-   "name": "Patria Group",
-   "hq_country": "Finland",
-   "domain": "Cybersecurity & defence",
-   "founded": 1997,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Finnish defence group: armoured vehicles (Patria 6x6/AMV), mortar systems, life-cycle support and (via Nammo, 50%) ammunition. Owned by the State of Finland (50.1%) and Norway's Kongsberg (49.9%).",
-   "sovereignty_role": "Nordic sovereign armoured-vehicle and systems supplier; anchor of the multinational Patria 6x6 / CAVS programme across Finland, Sweden, Latvia and Germany.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": null,
-    "key_investors": [
-     "State of Finland (50.1%)",
-     "Kongsberg Defence & Aerospace (49.9%)"
-    ],
+    "employees": 1136,
     "as_of_date": "2025-12-31",
-    "source_url": "https://www.patriagroup.com/newsroom/news/2026/patria-groups-financial-review-for-2025-preliminary-data"
+    "source_url": "https://stockanalysis.com/quote/hel/QTCOM/revenue/"
    },
-   "size_eur": 1086700000,
+   "private_data": null,
    "sources": [
-    "https://www.patriagroup.com/newsroom/news/2026/patria-groups-financial-review-for-2025-preliminary-data"
+    "https://stockanalysis.com/quote/hel/QTCOM/revenue/",
+    "https://finance.yahoo.com/quote/QTCOM.HE/"
    ],
    "uncertain": [
-    "State/Kongsberg-owned, not listed. FY2025 net sales ~EUR1.09bn used for sizing; also holds 50% of Nammo."
-   ]
+    "Employee count 1,136 (incl. 215 from IAR acquisition) is year-end 2025 per company report relayed via press, not a direct IR PDF"
+   ],
+   "size_eur": 704352187
   },
   {
-   "id": "mbda",
-   "name": "MBDA",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 2001,
+   "id": "suse",
+   "name": "SUSE",
+   "hq_country": "Germany",
+   "domain": "Open source",
+   "founded": 1992,
    "is_listed": false,
    "ticker": null,
    "yahoo_ticker": null,
    "exchange": null,
-   "currency": "EUR",
-   "description": "Pan-European guided-missile champion (Aster air-defence interceptors, SCALP/Storm Shadow cruise missiles, Exocet, Mistral, anti-tank). JV of Airbus (37.5%), BAE Systems (37.5%) and Leonardo (25%).",
-   "sovereignty_role": "Europe's primary sovereign complex-weapons / missile house and the backbone of European air-defence and deep-strike munition supply.",
+   "currency": null,
+   "description": "One of the oldest enterprise Linux vendors (SUSE Linux Enterprise, openSUSE, Rancher/Kubernetes). Listed on Frankfurt 2021-2023, then taken private by EQT and reincorporated as a Luxembourg S.A. with operations centred in Nuremberg, Germany.",
+   "sovereignty_role": "A flagship European enterprise open-source vendor repositioning around digital sovereignty (sovereign cloud/Linux alternatives to US hyperscaler stacks), directly relevant to the EU Open Source Strategy.",
    "financials": null,
    "private_data": {
-    "last_valuation_eur": null,
+    "last_valuation_eur": 5500000000,
     "total_funding_eur": null,
     "key_investors": [
-     "Airbus (37.5%)",
-     "BAE Systems (37.5%)",
-     "Leonardo (25%)"
+     "EQT",
+     "GIC"
     ],
-    "as_of_date": "2024-12-31",
-    "source_url": "https://www.defensenews.com/global/europe/2025/03/18/europes-top-missile-maker-mbda-boosts-output-33-amid-record-orders/"
+    "as_of_date": "2026-06",
+    "source_url": "https://www.theregister.com/2026/04/28/sovereignty_its_all_about_the/"
    },
-   "size_eur": 4900000000,
    "sources": [
-    "https://www.defensenews.com/global/europe/2025/03/18/europes-top-missile-maker-mbda-boosts-output-33-amid-record-orders/"
+    "https://en.wikipedia.org/wiki/SUSE_S.A.",
+    "https://www.suse.com/news/EQT-announces-voluntary-public-purchase-offer-and-intention-to-delist-SUSE/",
+    "https://www.theregister.com/2026/04/28/sovereignty_its_all_about_the/"
    ],
    "uncertain": [
-    "Private JV; one owner (BAE, 37.5%) is UK. FY2024 revenue ~EUR4.9bn used for sizing."
-   ]
+    "~EUR5.5bn is a 2026 sale price tag reported via EQT advisor process, not a closed-transaction valuation",
+    "Revenue not disclosed since going private (third-party ARR estimates ~$298M)",
+    "Total funding not cleanly disclosed"
+   ],
+   "size_eur": 5500000000
   },
   {
-   "id": "harfanglab",
-   "name": "HarfangLab",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 2018,
+   "id": "odoo",
+   "name": "Odoo SA",
+   "hq_country": "Belgium",
+   "domain": "Open source",
+   "founded": 2005,
    "is_listed": false,
    "ticker": null,
    "yahoo_ticker": null,
    "exchange": null,
-   "currency": "EUR",
-   "description": "French endpoint-detection-and-response (EDR) vendor founded by ex-French-military/ANSSI cyber experts; first ANSSI-CSPN-certified EDR and ANSSI-qualified (2024).",
-   "sovereignty_role": "The leading ANSSI-qualified sovereign EDR - a European alternative to US endpoint security for state and critical-infrastructure use under SecNumCloud/NIS2.",
+   "currency": null,
+   "description": "Belgian developer of the open-source Odoo all-in-one business management/ERP suite, combining a free community edition with paid Enterprise features.",
+   "sovereignty_role": "A European open-source ERP offering an EU alternative to US proprietary business software (SAP/Microsoft/Oracle); its open-source core and self-hostable model align with the EU Open Source Strategy's reduced-lock-in and asset-reuse aims.",
    "financials": null,
    "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 25000000,
+    "last_valuation_eur": 7000000000,
+    "total_funding_eur": null,
     "key_investors": [
-     "Credit Mutuel Innovation",
-     "Elaia",
-     "MassMutual Ventures"
+     "General Atlantic",
+     "CapitalG",
+     "Sequoia Capital",
+     "Summit Partners"
     ],
-    "as_of_date": "2023-10-01",
-    "source_url": "https://harfanglab.io/press/cybersecurity-company-harfanglab-raises-e25-million-to-expand-in-europe/"
+    "as_of_date": "2026-01",
+    "source_url": "https://www.generalatlantic.com/media-article/general-atlantic-announces-close-of-further-investment-into-odoo-acquiring-additional-stake-from-wallonie-entreprendre/"
    },
-   "size_eur": 25000000,
    "sources": [
-    "https://harfanglab.io/edr/anssi-certification/"
+    "https://www.generalatlantic.com/media-article/general-atlantic-announces-close-of-further-investment-into-odoo-acquiring-additional-stake-from-wallonie-entreprendre/",
+    "https://thenextweb.com/news/odoo-tops-7-billion-valuation"
    ],
    "uncertain": [
-    "Private; EUR25m Series A (2023); revenue not public."
-   ]
+    "EUR7bn (Jan 2026) is a secondary-transaction valuation, not a primary raise",
+    "Reported revenue (~EUR282M 2023) are press figures, not audited filings"
+   ],
+   "size_eur": 7000000000
   },
   {
-   "id": "sekoia",
-   "name": "Sekoia.io",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
+   "id": "nextcloud",
+   "name": "Nextcloud GmbH",
+   "hq_country": "Germany",
+   "domain": "Open source",
    "founded": 2016,
    "is_listed": false,
    "ticker": null,
    "yahoo_ticker": null,
    "exchange": null,
-   "currency": "EUR",
-   "description": "French SaaS SOC / Open-XDR and cyber-threat-intelligence platform; clients include EDF, Vinci, SNCF and the French Ministry of Armed Forces.",
-   "sovereignty_role": "Sovereign European SOC/XDR and CTI platform - a French alternative to US SIEM/XDR clouds, used by French defence and critical infrastructure.",
+   "currency": null,
+   "description": "German developer of Nextcloud, the leading self-hosted open-source content-collaboration/file-sync platform (files, chat, groupware), released fully under open-source licenses.",
+   "sovereignty_role": "Markets itself as 'the sovereign answer to Big Tech', letting public bodies keep data on-premises under their own control; a core reference for the EU Open Source Strategy's public-sector OSS and anti-lock-in objectives.",
    "financials": null,
    "private_data": {
     "last_valuation_eur": null,
-    "total_funding_eur": 60000000,
-    "key_investors": [
-     "Revaia",
-     "Bright Pixel Capital",
-     "Omnes Capital",
-     "Bpifrance"
-    ],
-    "as_of_date": "2025-04-01",
-    "source_url": "https://www.sekoia.io/en/presse/sekoia-io-secures-e26-million-in-series-b-to-democratize-cyber-operations-with-ai-and-cyber-intelligence/"
+    "total_funding_eur": null,
+    "key_investors": [],
+    "as_of_date": "2026-06",
+    "source_url": "https://nextcloud.com/about/"
    },
-   "size_eur": 60000000,
    "sources": [
-    "https://www.sekoia.io/en/"
+    "https://nextcloud.com/about/",
+    "https://en.wikipedia.org/wiki/Nextcloud"
    ],
    "uncertain": [
-    "Private; EUR60m total raised; ~100-150 employees."
-   ]
+    "Employee count ~100-143 varies by source; left null",
+    "Employee/organically funded with no significant VC valuation disclosed; valuation and funding null"
+   ],
+   "size_eur": null
   },
   {
-   "id": "tehtris",
-   "name": "TEHTRIS",
-   "hq_country": "France",
-   "domain": "Cybersecurity & defence",
-   "founded": 2010,
+   "id": "univention",
+   "name": "Univention GmbH",
+   "hq_country": "Germany",
+   "domain": "Open source",
+   "founded": 2002,
    "is_listed": false,
    "ticker": null,
    "yahoo_ticker": null,
    "exchange": null,
-   "currency": "EUR",
-   "description": "French XDR vendor focused on automated neutralisation of cyberattacks; the TEHTRIS XDR Platform operates in 120+ countries. Founded by former French intelligence/military cyber specialists.",
-   "sovereignty_role": "Sovereign French XDR/EDR pure-play marketed as a European alternative to US detection-and-response platforms.",
+   "currency": null,
+   "description": "Bremen-based developer of Univention Corporate Server (UCS) and Nubus, open-source (AGPLv3) identity & access management and IT-infrastructure platforms widely used in German public administration and education.",
+   "sovereignty_role": "Brands itself as making 'digital sovereignty a reality'; provides EU-controlled open-source IAM/portal alternatives to Microsoft Active Directory/Entra for public sector and schools.",
    "financials": null,
    "private_data": {
     "last_valuation_eur": null,
-    "total_funding_eur": 64000000,
+    "total_funding_eur": null,
+    "key_investors": [],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.univention.com/about-us/"
+   },
+   "sources": [
+    "https://www.univention.com/about-us/",
+    "https://www.northdata.com/univention%20GmbH,%20Bremen/HRB%2020755"
+   ],
+   "uncertain": [
+    "Employee count (LinkedIn band 51-200) not precisely confirmed",
+    "No disclosed external valuation or VC funding"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "xwiki",
+   "name": "XWiki SAS",
+   "hq_country": "France",
+   "domain": "Open source",
+   "founded": 2004,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Paris-based company behind the open-source XWiki collaborative wiki/knowledge platform and the end-to-end-encrypted CryptPad suite (LGPL/AGPL).",
+   "sovereignty_role": "Recipient of France 2030 cloud-strategy funding to build French/European open-source collaborative suites as sovereign alternatives to US collaboration tools; aligned with the EU Open Source Strategy.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 2400000,
     "key_investors": [
-     "Jolt Capital",
-     "Open CNP (CNP Assurances)",
-     "ACE Management"
+     "Bpifrance / France 2030 (grant)"
     ],
-    "as_of_date": "2022-10-01",
-    "source_url": "https://tehtris.com/en/press-releases/e44m-second-fundraising-for-tehtris-led-by-jolt-capital-to-support-its-international-expansion-in-the-fight-against-cyber-attacks/"
+    "as_of_date": "2026-06",
+    "source_url": "https://xwiki.com/en/Blog/France-2030-funding-XWiki-and-CryptPad/"
    },
-   "size_eur": 64000000,
    "sources": [
-    "https://tehtris.com/"
+    "https://xwiki.com/en/Blog/France-2030-funding-XWiki-and-CryptPad/",
+    "https://en.wikipedia.org/wiki/XWiki"
    ],
    "uncertain": [
-    "Private; ~EUR64m total raised; ~200-260 employees."
-   ]
-  },
-  {
-   "id": "nemetschek",
-   "name": "Nemetschek",
-   "hq_country": "Germany",
-   "domain": "Enterprise / industrial software",
-   "founded": 1963,
-   "is_listed": true,
-   "ticker": "NEM",
-   "yahoo_ticker": "NEM.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "European leader in Architecture, Engineering, Construction & Operations (AEC/O) software (Allplan, Graphisoft/Archicad, Bluebeam) plus media/entertainment (Maxon). Crossed EUR1bn revenue in FY2025; ~92% recurring.",
-   "sovereignty_role": "Europe's flagship BIM/construction-software vendor - a sovereign alternative to US Autodesk for the digitalisation of EU construction and infrastructure.",
-   "financials": {
-    "market_cap_eur": 7440000000,
-    "revenue_eur": 1191200000,
-    "revenue_growth_pct": 22.6,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": 32.1,
-    "net_debt_eur": null,
-    "employees": 4089,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.nemetschek.com/en/news-media/ngroup-closes-very-successful-fy2025"
-   },
-   "private_data": null,
-   "size_eur": 7440000000,
-   "sources": [
-    "https://www.nemetschek.com/en/news-media/ngroup-closes-very-successful-fy2025"
+    "~EUR2.4M is France 2030 consortium grant funding over ~4 years, not equity venture funding"
    ],
-   "uncertain": [
-    "FY2025 growth partly acquisition-driven."
-   ]
+   "size_eur": 2400000
   },
   {
-   "id": "teamviewer",
-   "name": "TeamViewer",
-   "hq_country": "Germany",
-   "domain": "Enterprise / industrial software",
+   "id": "centreon",
+   "name": "Centreon",
+   "hq_country": "France",
+   "domain": "Open source",
    "founded": 2005,
-   "is_listed": true,
-   "ticker": "TMV",
-   "yahoo_ticker": "TMV.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "Remote-connectivity and digital-workplace software (remote access/support, plus digital employee experience after the 2024 acquisition of 1E). FY2025 IFRS revenue ~EUR747m, Adj. EBITDA margin ~44%.",
-   "sovereignty_role": "A scaled German SaaS vendor for secure remote access/IT management - a European option versus US incumbents for enterprise and industrial remote operations.",
-   "financials": {
-    "market_cap_eur": 973000000,
-    "revenue_eur": 747000000,
-    "revenue_growth_pct": 5.0,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": null,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://stockanalysis.com/quote/etr/TMV/market-cap/"
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Paris-based developer of the open-source Centreon IT infrastructure monitoring and observability platform, used in 60+ countries.",
+   "sovereignty_role": "A French open-source observability vendor positioning as 'the leading European observability platform', an EU-controlled alternative to US monitoring SaaS.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "Sixth Street"
+    ],
+    "as_of_date": "2025-11",
+    "source_url": "https://www.centreon.com/news/centreon-secures-strategic-investment-from-sixth-street-to-fuel-the-growth-of-its-observability-platform/"
    },
-   "private_data": null,
-   "size_eur": 973000000,
    "sources": [
-    "https://stockanalysis.com/quote/etr/TMV/"
+    "https://www.centreon.com/news/centreon-secures-strategic-investment-from-sixth-street-to-fuel-the-growth-of-its-observability-platform/"
    ],
    "uncertain": [
-    "Carries net debt from the ~USD720m 1E acquisition; stock down sharply YoY."
-   ]
-  },
-  {
-   "id": "tietoevry",
-   "name": "Tieto (Tietoevry)",
-   "hq_country": "Finland",
-   "domain": "Enterprise / industrial software",
-   "founded": 1968,
-   "is_listed": true,
-   "ticker": "TIETO",
-   "yahoo_ticker": "TIETO.HE",
-   "exchange": "Nasdaq Helsinki",
-   "currency": "EUR",
-   "description": "Nordic software & digital-engineering group (banking, public-sector/care, industry verticals + consulting). Divested Tech Services in 2025 and rebranded to 'Tieto'. FY2025 continuing-ops revenue ~EUR1.85bn.",
-   "sovereignty_role": "A core Nordic IT/software supplier to banks and government; key digital backbone for Finnish/Nordic public administration.",
-   "financials": {
-    "market_cap_eur": 2380000000,
-    "revenue_eur": 1852300000,
-    "revenue_growth_pct": -1.4,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": null,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://companiesmarketcap.com/eur/tietoevry/marketcap/"
-   },
-   "private_data": null,
-   "size_eur": 2380000000,
-   "sources": [
-    "https://www.tieto.com/en/newsroom/stock-exchange-releases/2026/tietos-interim-report-42025-strong-profitability--execution-of-new-strategic-priorities-progressing/"
+    "Sixth Street investment (Nov 2025, first external fundraise) amount and valuation not disclosed",
+    "~160 employees / ~1,300 customers per press, not audited"
    ],
-   "uncertain": [
-    "Revenue is continuing-ops only post Tech Services divestiture; Yahoo ticker still TIETO.HE."
-   ]
+   "size_eur": null
   },
   {
-   "id": "nagarro",
-   "name": "Nagarro",
+   "id": "openproject",
+   "name": "OpenProject GmbH",
    "hq_country": "Germany",
-   "domain": "Enterprise / industrial software",
-   "founded": 1996,
-   "is_listed": true,
-   "ticker": "NA9",
-   "yahoo_ticker": "NA9.DE",
-   "exchange": "Xetra (Frankfurt)",
-   "currency": "EUR",
-   "description": "Munich-HQ digital-engineering and custom-software services firm (~18,000 staff, 38 countries). FY2025 audited revenue ~EUR1.0bn.",
-   "sovereignty_role": "EU-domiciled digital product-engineering provider for European enterprise software/digitalisation needs.",
-   "financials": {
-    "market_cap_eur": 514000000,
-    "revenue_eur": 999300000,
-    "revenue_growth_pct": 2.8,
-    "gross_margin_pct": null,
-    "net_margin_pct": null,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": 18003,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.nagarro.com/en/news-press-release/financial-statements-preliminary-fy-2025"
+   "domain": "Open source",
+   "founded": 2012,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Berlin-based company behind OpenProject, an open-source (GPLv3) web-based project-management suite (classic, agile, hybrid) with enterprise support and hosting.",
+   "sovereignty_role": "Self-hosted German open-source PM tool promoted as a sovereign 'made in Germany' alternative to US SaaS (e.g. Jira), featured on the EU's Open Source Observatory.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.openproject.org/about-us/"
    },
-   "private_data": null,
-   "size_eur": 514000000,
    "sources": [
-    "https://www.nagarro.com/en/news-press-release/financial-statements-preliminary-fy-2025"
+    "https://www.openproject.org/about-us/",
+    "https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/openproject-open-source-project-management-software"
    ],
    "uncertain": [
-    "Governance flag: an independent investigation concluded alongside FY2025 results (audited statements reaffirmed figures)."
-   ]
+    "No disclosed external valuation or VC funding"
+   ],
+   "size_eur": null
   },
   {
-   "id": "wolters-kluwer",
-   "name": "Wolters Kluwer",
-   "hq_country": "Netherlands",
-   "domain": "Enterprise / industrial software",
+   "id": "schneider-electric",
+   "name": "Schneider Electric SE",
+   "hq_country": "France",
+   "domain": "AI in energy",
    "founded": 1836,
    "is_listed": true,
-   "ticker": "WKL",
-   "yahoo_ticker": "WKL.AS",
-   "exchange": "Euronext Amsterdam",
+   "ticker": "SU",
+   "yahoo_ticker": "SU.PA",
+   "exchange": "Euronext Paris",
    "currency": "EUR",
-   "description": "Global professional-information, software & services group (health; tax & accounting; financial & corporate compliance; legal & regulatory). FY2025 revenue ~EUR6.1bn; majority recurring software/digital.",
-   "sovereignty_role": "Large EU-domiciled provider of regulatory/compliance and expert software embedded in European legal, tax, healthcare and financial workflows.",
+   "description": "French multinational in energy management and industrial automation; its EcoStruxure platform spans grid software (ADMS/DERMS) and building/industrial energy optimisation, with embedded AI (Grid AI Assistant, AI-driven outage restoration).",
+   "sovereignty_role": "A core European provider of digital-grid and energy-management software with AI features, directly relevant to the roadmap's goals of digitalising the energy system and applying AI to grids, efficiency and flexibility.",
    "financials": {
-    "market_cap_eur": 14160000000,
-    "revenue_eur": 6100000000,
-    "revenue_growth_pct": null,
+    "market_cap_eur": 153181258585,
+    "revenue_eur": 38150000000,
+    "revenue_growth_pct": 8.0,
     "gross_margin_pct": null,
     "net_margin_pct": null,
     "pe_ratio": null,
     "net_debt_eur": null,
-    "employees": 21100,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.wolterskluwer.com/en/news/wolters-kluwer-2025-full-year-report"
+    "employees": 155822,
+    "as_of_date": "2024-12-31",
+    "source_url": "https://www.marketscreener.com/quote/stock/SCHNEIDER-ELECTRIC-SE-4699/news/Schneider-Electric-Reports-Record-2024-Financial-Results-49138760/"
    },
    "private_data": null,
-   "size_eur": 14160000000,
    "sources": [
-    "https://www.wolterskluwer.com/en/news/wolters-kluwer-2025-full-year-report"
+    "https://www.marketscreener.com/quote/stock/SCHNEIDER-ELECTRIC-SE-4699/news/Schneider-Electric-Reports-Record-2024-Financial-Results-49138760/",
+    "https://www.se.com/ww/en/about-us/newsroom/news/press-releases/schneider-electric-debuts-one-digital-grid-platform-to-help-utilities-modernize-and-address-energy-costs-691af6851937b58c890951a3/"
    ],
    "uncertain": [
-    "Information-services + software (not pure software); market cap converted from USD, approximate."
-   ]
+    "Schneider is a large diversified electrical/automation industrial — total revenue (~EUR38bn, +8% organic FY2024) is NOT a proxy for AI-in-energy exposure; only a portion is energy-software/AI",
+    "Employee count 155,822 (2024) varies by source"
+   ],
+   "size_eur": 153181258585
   },
   {
-   "id": "n8n",
-   "name": "n8n",
+   "id": "siemens-energy",
+   "name": "Siemens Energy AG",
    "hq_country": "Germany",
-   "domain": "Enterprise / industrial software",
-   "founded": 2019,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Berlin-based fair-code workflow-automation platform and a leading European AI-agent / orchestration layer; embedded into SAP's Joule Studio. ~EUR4.5bn valuation after a May 2026 SAP investment.",
-   "sovereignty_role": "A European AI-automation/agent-orchestration champion, strategically tied to SAP as the agentic layer for sovereign EU enterprise software stacks.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 4490000000,
-    "total_funding_eur": null,
-    "key_investors": [
-     "SAP",
-     "Highland Europe",
-     "Sequoia Capital",
-     "Felicis"
-    ],
-    "as_of_date": "2026-05-12",
-    "source_url": "https://www.bloomberg.com/news/articles/2026-05-12/sap-invests-in-ai-automation-startup-n8n-at-5-2-billion-value"
-   },
-   "size_eur": 4490000000,
-   "sources": [
-    "https://en.wikipedia.org/wiki/N8n"
-   ],
-   "uncertain": [
-    "$5.2bn (~EUR4.49bn) valuation after SAP's May-2026 investment; AI-agent orchestration (classified as enterprise software)."
-   ]
-  },
-  {
-   "id": "avio",
-   "name": "Avio",
-   "hq_country": "Italy",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 1908,
+   "domain": "AI in energy",
+   "founded": 2020,
    "is_listed": true,
-   "ticker": "AVIO",
-   "yahoo_ticker": "AVIO.MI",
-   "exchange": "Euronext Milan",
+   "ticker": "ENR",
+   "yahoo_ticker": "ENR.DE",
+   "exchange": "Frankfurt (Xetra)",
    "currency": "EUR",
-   "description": "Prime contractor for the Vega/Vega-C small launchers and maker of the P120C/P160C solid boosters used on both Vega and Ariane 6; also solid-propulsion for defence. FY2025 revenue ~EUR542m.",
-   "sovereignty_role": "Italy's launch champion and a pillar of Europe's autonomous access to space; sole maker of Vega and key Ariane-6 boosters, central to ESA/EU sovereign launch capability.",
+   "description": "German energy-technology group spun off from Siemens (listed 28 Sep 2020); its Grid Technologies business supplies high-voltage transmission, HVDC and digital-grid solutions, with AI investment to strengthen grid resilience.",
+   "sovereignty_role": "A leading European grid-technology supplier whose Grid Technologies unit and digital/AI grid solutions are central to the roadmap's focus on grids and energy-system digitalisation.",
    "financials": {
-    "market_cap_eur": 1735000000,
-    "revenue_eur": 542000000,
-    "revenue_growth_pct": 23.0,
-    "gross_margin_pct": null,
-    "net_margin_pct": 2.1,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": null,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.avio.com/press-release/fy-2025-results-record-high-order-backlog-and-revenues-growth-path-continue-2026"
-   },
-   "private_data": null,
-   "size_eur": 1735000000,
-   "sources": [
-    "https://www.avio.com/press-release/fy-2025-results-record-high-order-backlog-and-revenues-growth-path-continue-2026"
-   ],
-   "uncertain": [
-    "Market cap converted from USD ~$2.0bn, approximate. Listed on Euronext Milan STAR segment."
-   ]
-  },
-  {
-   "id": "gomspace",
-   "name": "GomSpace",
-   "hq_country": "Denmark",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2007,
-   "is_listed": true,
-   "ticker": "GOMX",
-   "yahoo_ticker": "GOMX.ST",
-   "exchange": "Nasdaq First North (Stockholm)",
-   "currency": "SEK",
-   "description": "Danish (Aalborg) maker of nanosatellites, components and turnkey smallsat solutions for defence, institutional and commercial customers. FY2025 revenue ~SEK442m (+72% YoY).",
-   "sovereignty_role": "European nanosatellite/SmallSat specialist supplying defence and institutional constellations - a sovereign-EU option in the smallsat platform/component layer.",
-   "financials": {
-    "market_cap_eur": 283000000,
-    "revenue_eur": 40500000,
-    "revenue_growth_pct": 71.9,
+    "market_cap_eur": 134740379589,
+    "revenue_eur": 34500000000,
+    "revenue_growth_pct": 12.8,
     "gross_margin_pct": null,
     "net_margin_pct": null,
     "pe_ratio": null,
     "net_debt_eur": null,
-    "employees": null,
-    "as_of_date": "2026-06-08",
-    "source_url": "https://stockanalysis.com/quote/sto/GOMX/"
+    "employees": 99000,
+    "as_of_date": "2024-09-30",
+    "source_url": "https://www.siemens-energy.com/global/en/home/press-releases/siemens-energy-achieves-all-annual-goals-and-sets-new-targets-fo.html"
    },
    "private_data": null,
-   "size_eur": 283000000,
    "sources": [
-    "https://finance.yahoo.com/quote/GOMX.ST/"
+    "https://www.siemens-energy.com/global/en/home/press-releases/siemens-energy-achieves-all-annual-goals-and-sets-new-targets-fo.html",
+    "https://press.siemens.com/global/en/pressrelease/siemens-calls-more-investment-power-grids-artificial-intelligence-and-resilience"
    ],
    "uncertain": [
-    "Reports in SEK (converted at EUR=SEK10.90); listed on Nasdaq First North Growth Market."
-   ]
+    "Large diversified energy-hardware industrial — only a portion (Grid Technologies + digital) is grid-software/AI; total revenue not a proxy for AI-in-energy exposure",
+    "AI/digital-grid revenue not separately disclosed"
+   ],
+   "size_eur": 134740379589
   },
   {
-   "id": "hisdesat",
-   "name": "Hisdesat",
-   "hq_country": "Spain",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2001,
+   "id": "volue",
+   "name": "Volue ASA",
+   "hq_country": "Norway",
+   "domain": "AI in energy",
+   "founded": 2020,
    "is_listed": false,
    "ticker": null,
    "yahoo_ticker": null,
    "exchange": null,
-   "currency": "EUR",
-   "description": "Spanish government satellite-services operator for secure/military communications (Spainsat NG) and Earth observation (PAZ SAR). Shareholders incl. Hispasat, ISDEFE (state), Airbus D&S, Indra, SENER.",
-   "sovereignty_role": "Operator of Spain's sovereign milcomms and SAR reconnaissance satellites for the Armed Forces - core Spanish/EU defence space infrastructure.",
+   "currency": null,
+   "description": "Norwegian software and data company for energy and infrastructure: power-market forecasting/trading software, grid (DSO flexibility) management and water/infrastructure solutions, increasingly SaaS. Delisted from the Oslo Stock Exchange on 28 Oct 2024 after a buyout.",
+   "sovereignty_role": "A specialised European power-market and grid software vendor whose forecasting, flexibility and grid-management tools map directly onto the roadmap's AI-for-grids, flexibility and power-markets priorities.",
    "financials": null,
    "private_data": {
-    "last_valuation_eur": null,
+    "last_valuation_eur": 516000000,
     "total_funding_eur": null,
     "key_investors": [
-     "Hispasat (43%)",
-     "ISDEFE / Spanish state (29.9%)",
-     "Airbus Defence & Space (15%)",
-     "Indra (7.1%)",
-     "SENER (5%)"
+     "Arendals Fossekompani",
+     "Advent International",
+     "Generation Investment Management"
     ],
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.hisdesat.es/en/hisdesat_estructura/"
+    "as_of_date": "2024-10",
+    "source_url": "https://www.adventinternational.com/news/arendals-fossekompani-advent-international-and-generation-investment-management-complete-the-acquisition-of-volue/"
    },
-   "size_eur": null,
    "sources": [
-    "https://www.hisdesat.es/en/hisdesat_estructura/"
+    "https://www.adventinternational.com/news/arendals-fossekompani-advent-international-and-generation-investment-management-complete-the-acquisition-of-volue/",
+    "https://www.volue.com/news/financial-results-for-the-second-quarter-of-2024"
    ],
    "uncertain": [
-    "Government/consortium owned (not a startup); no market cap/valuation - size_eur null. Indra's Hispasat acquisition is shifting effective control."
-   ]
+    "Delisted from Oslo Bors 28 Oct 2024 — no longer publicly listed",
+    "~EUR516m valuation converted from NOK 42/share offer (~NOK 6bn) at ~0.086 EUR/NOK; FX-dependent, approximate",
+    "FY2024 operating revenue ~NOK 1,634m (~EUR140m, +12%) per owner disclosure"
+   ],
+   "size_eur": 516000000
   },
   {
-   "id": "telespazio",
-   "name": "Telespazio",
-   "hq_country": "Italy",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 1961,
+   "id": "metron",
+   "name": "METRON",
+   "hq_country": "France",
+   "domain": "AI in energy",
+   "founded": 2013,
    "is_listed": false,
    "ticker": null,
    "yahoo_ticker": null,
    "exchange": null,
-   "currency": "EUR",
-   "description": "Leonardo/Thales 'Space Alliance' JV for satellite services: ground segment, satellite operations, geo-information, SATCOM and Galileo/PNT services. Sister company to Thales Alenia Space.",
-   "sovereignty_role": "Operates ground infrastructure and downstream services underpinning Galileo, Copernicus and government SATCOM - a backbone of EU sovereign space services.",
+   "currency": null,
+   "description": "Paris-based cleantech offering an AI/data-science SaaS energy management and optimisation platform (EMOS) for industrial sites, including the METRON-EVA virtual assistant for real-time energy optimisation.",
+   "sovereignty_role": "A European AI-for-energy software pure-play focused on industrial energy efficiency and optimisation, aligned with the roadmap's emphasis on applying AI to energy efficiency and flexibility.",
    "financials": null,
    "private_data": {
     "last_valuation_eur": null,
-    "total_funding_eur": null,
+    "total_funding_eur": 52500000,
     "key_investors": [
-     "Leonardo (67%)",
-     "Thales (33%)"
+     "GET Fund",
+     "Vertigo Ventures",
+     "Fujitsu Ventures",
+     "Climate Investment"
     ],
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.telespazio.com/en/company/profile"
+    "as_of_date": "2026-06",
+    "source_url": "https://www.energystartups.org/startup/metronlab/"
    },
-   "size_eur": 1000000000,
    "sources": [
-    "https://space.leonardo.com/en/space-alliance"
+    "https://www.energystartups.org/startup/metronlab/",
+    "https://www.metron.energy/"
    ],
    "uncertain": [
-    "Private JV; revenue ~EUR1bn used as a size proxy (approx). Pending Airbus+Leonardo+Thales space-merger MoU (Oct 2025) may change structure."
-   ]
+    "Total funding ~EUR52.5m (energystartups.org); other sources ~USD55.5m — approximate",
+    "No disclosed post-money valuation; investor list a non-exhaustive subset"
+   ],
+   "size_eur": 52500000
   },
   {
-   "id": "rocket-factory-augsburg",
-   "name": "Rocket Factory Augsburg (RFA)",
+   "id": "gridx",
+   "name": "gridX",
    "hq_country": "Germany",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2018,
+   "domain": "AI in energy",
+   "founded": 2016,
    "is_listed": false,
    "ticker": null,
    "yahoo_ticker": null,
    "exchange": null,
-   "currency": "EUR",
-   "description": "German micro-launcher developer (RFA ONE) majority-owned by OHB; targeting low-cost orbital launch, with a first launch attempt slated for 2026 after a 2024 stage-test anomaly.",
-   "sovereignty_role": "A contender in Europe's sovereign small-launch race (ESA/EU launcher initiatives), reducing dependence on foreign launch providers.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 240000000,
-    "total_funding_eur": null,
-    "key_investors": [
-     "OHB SE (majority owner)",
-     "KKR",
-     "Apeiron"
-    ],
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.rfa.space/rfa-secures-30m-investment-from-kkr/"
-   },
-   "size_eur": 240000000,
-   "sources": [
-    "https://www.rfa.space/"
-   ],
-   "uncertain": [
-    "OHB-controlled subsidiary; ~EUR240m valuation; first orbital launch repeatedly slipped to 2026."
-   ]
-  },
-  {
-   "id": "latitude",
-   "name": "Latitude",
-   "hq_country": "France",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2019,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "French (Reims) micro-launcher startup developing the Zephyr rocket (~100 kg to LEO); backed by Bpifrance/France 2030.",
-   "sovereignty_role": "French entrant in the European sovereign small-launch race.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": null,
-    "total_funding_eur": 47000000,
-    "key_investors": [
-     "Credit Mutuel Innovation",
-     "Bpifrance",
-     "UI Investissement",
-     "Kima Ventures"
-    ],
-    "as_of_date": "2024-01-31",
-    "source_url": "https://spacenews.com/latitude-raises-30-million-for-small-launch-vehicle-development/"
-   },
-   "size_eur": 47000000,
-   "sources": [
-    "https://europeanspaceflight.com/latitude-awarded-15m-in-new-france-2030-funding/"
-   ],
-   "uncertain": [
-    "~EUR47m equity raised (excl. EUR15m France-2030 grant); no public valuation."
-   ]
-  },
-  {
-   "id": "hemeria",
-   "name": "Hemeria",
-   "hq_country": "France",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2019,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "French (Toulouse) nanosatellite & microsatellite manufacturer and space-equipment supplier (CNES-supported), moving from subsystems to full smallsat solutions (EO, IR, space situational awareness).",
-   "sovereignty_role": "French sovereign smallsat manufacturer (e.g. Kineis IoT constellation, defence-relevant missions) within the European EO/SSA value chain.",
+   "currency": null,
+   "description": "German energy-management software company (Aachen/Munich) whose XENON IoT platform connects, monitors and controls distributed energy resources (PV, EV chargers, batteries, heat pumps). Wholly owned by energy group E.ON since 2022.",
+   "sovereignty_role": "A European DER/energy-management software platform enabling load flexibility and smart-grid integration of distributed assets, relevant to the roadmap's grid-digitalisation and flexibility goals.",
    "financials": null,
    "private_data": {
     "last_valuation_eur": null,
     "total_funding_eur": null,
     "key_investors": [
-     "Management buyout of Nexeya space activities"
+     "E.ON",
+     "coparion",
+     "Future Energy Ventures",
+     "SAP.io"
     ],
-    "as_of_date": "2026-06-08",
-    "source_url": "https://www.hemeria-group.com/en/"
+    "as_of_date": "2026-06",
+    "source_url": "https://www.crunchbase.com/organization/gridx-2"
    },
-   "size_eur": null,
    "sources": [
-    "https://spacenews.com/hemeria-seeks-niche-in-microsat-manufacturing/"
+    "https://www.crunchbase.com/organization/gridx-2",
+    "https://www.gridx.ai/"
    ],
    "uncertain": [
-    "No public valuation/funding figure - size_eur null."
-   ]
+    "Now a wholly owned subsidiary of E.ON (full ownership by Dec 2022) — no longer an independent startup",
+    "Total funding and valuation not reliably disclosed"
+   ],
+   "size_eur": null
   },
   {
-   "id": "pld-space",
-   "name": "PLD Space",
-   "hq_country": "Spain",
-   "domain": "Space & sovereign infrastructure",
-   "founded": 2011,
+   "id": "tibber",
+   "name": "Tibber",
+   "hq_country": "Norway",
+   "domain": "AI in energy",
+   "founded": 2016,
    "is_listed": false,
    "ticker": null,
    "yahoo_ticker": null,
    "exchange": null,
-   "currency": "EUR",
-   "description": "Spanish launch company (Elche) developing the MIURA 1 suborbital and MIURA 5 orbital rockets. Closed a EUR180m Series C in Mar 2026 (led by Mitsubishi Electric); ~EUR210m raised in 2026.",
-   "sovereignty_role": "Spain's sovereign launch contender for European autonomous access to space.",
+   "currency": null,
+   "description": "Norwegian smart-energy company offering a consumer app with dynamic hourly electricity pricing and a residential virtual power plant integrating EV chargers, heat pumps and batteries to optimise household consumption.",
+   "sovereignty_role": "A European consumer-side flexibility/VPP and smart-energy software player aggregating distributed demand for grid balancing, supporting the roadmap's flexibility and energy-digitalisation objectives.",
    "financials": null,
    "private_data": {
     "last_valuation_eur": null,
-    "total_funding_eur": 210000000,
+    "total_funding_eur": null,
     "key_investors": [
-     "Mitsubishi Electric",
-     "Aciturri",
-     "GMV",
-     "Spanish state co-funding"
+     "Summa Equity",
+     "Balderton Capital",
+     "Eight Roads Ventures",
+     "Schibsted Ventures"
     ],
-    "as_of_date": "2026-03-05",
-    "source_url": "https://spaceflightnow.com/2026/03/05/spanish-launch-startup-pld-space-raises-209-million-to-scale-its-rocket-production/"
+    "as_of_date": "2026-06",
+    "source_url": "https://www.crunchbase.com/organization/tibber"
    },
-   "size_eur": 210000000,
    "sources": [
-    "https://spaceflightnow.com/2026/03/05/spanish-launch-startup-pld-space-raises-209-million-to-scale-its-rocket-production/"
+    "https://www.crunchbase.com/organization/tibber",
+    "https://summaequity.com/summa-equity-backs-smart-energy-player-tibber-in-100m-series-c-round/"
    ],
    "uncertain": [
-    "Private (no BME listing yet despite IPO speculation); ~EUR210m raised used for sizing."
-   ]
+    "HQ registered in Forde, Norway with large hub in Stockholm, Sweden — both EU/EEA",
+    "Total funding ~USD177m over 4 rounds (Tracxn); EUR total not cleanly disclosed",
+    "No disclosed post-money valuation"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "sympower",
+   "name": "Sympower",
+   "hq_country": "Netherlands",
+   "domain": "AI in energy",
+   "founded": 2015,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Amsterdam-based independent flexibility/virtual power plant operator whose software aggregates and optimises distributed assets (incl. battery storage) for demand response and frequency reserves, controlling multiple GW across Europe.",
+   "sovereignty_role": "One of Europe's leading independent VPP/flexibility software operators, aligned with the roadmap's priorities on flexibility, grid balancing and applying software/AI to power markets.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.eu-startups.com/2025/09/amsterdams-sympower-raises-additional-e42-million-funding-to-drive-europes-energy-transition/"
+   },
+   "sources": [
+    "https://www.eu-startups.com/2025/09/amsterdams-sympower-raises-additional-e42-million-funding-to-drive-europes-energy-transition/",
+    "https://sympower.net/about-us"
+   ],
+   "uncertain": [
+    "Total funding ~USD81m over 12 rounds (Tracxn); cumulative EUR total not cleanly disclosed",
+    "No disclosed post-money valuation; key investors not reliably identified — left empty",
+    "'AI' angle is via forecasting/optimisation software (partly inferred)"
+   ],
+   "size_eur": null
   }
  ]
 }

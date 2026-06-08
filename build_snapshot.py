@@ -80,7 +80,9 @@ def main():
         except Exception as e:
             print(f"  ! {c['id']} ({c['yahoo_ticker']}): {e}")
         time.sleep(0.12)
-    if changed == 0 and os.path.exists(SNAP_FILE):
+    listed_ids={c["id"] for c in listed}
+    snap={k:v for k,v in snap.items() if k in listed_ids}   # drop quotes for companies no longer in the universe
+    if changed == 0 and os.path.exists(SNAP_FILE) and set(snap)==set(old):
         print(f"no value changes ({ok}/{len(listed)} checked) — leaving snapshot as-is (no commit)")
         return
     ts = int(time.time())

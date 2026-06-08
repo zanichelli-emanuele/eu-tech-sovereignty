@@ -3,15 +3,10 @@ import { initSecurity, showCompany, clearSecurity, fmtEur } from "./security.js"
 import { initMap, renderMap } from "./map2d.js";
 import { initMatrix, renderMatrix } from "./matrix.js";
 
-export const DOMAINS=["Materials & fab equipment","Semiconductors","Connectivity / telecom infrastructure",
- "Cloud & data infrastructure","AI & foundation models","Cybersecurity & defence",
- "Enterprise / industrial software","Quantum computing","Space & sovereign infrastructure"];
-export const DOMAIN_COLORS={"Materials & fab equipment":"#38bdf8","Semiconductors":"#818cf8","Connectivity / telecom infrastructure":"#2dd4bf",
- "Cloud & data infrastructure":"#a78bfa","AI & foundation models":"#f472b6","Cybersecurity & defence":"#f87171",
- "Enterprise / industrial software":"#fbbf24","Quantum computing":"#c084fc","Space & sovereign infrastructure":"#4ade80"};
-export const DOM_ABBR={"Materials & fab equipment":"MAT","Semiconductors":"SEMI","Connectivity / telecom infrastructure":"CONN",
- "Cloud & data infrastructure":"CLOUD","AI & foundation models":"AI","Cybersecurity & defence":"CYBER",
- "Enterprise / industrial software":"ENT","Quantum computing":"QTM","Space & sovereign infrastructure":"SPACE"};
+// Domains = the four instruments of the EU Tech Sovereignty Package (1:1 with meta.instruments).
+export const DOMAINS=["Semiconductors","Cloud & AI","Open source","AI in energy"];
+export const DOMAIN_COLORS={"Semiconductors":"#818cf8","Cloud & AI":"#38bdf8","Open source":"#4ade80","AI in energy":"#fbbf24"};
+export const DOM_ABBR={"Semiconductors":"SEMI","Cloud & AI":"CLOUD·AI","Open source":"OSS","AI in energy":"ENERGY"};
 export const EDGE_TYPES={ supply_chain:{color:"#ff9e3d",label:"Supply",dash:[],arrow:true},
  ownership:{color:"#36d399",label:"Ownership",dash:[],arrow:true},
  customer:{color:"#56b6ff",label:"Customer",dash:[5,4],arrow:true},
@@ -20,11 +15,12 @@ export const EDGE_TYPES={ supply_chain:{color:"#ff9e3d",label:"Supply",dash:[],a
 const $=id=>document.getElementById(id);
 const growth=c=>c.is_listed&&c.financials?c.financials.revenue_growth_pct:null;
 
-let companies=[], rels=[], byId={}, metaAsOf="";
+let companies=[], rels=[], byId={}, metaAsOf="", instruments=[];
 const state={ selectedId:null, filters:{domains:new Set(DOMAINS), listed:true, priv:true}, sort:{k:"size_eur",dir:-1}, tab:"map" };
 
 const ctx={ get companies(){return companies}, byId, get rels(){return rels}, DOMAINS, DOMAIN_COLORS, DOM_ABBR, EDGE_TYPES, state,
-  select, visible, neighbors, renderActive, fmtEur };
+  select, visible, neighbors, renderActive, fmtEur, get instruments(){return instruments}, instrumentFor };
+function instrumentFor(domain){ return instruments.find(i=>(i.domains||[]).includes(domain))||null; }
 
 function visible(c){ return state.filters.domains.has(c.domain) && ((c.is_listed&&state.filters.listed)||(!c.is_listed&&state.filters.priv)); }
 function neighbors(id){ const s=new Set([id]); rels.forEach(e=>{ if(e.source_id===id)s.add(e.target_id); if(e.target_id===id)s.add(e.source_id); }); return s; }
@@ -40,9 +36,9 @@ function select(id){ state.selectedId=id; try{history.replaceState(null,"","#"+i
     const [cR,rR]=await Promise.all([fetch("data/companies.json"),fetch("data/relationships.json")]);
     const cj=await cR.json(); rels=(await rR.json()).relationships; companies=cj.companies;
     companies.forEach(c=>byId[c.id]=c);
-    metaAsOf=cj.meta?.as_of||""; $("asof").textContent="AS OF "+metaAsOf;
+    metaAsOf=cj.meta?.as_of||""; instruments=cj.meta?.instruments||[]; $("asof").textContent="AS OF "+metaAsOf;
     initSecurity(ctx); initMap(ctx,$("map-canvas"),$("tip")); initMatrix(ctx,$("matrix-canvas"),$("tip"));
-    buildFilters(); buildTable(); buildDatalist(); buildEdgeLegend(); buildStatus(); buildTabs(); clock();
+    buildFilters(); buildTable(); buildDatalist(); buildEdgeLegend(); buildStatus(); buildTabs(); buildPlan(); clock();
     applyLiveSnapshot(true);
     setInterval(()=>applyLiveSnapshot(false),300000);                                  // keep a long-open page fresh
     document.addEventListener("visibilitychange",()=>{ if(!document.hidden) applyLiveSnapshot(false); }); // refresh when you return to the tab
@@ -146,6 +142,30 @@ function buildStatus(){
   $("stat-counts").textContent=`${companies.length} COS · ${DOMAINS.length} DOMAINS · ${rels.length} LINKS · ${companies.filter(c=>c.is_listed).length} LISTED`;
   $("legend").innerHTML=DOMAINS.map(d=>`<span class="lg"><span class="sq" style="background:${DOMAIN_COLORS[d]}"></span>${DOM_ABBR[d]}</span>`).join("");
   $("keys").innerHTML=`<span class="k"><b>/</b> search</span><span class="k"><b>↑↓</b> nav</span><span class="k"><b>M/X</b> view</span><span class="k"><b>1-9</b> domain</span>`;
+}
+// ---------------- the plan (instrument explainer overlay) ----------------
+function buildPlan(){
+  const btn=$("plan-btn"), ov=$("plan-overlay"), box=$("plan-content"), close=$("plan-close");
+  if(!btn||!ov||!box) return;
+  const umb=instruments.find(i=>i.id==="communication"), comps=instruments.filter(i=>i.id!=="communication");
+  const card=i=>{ const col=DOMAIN_COLORS[(i.domains||[])[0]]||"#ff9e3d", cnt=companies.filter(c=>(i.domains||[]).includes(c.domain)).length;
+    return `<div class="inst-card" style="border-top:3px solid ${col}">
+      <div class="inst-top"><span class="inst-name">${i.name}</span><span class="inst-type">${i.type}</span></div>
+      <div class="inst-status">${i.status}${i.domains&&i.domains.length?` · <b style="color:${col}">${cnt} cos in universe</b>`:""}</div>
+      <p class="inst-sum">${i.summary}</p>
+      <ul class="inst-prop">${(i.proposes||[]).map(p=>`<li>${p}</li>`).join("")}</ul>
+      <div class="inst-foot"><span>Funding: ${i.funding}</span><a href="${i.source_url}" target="_blank" rel="noopener">EC source ↗</a></div></div>`; };
+  box.innerHTML=`<div class="plan-head">
+      <h2>The European Technological Sovereignty Package</h2>
+      <div class="plan-sub">Proposed <b>3 June 2026</b> · <span class="warnlaw">a proposal — Chips Act 2.0 &amp; CADA still require adoption by the European Parliament and Council</span></div>
+      ${umb?`<p class="plan-umb">${umb.summary} <a href="${umb.source_url}" target="_blank" rel="noopener">EC source ↗</a></p>`:""}
+    </div>
+    <div class="plan-grid">${comps.map(card).join("")}</div>
+    <div class="plan-note">This terminal is scoped to these four instruments only. A company is mapped to the instrument that targets its domain — inclusion means it operates in a targeted area, <b>not</b> confirmed beneficiary status unless its own notes cite a specific instrument.</div>`;
+  const open=()=>{ov.hidden=false;}, hide=()=>{ov.hidden=true;};
+  btn.onclick=open; close.onclick=hide; ov.addEventListener("click",e=>{ if(e.target===ov) hide(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!ov.hidden) hide(); });
+  if(new URLSearchParams(location.search).get("plan")) open();   // deep-link: ?plan=1 opens the explainer
 }
 function clock(){ const t=()=>{ const d=new Date(); $("clock").textContent=d.toLocaleTimeString("en-GB",{hour12:false}); }; t(); setInterval(t,1000); }
 // Pull the server's live snapshot (price + market cap, EUR) and overlay it on the universe.

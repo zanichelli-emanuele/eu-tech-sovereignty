@@ -20,9 +20,11 @@ export function initMap(ctx,canvas,tipEl){ C=ctx; cvs=canvas; g=cvs.getContext("
 
 function nodeR(s){ const lg=Math.log10(s||1e8); return Math.max(3.8,Math.min(18, 4+(lg-8)/3.8*12)); }
 function layout(){
-  pos.clear(); clusters=[]; const cw=Wd/3, ch=Hd/3;
+  pos.clear(); clusters=[];
+  const n=C.DOMAINS.length, cols=Math.max(1,Math.ceil(Math.sqrt(n))), rows=Math.ceil(n/cols);
+  const cw=Wd/cols, ch=Hd/rows;
   C.DOMAINS.forEach((dom,di)=>{
-    const col=di%3,row=(di/3|0), cx=(col+.5)*cw, cy=(row+.5)*ch, R=Math.min(cw,ch)*0.34;
+    const col=di%cols,row=(di/cols|0), cx=(col+.5)*cw, cy=(row+.5)*ch, R=Math.min(cw,ch)*0.34;
     const list=C.companies.filter(c=>c.domain===dom).sort((a,b)=>(b.size_eur||0)-(a.size_eur||0));
     const n=list.length;
     list.forEach((c,k)=>{ const rr=R*Math.sqrt((k+0.6)/n), a=k*2.39996323;

@@ -9,11 +9,11 @@ export const fmtEur=n=>{ if(n==null||isNaN(n))return"—"; const a=Math.abs(n);
 const fmtPct=n=>(n==null||isNaN(n))?"—":(n>0?"+":"")+n.toFixed(1)+"%";
 const fmtNum=n=>(n==null||isNaN(n))?"—":n.toLocaleString("en-US");
 
-let ctx=null, chart=null, pricesCache={}, current=null, range="1Y";
+let ctx=null, chart=null, pricesCache={}, current=null, range="1Y", liveTimer=null;
 const $=id=>document.getElementById(id);
 
 export function initSecurity(context){ ctx=context; }
-export function clearSecurity(){ current=null; $("sec-content").hidden=true; $("sec-empty").hidden=false; $("sec-id").textContent=""; if(chart){chart.destroy();chart=null;} }
+export function clearSecurity(){ stopLive(); current=null; $("sec-content").hidden=true; $("sec-empty").hidden=false; $("sec-id").textContent=""; if(chart){chart.destroy();chart=null;} }
 
 export async function showCompany(c){
   current=c; const color=ctx.DOMAIN_COLORS[c.domain]||"#ff9e3d";
@@ -35,6 +35,7 @@ export async function showCompany(c){
         </div>
       </div>
     </div>
+    <div id="sec-live" class="sec-live" hidden></div>
     <div class="sec-sec"><h4>${c.is_listed?'Financials':'Private company'}</h4><div class="fin" id="sec-fin"></div><div class="src" id="sec-fin-src"></div></div>
     <div class="sec-sec">
       <div class="chart-head"><h4 style="margin:0">Share price · EUR</h4>
@@ -46,7 +47,7 @@ export async function showCompany(c){
     <div class="sec-sec"><h4>Role in the EU stack</h4><p class="prose role">${c.sovereignty_role||'—'}</p></div>
     <div class="sec-sec"><h4>Connections</h4><div id="sec-conn"></div></div>
     ${(c.uncertain&&c.uncertain.length)?`<div class="uncert"><b>Notes &amp; caveats:</b> ${c.uncertain.join(' · ')}</div>`:''}`;
-  buildFin(c); buildConns(c);
+  buildFin(c); buildConns(c); stopLive(); if(c.is_listed&&c.yahoo_ticker) startLive(c);
   el.querySelectorAll(".rbtns button").forEach(b=>b.onclick=()=>{ range=b.dataset.r;
     el.querySelectorAll(".rbtns button").forEach(x=>x.classList.toggle("on",x===b)); drawChart(c); });
   await drawChart(c);
@@ -84,6 +85,17 @@ function buildConns(c){
 async function loadPrices(id){ if(pricesCache[id]!==undefined)return pricesCache[id];
   try{ const r=await fetch(`data/prices/${id}.json`,{cache:"no-store"}); pricesCache[id]=r.ok?await r.json():null; }
   catch(e){ pricesCache[id]=null; } return pricesCache[id]; }
+
+function stopLive(){ if(liveTimer){clearInterval(liveTimer);liveTimer=null;} const el=document.getElementById("sec-live"); if(el)el.hidden=true; }
+function startLive(c){ stopLive(); fetchLive(c); liveTimer=setInterval(()=>{ current===c?fetchLive(c):stopLive(); },45000); }
+async function fetchLive(c){
+  try{ const r=await fetch(`api/quote?t=${encodeURIComponent(c.yahoo_ticker)}`,{cache:"no-store"}); if(!r.ok)return; const q=await r.json();
+    if(current!==c||q.error||q.price_eur==null)return; const el=document.getElementById("sec-live"); if(!el)return;
+    const up=(q.change_pct||0)>=0, t=new Date(q.ts*1000).toLocaleTimeString("en-GB",{hour12:false});
+    el.hidden=false; el.innerHTML=`<span class="live-dot"></span><b>LIVE</b> <span class="lp">€${q.price_eur.toFixed(2)}</span> `
+      +`<span class="${up?'pos':'neg'}">${q.change_pct==null?'':(q.change_pct>0?'+':'')+q.change_pct.toFixed(2)+'%'}</span>`
+      +`<span class="lt">${t} · Yahoo ~15-min delayed</span>`;
+  }catch(e){} }
 
 async function drawChart(c){
   const box=$("chart-box"), empty=$("chart-empty");

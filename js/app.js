@@ -42,7 +42,7 @@ function select(id){ state.selectedId=id; try{history.replaceState(null,"","#"+i
     companies.forEach(c=>byId[c.id]=c);
     $("asof").textContent="AS OF "+(cj.meta?.as_of||"");
     initSecurity(ctx); initMap(ctx,$("map-canvas"),$("tip")); initMatrix(ctx,$("matrix-canvas"),$("tip"));
-    buildFilters(); buildTable(); buildDatalist(); buildEdgeLegend(); buildStatus(); buildTabs(); clock();
+    buildFilters(); buildTable(); buildDatalist(); buildEdgeLegend(); buildStatus(); buildTabs(); clock(); pingLive();
     window.addEventListener("resize",()=>renderActive());
     document.addEventListener("keydown",onKey);
     const params=new URLSearchParams(location.search);
@@ -144,3 +144,8 @@ function buildStatus(){
   $("keys").innerHTML=`<span class="k"><b>/</b> search</span><span class="k"><b>↑↓</b> nav</span><span class="k"><b>M/X</b> view</span><span class="k"><b>1-9</b> domain</span>`;
 }
 function clock(){ const t=()=>{ const d=new Date(); $("clock").textContent=d.toLocaleTimeString("en-GB",{hour12:false}); }; t(); setInterval(t,1000); }
+function pingLive(){ const el=$("live-ind"); if(!el)return;
+  fetch("api/quote?t=ASML.AS",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(q=>{
+    if(q&&!q.error&&q.price_eur!=null){ el.innerHTML='<span class="live-dot"></span>LIVE'; el.classList.add("on"); el.title="Live quotes via local server (Yahoo, ~15-min delayed)"; }
+    else { el.textContent="◌ SNAPSHOT"; el.title="Static snapshot — run serve.py for live quotes"; }
+  }).catch(()=>{ el.textContent="◌ SNAPSHOT"; el.title="Static snapshot — run serve.py for live quotes"; }); }

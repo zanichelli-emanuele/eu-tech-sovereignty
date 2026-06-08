@@ -2,83 +2,83 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>EU Tech Sovereignty Universe</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EU·SOV Terminal — EU Tech Sovereignty</title>
 <link rel="stylesheet" href="css/style.css">
-<script type="importmap">
-{ "imports": {
-  "three": "./lib/three.module.js",
-  "three/addons/": "./lib/jsm/"
-}}
-</script>
 <script src="lib/chart.umd.js" defer></script>
 </head>
 <body>
-  <div id="scene"></div>
-  <div id="css2d"></div>
+<div id="term">
 
-  <div id="hud">
-    <div class="title">
-      <h1><span class="eu">EU</span> Tech Sovereignty Universe<span id="asof" class="badge-asof"></span></h1>
-      <p class="disc">Informational only — <b>not investment advice</b>.</p>
+  <!-- row 1 — command bar -->
+  <header id="cmdbar">
+    <div class="brand">EU<span class="dot">·</span>SOV<span class="brand-sub">TECH&nbsp;SOVEREIGNTY&nbsp;TERMINAL</span></div>
+    <div class="cmd">
+      <span class="cmd-go">▸</span>
+      <input id="cmd" type="text" autocomplete="off" spellcheck="false" list="cmd-list"
+             placeholder="SEARCH COMPANY / DOMAIN — ⏎">
+      <datalist id="cmd-list"></datalist>
     </div>
-  </div>
+    <div class="cmd-right"><span id="clock" class="clock">--:--:--</span><span id="asof" class="asof"></span></div>
+  </header>
 
-  <div id="search-wrap"><input id="search" list="company-list" placeholder="Search a company &amp; fly to it…" autocomplete="off"><datalist id="company-list"></datalist></div>
+  <!-- row 2 — workspace -->
+  <main id="work">
 
-  <div id="left">
-    <div class="glass" style="flex:0 0 auto">
-      <p class="panel-h">Domains · tap to filter</p>
-      <div id="legend"></div>
-      <div class="divider"></div>
-      <p class="panel-h" style="margin-bottom:6px">Links</p>
-      <div id="edgekey"></div>
-    </div>
-    <div class="glass" style="display:flex;flex-direction:column;min-height:0;flex:1 1 auto">
-      <p class="panel-h">Show / hide</p>
-      <div id="filters-scroll">
-        <div id="filter-listed"></div>
+    <!-- A · UNIVERSE -->
+    <section id="universe" class="panel">
+      <div class="panel-h">UNIVERSE<span id="uni-count" class="hcount"></span></div>
+      <div id="uni-filters" class="filters"></div>
+      <div class="uni-wrap">
+        <table id="uni-table">
+          <thead><tr>
+            <th class="th-dom" title="domain"></th>
+            <th data-k="ticker">CODE</th>
+            <th data-k="name">NAME</th>
+            <th data-k="size_eur" class="num">MKT€</th>
+            <th data-k="growth" class="num">Δ%</th>
+          </tr></thead>
+          <tbody id="uni-body"></tbody>
+        </table>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div id="controls">
-    <button class="btn" id="btn-layout">⬚ Stack layers</button>
-    <button class="btn" id="btn-rotate">⤿ Auto-rotate</button>
-    <button class="btn" id="btn-reset">⟲ Reset view</button>
-  </div>
-
-  <div id="tooltip"><div class="tt-name"></div><div class="tt-dom"></div></div>
-  <div class="hint">drag to orbit · scroll to zoom · right-drag to pan · hover a star to trace its links</div>
-
-  <!-- detail panel -->
-  <aside id="panel" class="glass">
-    <button id="panel-close" title="Close">✕</button>
-    <div class="inner">
-      <div id="p-flag"></div>
-      <div id="p-name"></div>
-      <div class="chips" id="p-chips"></div>
-      <div class="sec"><h3>What they do</h3><p id="p-desc"></p></div>
-      <div class="sec"><h3>Role in the EU stack</h3><p id="p-role" class="role"></p></div>
-      <div class="sec" id="p-fin-sec"><h3 id="p-fin-h">Financials</h3><div class="fin" id="p-fin"></div><div class="src" id="p-fin-src"></div></div>
-      <div class="sec">
-        <div id="chart-head"><h3 style="margin:0">Share price (EUR)</h3>
-          <div class="range-btns"><button class="btn active" data-range="1Y">1Y</button><button class="btn" data-range="5Y">5Y</button></div>
-        </div>
-        <div id="chart-box"><canvas id="p-chart"></canvas></div>
-        <div id="chart-empty" style="display:none"></div>
+    <!-- B · MAIN (map / matrix) -->
+    <section id="mainpanel" class="panel">
+      <div class="panel-h tabbar">
+        <button class="tab active" data-tab="map">NETWORK MAP</button>
+        <button class="tab" data-tab="matrix">MATRIX</button>
+        <span class="tab-hint">[M / X]</span>
+        <span id="edge-legend" class="edge-legend"></span>
       </div>
-      <div class="sec" id="p-conn-sec"><h3>Connections</h3><div id="p-connections"></div></div>
-      <div class="sec" id="p-uncert-sec" style="display:none"><div class="uncert" id="p-uncert"></div></div>
-    </div>
-  </aside>
+      <div class="canvas-wrap" id="canvas-wrap">
+        <canvas id="map-canvas"></canvas>
+        <canvas id="matrix-canvas" hidden></canvas>
+        <div id="tip" class="tip" hidden></div>
+        <div id="map-hint" class="canvas-hint">hover to trace links · click to load · scroll to zoom · drag to pan</div>
+      </div>
+    </section>
 
-  <div id="loading"><div class="spinner"></div><div class="lt">Assembling the galaxy…</div></div>
-  <div id="webgl-error">
-    <h2>WebGL unavailable</h2>
-    <p class="lt">This 3D galaxy needs WebGL. Try a recent Chrome/Edge/Firefox/Safari with hardware acceleration enabled.<br>The underlying data still lives in <code>data/companies.json</code>.</p>
-  </div>
+    <!-- C · SECURITY -->
+    <section id="security" class="panel">
+      <div class="panel-h">SECURITY<span id="sec-id" class="hcount"></span></div>
+      <div class="sec-scroll">
+        <div id="sec-empty" class="sec-empty">◂&nbsp; SELECT A COMPANY<br><span>from the universe, map or matrix</span></div>
+        <div id="sec-content" hidden></div>
+      </div>
+    </section>
 
-  <script type="module" src="js/main.js"></script>
+  </main>
+
+  <!-- row 3 — status bar -->
+  <footer id="status">
+    <span class="disc">● INFORMATIONAL — NOT INVESTMENT ADVICE · verify live quotes</span>
+    <span id="stat-counts" class="muted"></span>
+    <span id="legend" class="legend"></span>
+    <span id="keys" class="keys"></span>
+  </footer>
+
+</div>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>

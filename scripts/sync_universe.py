@@ -25,8 +25,55 @@ import json, os, re, sys, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 DRY = "--dry-run" in sys.argv
+PREVIEW = "--preview" in sys.argv      # build companies.proposed.json + diff; never touch companies.json
+APPLY = "--apply" in sys.argv          # write companies.json (guarded)
 CAP_EUR = float(os.environ.get("CAP_EUR", "20e9"))
-MIN_AUTO_FRACTION = 0.5     # empty-file guard: abort if auto count drops below half of prior
+MIN_AUTO_FRACTION = 0.5                 # empty-file guard: abort if auto count drops below half of prior
+TODAY = datetime.date.today().isoformat()
+SUFFIX_EXCH = {".MI": ("Borsa Italiana", "EUR"), ".DE": ("XETRA", "EUR"), ".PA": ("Euronext Paris", "EUR"),
+    ".AS": ("Euronext Amsterdam", "EUR"), ".HE": ("Nasdaq Helsinki", "EUR"), ".ST": ("Nasdaq Stockholm", "SEK"),
+    ".OL": ("Oslo Børs", "NOK"), ".CO": ("Nasdaq Copenhagen", "DKK"), ".MC": ("BME Madrid", "EUR"),
+    ".BR": ("Euronext Brussels", "EUR"), ".VI": ("Wiener Börse", "EUR"), ".WA": ("GPW Warsaw", "PLN"),
+    ".IR": ("Euronext Dublin", "EUR"), ".LS": ("Euronext Lisbon", "EUR"), ".AT": ("Athens", "EUR")}
+FIN_KEYS = ["market_cap_eur", "revenue_eur", "revenue_growth_pct", "gross_margin_pct", "net_margin_pct",
+            "pe_ratio", "net_debt_eur", "employees", "as_of_date", "source_url"]
+
+def kebab(s):
+    s = (s or "").lower()
+    s = re.sub(r"\b(s\.?p\.?a\.?|n\.?v\.?|s\.?a\.?s?|se|ag|plc|oyj|asa|gmbh|ab|sdb|group|holdings?|the)\b", " ", s)
+    return re.sub(r"[^a-z0-9]+", "-", s).strip("-") or "x"
+
+def build_auto_record(r, cand, band):
+    """Full companies.json record for an auto-sector entry (promote or candidate band)."""
+    yt = r["ticker"]; suf = "." + yt.split(".", 1)[1] if "." in yt else ""
+    exch, ccy = SUFFIX_EXCH.get(suf, (None, "USD" if suf == "" else "EUR"))
+    cand = cand or {}
+    fin = {k: None for k in FIN_KEYS}
+    fin["market_cap_eur"] = r.get("market_cap_eur"); fin["as_of_date"] = TODAY
+    fin["source_url"] = "https://finance.yahoo.com/quote/" + yt
+    return {
+        "id": kebab(r["name"]), "name": r["name"], "hq_country": cand.get("country"),
+        "domain": r["domain"], "founded": None, "is_listed": True,
+        "ticker": yt.split(".")[0], "yahoo_ticker": yt, "exchange": exch, "currency": ccy,
+        "description": (cand.get("summary") or "")[:600] or None,
+        "sovereignty_role": f"Auto-classified by sector codes + keywords ({r['rationale']}). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+        "financials": fin, "private_data": None, "size_eur": r.get("market_cap_eur"),
+        "sources": ["https://finance.yahoo.com/quote/" + yt],
+        "uncertain": ["Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."],
+        "source": "auto-sector", "band": band, "confidence": r["confidence"],
+        "classified_at": TODAY, "rationale": r["rationale"], "affiliations": [],
+    }
+
+def build_proposed(companies, log, cands):
+    out = []
+    for c in companies:                         # PIN curated: copy verbatim, only stamp source
+        c2 = dict(c); c2.setdefault("source", "curated"); out.append(c2)
+    have = {c.get("yahoo_ticker") for c in companies}
+    for r in [x for x in log["added"] if x.get("ticker")] + log["candidates"]:
+        band = "candidate" if r in log["candidates"] else "promote"
+        if r["ticker"] not in have:
+            out.append(build_auto_record(r, cands.get(r["ticker"]), band)); have.add(r["ticker"])
+    return out
 
 def load(p, d=None):
     try: return json.load(open(os.path.join(DATA, p)))
@@ -139,11 +186,36 @@ def main():
           f"candidate={len(log['candidates'])} sector-wins={len(log['sector_wins'])} cap-demotions={len(log['cap_demotions'])} "
           f"tags={len(log['tags_added'])} remove={len(log['removed'])} warn={len(log['warnings'])} | curated-pinned={log['curated_pinned']}")
     print(f"wrote data/universe_log.json  (dry_run={DRY})")
-    if not DRY:
-        new_auto = prior_auto + len([r for r in log["added"] if r.get("ticker") or not r.get("ticker")]) - len(log["removed"])
-        if prior_auto and new_auto < MIN_AUTO_FRACTION * prior_auto:
-            sys.exit(f"ABORT: auto count would drop {prior_auto}->{new_auto} (<½) — refusing to write a degenerate universe.")
-        sys.exit("APPLY path not enabled in this commit — dry-run only until the diff is approved.")
+
+    if PREVIEW or APPLY:
+        proposed = build_proposed(companies, log, cands)
+        n_cur = sum(1 for c in proposed if c.get("source") == "curated")
+        newrecs = [c for c in proposed if str(c.get("source", "")).startswith("auto")]
+        # verify curated are byte-identical except the added source field
+        orig = {c["id"]: c for c in companies}
+        changed = [c["id"] for c in proposed if c.get("source") == "curated"
+                   and orig.get(c["id"]) is not None
+                   and {k: v for k, v in c.items() if k != "source"} != orig[c["id"]]]
+        print(f"\n=== {'APPLY' if APPLY else 'APPLY PREVIEW'} ===")
+        print(f"curated stamped source='curated': {n_cur}/{len(companies)}  |  curated with changes beyond +source: {len(changed)} {changed[:8]}")
+        print(f"new auto records: {len(newrecs)}")
+        for c in newrecs:
+            print(f"  +{c['source']}/{c['band']:9} {c['domain']:13} {c['yahoo_ticker']:11} conf {c['confidence']:.2f}  mc=€{(c['size_eur'] or 0)/1e9:.1f}B  {c['name'][:30]}")
+        # guards
+        if len(proposed) < len(companies) or n_cur != len(companies):
+            sys.exit(f"ABORT guard: proposed={len(proposed)} curated={n_cur} vs existing={len(companies)} — refusing degenerate write.")
+        if changed:
+            sys.exit(f"ABORT: curated records would change beyond +source ({changed}). Investigate before writing.")
+        if APPLY:
+            if prior_auto and len(newrecs) < MIN_AUTO_FRACTION * prior_auto:
+                sys.exit(f"ABORT empty-file guard: new auto={len(newrecs)} < ½ prior auto={prior_auto}.")
+            d = load("companies.json"); d["companies"] = proposed
+            json.dump(d, open(os.path.join(DATA, "companies.json"), "w"), ensure_ascii=False, indent=1)
+            print(f"WROTE companies.json: {len(proposed)} ({n_cur} curated + {len(newrecs)} auto)")
+        else:
+            d = load("companies.json"); d["companies"] = proposed
+            json.dump(d, open(os.path.join(DATA, "companies.proposed.json"), "w"), ensure_ascii=False, indent=1)
+            print("wrote data/companies.proposed.json  (PREVIEW — companies.json untouched)")
 
 if __name__ == "__main__":
     main()

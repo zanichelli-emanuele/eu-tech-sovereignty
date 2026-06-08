@@ -131,7 +131,8 @@
    "sources": [
     "https://www.asml.com/en/investors",
     "https://digital-strategy.ec.europa.eu/"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "asm-international",
@@ -162,7 +163,8 @@
    "size_eur": 42139795456,
    "sources": [
     "https://www.asm.com/investor-relations"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "besi",
@@ -193,7 +195,8 @@
    "size_eur": 21720672256,
    "sources": [
     "https://www.besi.com/investor-relations/"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "aixtron",
@@ -224,7 +227,8 @@
    "size_eur": 6261870592,
    "sources": [
     "https://www.aixtron.com/en/investors"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "soitec",
@@ -255,7 +259,8 @@
    "size_eur": 5406220288,
    "sources": [
     "https://www.soitec.com/en/investors"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "siltronic",
@@ -287,7 +292,8 @@
    "sources": [
     "https://www.siltronic.com/en/press/press-releases/siltronic-ag-bericht-zum-geschaeftsjahr-2025.html",
     "https://en.wikipedia.org/wiki/Siltronic"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "zeiss-smt",
@@ -320,7 +326,8 @@
    ],
    "uncertain": [
     "Foundation-owned, not VC-funded; revenue ~€5.06bn & ~9,349 staff are for the full ZEISS SMT segment (FY2024/25); no public valuation."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "pva-tepla",
@@ -351,7 +358,8 @@
    "size_eur": 836100800,
    "sources": [
     "https://www.pvatepla.com/corporate/investorrelations/"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "lpkf",
@@ -382,7 +390,8 @@
    "size_eur": 529125408,
    "sources": [
     "https://www.lpkf.com/en/investor-relations"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "stmicroelectronics",
@@ -414,7 +423,8 @@
    "sources": [
     "https://investors.st.com/",
     "https://www.sec.gov/Archives/edgar/data/0000932787/000093278726000009/stm-20251231.htm"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "infineon",
@@ -446,7 +456,8 @@
    "sources": [
     "https://www.infineon.com/investor",
     "https://www.infineon.com/row/public/documents/corporate/press/2025/infxx202511-021e.pdf"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "nxp",
@@ -481,7 +492,8 @@
    ],
    "uncertain": [
     "Dutch HQ but US-listed (Nasdaq, USD); no EU listing."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "x-fab",
@@ -512,7 +524,8 @@
    "size_eur": 1382085760,
    "sources": [
     "https://www.xfab.com/investor-relations"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "nordic-semiconductor",
@@ -543,7 +556,8 @@
    "size_eur": 3501000000,
    "sources": [
     "https://www.nordicsemi.com/Investor-Relations"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "melexis",
@@ -574,7 +588,8 @@
    "size_eur": 3248619776,
    "sources": [
     "https://www.melexis.com/en/investor-relations"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "ovhcloud",
@@ -605,7 +620,8 @@
    "size_eur": 2530739200,
    "sources": [
     "https://corporate.ovhcloud.com/en/investor-relations/"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "ionos",
@@ -636,7 +652,8 @@
    "size_eur": 4247719936,
    "sources": [
     "https://www.ionos-group.com/investor-relations/publications/announcements/ionos-reports-successful-2025-fiscal-year-profitability-at-record-levels.html"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "atos",
@@ -670,7 +687,8 @@
    ],
    "uncertain": [
     "Severe financial distress / 'Genesis' restructuring; Bull/HPC divested to the French State (Apr 2026) so the group no longer owns supercomputing; FY2025 figures preliminary."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "stackit",
@@ -701,7 +719,8 @@
    ],
    "uncertain": [
     "No standalone revenue/valuation disclosed (parent Schwarz Digits ~€1.9bn division revenue)."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "scaleway",
@@ -732,7 +751,8 @@
    ],
    "uncertain": [
     "No standalone revenue/valuation disclosed; ~639 employees."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "mistral",
@@ -766,7 +786,8 @@
    "sources": [
     "https://www.asml.com/en/news/press-releases/2025/asml-mistral-ai-enter-strategic-partnership",
     "https://mistral.ai/news/"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "aleph-alpha",
@@ -800,7 +821,8 @@
    ],
    "uncertain": [
     "Standalone valuation effectively undisclosed; pending Cohere merger (announced Apr 2026, not closed)."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "deepl",
@@ -835,7 +857,8 @@
    ],
    "uncertain": [
     "Latest priced round May 2024; may be stale."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "at-and-s",
@@ -869,7 +892,8 @@
    ],
    "uncertain": [
     "Much substrate capacity is China-located; sovereignty contribution is HQ/IP plus Austrian production."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "suss-microtec",
@@ -900,7 +924,8 @@
    "size_eur": 1750000000,
    "sources": [
     "https://en.wikipedia.org/wiki/Suss_Microtec"
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "black-forest-labs",
@@ -934,7 +959,8 @@
    ],
    "uncertain": [
     "USD-reported ($300M Series B at $3.25bn, Dec 2025); EUR approx."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "h-company",
@@ -969,7 +995,8 @@
    ],
    "uncertain": [
     "~$220M seed (USD), EUR approx; no public valuation; cap table changed after 2024 co-founder departures."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "jenoptik",
@@ -1003,7 +1030,8 @@
    ],
    "uncertain": [
     "Semiconductor optics is one segment of a broader group (also mobility/metrology)."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "elmos-semiconductor",
@@ -1035,7 +1063,8 @@
    "sources": [
     "https://stockanalysis.com/quote/etr/ELG/"
    ],
-   "uncertain": []
+   "uncertain": [],
+   "source": "curated"
   },
   {
    "id": "ams-osram",
@@ -1069,7 +1098,8 @@
    ],
    "uncertain": [
     "Austria-HQ (EU) but PRIMARY LISTING is SIX Swiss in CHF; market cap converted from CHF. Loss-making FY2025 (net loss ~EUR188m) so P/E n/a."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "sipearl",
@@ -1102,7 +1132,8 @@
    ],
    "uncertain": [
     "Private; no public valuation — total funding (~EUR130m) used as size proxy."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "smart-photonics",
@@ -1135,7 +1166,8 @@
    ],
    "uncertain": [
     "Private; no public valuation — total funding (~EUR220m) used as size proxy."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "cancom",
@@ -1167,7 +1199,8 @@
    "sources": [
     "https://newsroom.cancom.com/news/cancom-integrates-stackits-sovereign-cloud-services-into-the-cloud-marketplace"
    ],
-   "uncertain": []
+   "uncertain": [],
+   "source": "curated"
   },
   {
    "id": "northern-data",
@@ -1201,7 +1234,8 @@
    ],
    "uncertain": [
     "Distressed/speculative: FY2025 revenue only ~EUR80m (-34%), large net loss; revenue lags the deployed-capacity narrative."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "lighton",
@@ -1235,7 +1269,8 @@
    ],
    "uncertain": [
     "Micro-cap (~EUR24m), down heavily from IPO; only market cap verified, other financials left null."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "kyutai",
@@ -1268,7 +1303,8 @@
    ],
    "uncertain": [
     "NON-PROFIT lab, not a company — no valuation/cap table; the EUR300m is a 5-year funding commitment used for sizing only."
-   ]
+   ],
+   "source": "curated"
   },
   {
    "id": "qt-group",
@@ -1303,7 +1339,8 @@
    "uncertain": [
     "Employee count 1,136 (incl. 215 from IAR acquisition) is year-end 2025 per company report relayed via press, not a direct IR PDF"
    ],
-   "size_eur": 704352187
+   "size_eur": 704352187,
+   "source": "curated"
   },
   {
    "id": "suse",
@@ -1339,7 +1376,8 @@
     "Revenue not disclosed since going private (third-party ARR estimates ~$298M)",
     "Total funding not cleanly disclosed"
    ],
-   "size_eur": 5500000000
+   "size_eur": 5500000000,
+   "source": "curated"
   },
   {
    "id": "odoo",
@@ -1375,7 +1413,8 @@
     "EUR7bn (Jan 2026) is a secondary-transaction valuation, not a primary raise",
     "Reported revenue (~EUR282M 2023) are press figures, not audited filings"
    ],
-   "size_eur": 7000000000
+   "size_eur": 7000000000,
+   "source": "curated"
   },
   {
    "id": "nextcloud",
@@ -1406,7 +1445,8 @@
     "Employee count ~100-143 varies by source; left null",
     "Employee/organically funded with no significant VC valuation disclosed; valuation and funding null"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "univention",
@@ -1437,7 +1477,8 @@
     "Employee count (LinkedIn band 51-200) not precisely confirmed",
     "No disclosed external valuation or VC funding"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "xwiki",
@@ -1469,7 +1510,8 @@
    "uncertain": [
     "~EUR2.4M is France 2030 consortium grant funding over ~4 years, not equity venture funding"
    ],
-   "size_eur": 2400000
+   "size_eur": 2400000,
+   "source": "curated"
   },
   {
    "id": "centreon",
@@ -1501,7 +1543,8 @@
     "Sixth Street investment (Nov 2025, first external fundraise) amount and valuation not disclosed",
     "~160 employees / ~1,300 customers per press, not audited"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "openproject",
@@ -1531,7 +1574,8 @@
    "uncertain": [
     "No disclosed external valuation or VC funding"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "schneider-electric",
@@ -1567,7 +1611,8 @@
     "Schneider is a large diversified electrical/automation industrial — total revenue (~EUR38bn, +8% organic FY2024) is NOT a proxy for AI-in-energy exposure; only a portion is energy-software/AI",
     "Employee count 155,822 (2024) varies by source"
    ],
-   "size_eur": 153181258585
+   "size_eur": 153181258585,
+   "source": "curated"
   },
   {
    "id": "siemens-energy",
@@ -1603,7 +1648,8 @@
     "Large diversified energy-hardware industrial — only a portion (Grid Technologies + digital) is grid-software/AI; total revenue not a proxy for AI-in-energy exposure",
     "AI/digital-grid revenue not separately disclosed"
    ],
-   "size_eur": 134740379589
+   "size_eur": 134740379589,
+   "source": "curated"
   },
   {
    "id": "volue",
@@ -1639,7 +1685,8 @@
     "~EUR516m valuation converted from NOK 42/share offer (~NOK 6bn) at ~0.086 EUR/NOK; FX-dependent, approximate",
     "FY2024 operating revenue ~NOK 1,634m (~EUR140m, +12%) per owner disclosure"
    ],
-   "size_eur": 516000000
+   "size_eur": 516000000,
+   "source": "curated"
   },
   {
    "id": "metron",
@@ -1675,7 +1722,8 @@
     "Total funding ~EUR52.5m (energystartups.org); other sources ~USD55.5m — approximate",
     "No disclosed post-money valuation; investor list a non-exhaustive subset"
    ],
-   "size_eur": 52500000
+   "size_eur": 52500000,
+   "source": "curated"
   },
   {
    "id": "gridx",
@@ -1711,7 +1759,8 @@
     "Now a wholly owned subsidiary of E.ON (full ownership by Dec 2022) — no longer an independent startup",
     "Total funding and valuation not reliably disclosed"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "tibber",
@@ -1748,7 +1797,8 @@
     "Total funding ~USD177m over 4 rounds (Tracxn); EUR total not cleanly disclosed",
     "No disclosed post-money valuation"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "sympower",
@@ -1780,7 +1830,8 @@
     "No disclosed post-money valuation; key investors not reliably identified — left empty",
     "'AI' angle is via forecasting/optimisation software (partly inferred)"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "proxmox-server-solutions",
@@ -1810,7 +1861,8 @@
    "uncertain": [
     "Appears bootstrapped/self-financed; no funding or valuation data found"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "open-xchange",
@@ -1843,7 +1895,8 @@
    "uncertain": [
     "Current valuation/total funding not verified; investor list from secondary sources"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "enalean-tuleap",
@@ -1873,7 +1926,8 @@
    "uncertain": [
     "Appears self-funded; no external funding/valuation identified"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "zammad",
@@ -1904,7 +1958,8 @@
     "Founding 2014 (project) vs 2015 (legal entity)",
     "Appears bootstrapped"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "linagora",
@@ -1936,7 +1991,8 @@
    "uncertain": [
     "Funding/valuation not disclosed; Groupe Chevrillon is a shareholder, stake unverified"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "passbolt",
@@ -1970,7 +2026,8 @@
    "uncertain": [
     "Total funding ~EUR13.1M approximate (converted from ~$14.1M cumulative); valuation undisclosed"
    ],
-   "size_eur": 13100000
+   "size_eur": 13100000,
+   "source": "curated"
   },
   {
    "id": "kalray",
@@ -2006,7 +2063,8 @@
     "FY2025 consolidated revenue ~EUR16.45M not like-for-like vs FY2024 (~EUR24.8M) after the Data Acceleration business was sold Feb 2025; growth left null",
     "Employees ~215 reduced after the Feb 2025 divestiture"
    ],
-   "size_eur": 191296480
+   "size_eur": 191296480,
+   "source": "curated"
   },
   {
    "id": "axelera-ai",
@@ -2043,7 +2101,8 @@
     "Feb 2026 round ~$250M; total ~$450M incl. debt/grants not cleanly confirmed in EUR — left null",
     "Valuation undisclosed (press implies $1-2B)"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "black-semiconductor",
@@ -2078,7 +2137,8 @@
    "uncertain": [
     "EUR254.4M (Jun 2024) is mostly public funding; ~EUR25.7M private"
    ],
-   "size_eur": 254400000
+   "size_eur": 254400000,
+   "source": "curated"
   },
   {
    "id": "vsora",
@@ -2114,7 +2174,8 @@
     "Apr 2025 round EUR40M; cumulative funding not cleanly aggregated — left null",
     "Valuation undisclosed"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "aledia",
@@ -2149,7 +2210,8 @@
    "uncertain": [
     "~$600M raised cumulatively reported; USD/EUR mixed, not precisely confirmed — total left null"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "greenwaves-technologies",
@@ -2184,7 +2246,8 @@
     "~EUR50M total raised reported; more recent funding not confirmed",
     "Valuation undisclosed"
    ],
-   "size_eur": 50000000
+   "size_eur": 50000000,
+   "source": "curated"
   },
   {
    "id": "nexperia",
@@ -2217,7 +2280,8 @@
     "EU-HQ but ultimately Chinese-owned (Wingtech, since 2019); under Dutch government control over governance since Oct 2025",
     "Subsidiary, not separately listed; 2024 revenue ~$2.06B, ~12,500 staff globally (not all EU)"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "psi-software",
@@ -2253,7 +2317,8 @@
     "Take-private in progress: Warburg Pincus reached ~83% by Jan 2026 and intends to delist from XETRA in Q1 2026 — PSAN.DE listing/financials may no longer be live; verify",
     "2024 group revenue EUR260.8M spans 3 segments; only Energy Management is grid/energy software"
    ],
-   "size_eur": 706510611
+   "size_eur": 706510611,
+   "source": "curated"
   },
   {
    "id": "gridbeyond",
@@ -2288,7 +2353,8 @@
     "Dublin-HQ; also has UK/US offices",
     "Total funding ~EUR80M approximate; Crunchbase ~$89.9M"
    ],
-   "size_eur": 80000000
+   "size_eur": 80000000,
+   "source": "curated"
   },
   {
    "id": "voltalis",
@@ -2322,7 +2388,8 @@
     "~EUR215M is largely project/debt financing, not equity; no public equity valuation",
     "Majority-owned by infrastructure investor Meridiam"
    ],
-   "size_eur": 215000000
+   "size_eur": 215000000,
+   "source": "curated"
   },
   {
    "id": "enode",
@@ -2356,7 +2423,8 @@
    "uncertain": [
     "~EUR16M converted from ~$17.4M; valuation undisclosed"
    ],
-   "size_eur": 16000000
+   "size_eur": 16000000,
+   "source": "curated"
   },
   {
    "id": "flexidao",
@@ -2391,7 +2459,8 @@
     "EUR6.1M reflects 2022 Series A; cumulative may be higher, no reliable updated figure",
     "Google and Microsoft are both investors and customers"
    ],
-   "size_eur": 6100000
+   "size_eur": 6100000,
+   "source": "curated"
   },
   {
    "id": "dexter-energy",
@@ -2425,7 +2494,8 @@
    "uncertain": [
     "~EUR36M converted from ~$39.6M cumulative (incl. EUR23M Series C, Jul 2025); valuation undisclosed"
    ],
-   "size_eur": 36000000
+   "size_eur": 36000000,
+   "source": "curated"
   },
   {
    "id": "energy-pool",
@@ -2458,7 +2528,8 @@
     "Funding/valuation not reliably found; reported majority-owned by Mitsubishi Corporation (verify)",
     "Operations span Europe, MENA and Asia — not all EU-based"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "nebius-group",
@@ -2494,7 +2565,8 @@
     "FY2025 revenue USD529.8m (+479%); EUR ~489m approximate conversion",
     "NL-incorporated but substantial US data-centre ops and US NASDAQ listing; Yandex heritage divested 2024"
    ],
-   "size_eur": 50290617456
+   "size_eur": 50290617456,
+   "source": "curated"
   },
   {
    "id": "gcore",
@@ -2529,7 +2601,8 @@
     "Funding shown is the single $60M Series A (~EUR55M); valuation undisclosed",
     "Third-party revenue estimates unaudited — left null"
    ],
-   "size_eur": 55000000
+   "size_eur": 55000000,
+   "source": "curated"
   },
   {
    "id": "plusserver",
@@ -2562,7 +2635,8 @@
     "PE-owned by BC Partners (acquired from GoDaddy 2017, ~EUR385-397M); not independent",
     "Revenue from third-party estimators — left null"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "sesterce",
@@ -2593,7 +2667,8 @@
     "No verified equity round/valuation; the EUR450M (Valence) is announced capex, not capital raised — left null",
     "Founded ~2018 (rebranded from BiTech)"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
   },
   {
    "id": "pleias",
@@ -2626,7 +2701,528 @@
     "No traditional VC funding found (Mozilla Builders Accelerator only) — left null",
     "Early-stage; revenue/headcount not disclosed"
    ],
-   "size_eur": null
+   "size_eur": null,
+   "source": "curated"
+  },
+  {
+   "id": "technoprobe",
+   "name": "Technoprobe S.p.A.",
+   "hq_country": "Italy",
+   "domain": "Semiconductors",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "TPRO",
+   "yahoo_ticker": "TPRO.MI",
+   "exchange": "Borsa Italiana",
+   "currency": "EUR",
+   "description": "Technoprobe S.p.A., together with its subsidiaries, produces and sells electronic circuits in Italy, Asia, the United States, and rest of Europe. The company provides mechanical interfaces for electrical contacting of hybrid circuits and semiconductor devices; and engages in the design, development, and production of probe cards for testing the operation of chips. Its products are used in digital data and 5G, IoT, data center, automotive and self-driving car, telecommunications and media, industry and aerospace, and consumer electronics applications. Technoprobe S.p.A. was founded in 1993 and ",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (industry='Semiconductors' + sector='Technology' + keywords[semiconductor]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 19734642688,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/TPRO.MI"
+   },
+   "private_data": null,
+   "size_eur": 19734642688,
+   "sources": [
+    "https://finance.yahoo.com/quote/TPRO.MI"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "promote",
+   "confidence": 0.93,
+   "classified_at": "2026-06-08",
+   "rationale": "industry='Semiconductors' + sector='Technology' + keywords[semiconductor]",
+   "affiliations": []
+  },
+  {
+   "id": "adyen",
+   "name": "Adyen N.V.",
+   "hq_country": "Netherlands",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "ADYEN",
+   "yahoo_ticker": "ADYEN.AS",
+   "exchange": "Euronext Amsterdam",
+   "currency": "EUR",
+   "description": "Adyen N.V. operates a payments platform in Europe, the Middle East, Africa, North America, the Asia Pacific, and Latin America. Its platform integrates payments stack, including gateway, risk management, processing, acquiring, and settlement services. The company offers a back-end infrastructure for authorizing. It accepts payment through online, in-person payments, cross channel, and Adyen for Platforms. The company also provides optimization services, including Adyen Uplift, protect, authenticate and tokenize. In addition, it offers financial products, such as accounts, capital, issuing, and",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (industry='Software - Infrastructure' + sector='Technology' + (code-only → capped at candidate)). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 26279524352,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/ADYEN.AS"
+   },
+   "private_data": null,
+   "size_eur": 26279524352,
+   "sources": [
+    "https://finance.yahoo.com/quote/ADYEN.AS"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.81,
+   "classified_at": "2026-06-08",
+   "rationale": "industry='Software - Infrastructure' + sector='Technology' + (code-only → capped at candidate)",
+   "affiliations": []
+  },
+  {
+   "id": "bechtle",
+   "name": "Bechtle AG",
+   "hq_country": "Germany",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "BC8",
+   "yahoo_ticker": "BC8.DE",
+   "exchange": "XETRA",
+   "currency": "EUR",
+   "description": "Bechtle AG provides information technology (IT) services in Germany, France, Benelux, and Europe. It operates through IT System House & Managed Services and IT E-Commerce segments. The company offers IT strategy consulting, hardware and software solutions, IT infrastructure consulting, modern workplace, application solutions, project planning and implementation, system integration, maintenance and training to multi cloud and managed services, and IT security services and artificial intelligence. The company also provides data centers workplace, networking, cybersecurity, IoT solutions, data an",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (sector='Technology' + keywords[data center]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 4137840128,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/BC8.DE"
+   },
+   "private_data": null,
+   "size_eur": 4137840128,
+   "sources": [
+    "https://finance.yahoo.com/quote/BC8.DE"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.69,
+   "classified_at": "2026-06-08",
+   "rationale": "sector='Technology' + keywords[data center]",
+   "affiliations": []
+  },
+  {
+   "id": "capgemini",
+   "name": "Capgemini SE",
+   "hq_country": "France",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "CAP",
+   "yahoo_ticker": "CAP.PA",
+   "exchange": "Euronext Paris",
+   "currency": "EUR",
+   "description": "Capgemini SE, together with its subsidiaries, provides consulting, digital transformation, technology, and engineering services primarily in North America, France, the United Kingdom, Ireland, the rest of Europe, the Asia-Pacific, and Latin America. It offers strategy and transformation services in strategy, technology, engineering, data science, and creative design fields to support companies and organizations in creating new models and new products within the digital economy. The company provides applications and technology services to help clients to develop, modernize, extend, and secure I",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (sector='Technology' + keywords[data center]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 17115179008,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/CAP.PA"
+   },
+   "private_data": null,
+   "size_eur": 17115179008,
+   "sources": [
+    "https://finance.yahoo.com/quote/CAP.PA"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.69,
+   "classified_at": "2026-06-08",
+   "rationale": "sector='Technology' + keywords[data center]",
+   "affiliations": []
+  },
+  {
+   "id": "deutsche-telekom",
+   "name": "Deutsche Telekom AG",
+   "hq_country": "Germany",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "DTE",
+   "yahoo_ticker": "DTE.DE",
+   "exchange": "XETRA",
+   "currency": "EUR",
+   "description": "Deutsche Telekom AG, together with its subsidiaries, provides integrated telecommunication services worldwide. It operates through Germany, United States, Europe, Systems Solutions, and Group Development segments. The company offers fixed-network services, including voice and data communication services based on fixed-network and broadband technology; and sells terminal equipment and other hardware products, as well as services to resellers. It also provides mobile voice and data services to consumers and business customers; sells mobile devices and other hardware products; and sells mobile se",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (sector='Communication Services' + keywords[data center]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 133674565632,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/DTE.DE"
+   },
+   "private_data": null,
+   "size_eur": 133674565632,
+   "sources": [
+    "https://finance.yahoo.com/quote/DTE.DE"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.69,
+   "classified_at": "2026-06-08",
+   "rationale": "sector='Communication Services' + keywords[data center]",
+   "affiliations": []
+  },
+  {
+   "id": "scout24",
+   "name": "Scout24 SE",
+   "hq_country": "Germany",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "G24",
+   "yahoo_ticker": "G24.DE",
+   "exchange": "XETRA",
+   "currency": "EUR",
+   "description": "Scout24 SE operates ImmoScout24, a digital marketplace for the residential and commercial real estate sectors in Germany and internationally. The company operates through Professional and Private segments. It offers Pay-per-ad, for listing real estate without membership; Realtor Lead Engine (RLE) for selling real estate; Mortgage Lead Engine; CRM software solutions for real estate agents; and ESG energy performance certificates. In addition, the company provides software solutions for real estate valuations, such as viewings and expert opinions; an automated valuation model, a product for the ",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (industry='Internet Content & Information' + sector='Communication Services' + (code-only → capped at candidate)). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 5310732288,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/G24.DE"
+   },
+   "private_data": null,
+   "size_eur": 5310732288,
+   "sources": [
+    "https://finance.yahoo.com/quote/G24.DE"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.81,
+   "classified_at": "2026-06-08",
+   "rationale": "industry='Internet Content & Information' + sector='Communication Services' + (code-only → capped at candidate)",
+   "affiliations": []
+  },
+  {
+   "id": "nexi",
+   "name": "Nexi S.p.A.",
+   "hq_country": "Italy",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "NEXI",
+   "yahoo_ticker": "NEXI.MI",
+   "exchange": "Borsa Italiana",
+   "currency": "EUR",
+   "description": "Nexi S.p.A. provides electronic money and payment services to banks, small and medium-sized enterprises, large international corporations, institutions, and public administrations in Italy, Nordics and Baltics, Germany, Austria, Switzerland, Poland, Southeast Europe, and internationally. The company offers payment processing and acceptance services; configuration, activation, and maintenance of Point of Sales terminals; fraud prevention services; and dispute management services, as well as customer support and value-added services. It also provides various issuing services, such as issue, supp",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (industry='Software - Infrastructure' + sector='Technology' + (code-only → capped at candidate)). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 3904481536,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/NEXI.MI"
+   },
+   "private_data": null,
+   "size_eur": 3904481536,
+   "sources": [
+    "https://finance.yahoo.com/quote/NEXI.MI"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.81,
+   "classified_at": "2026-06-08",
+   "rationale": "industry='Software - Infrastructure' + sector='Technology' + (code-only → capped at candidate)",
+   "affiliations": []
+  },
+  {
+   "id": "nokia",
+   "name": "Nokia Oyj",
+   "hq_country": "Finland",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "NOKIA",
+   "yahoo_ticker": "NOKIA.HE",
+   "exchange": "Nasdaq Helsinki",
+   "currency": "EUR",
+   "description": "Nokia Oyj, together with its subsidiaries, provides mobile, fixed, and cloud network solutions in North and Latin America, Greater China, India, Asia Pacific, Europe, the Middle East, and Africa. It operates in four segments: Network Infrastructure, Mobile Networks, Cloud and Network Services, and Nokia Technologies. The company offers fixed network solutions, such as fiber and copper technologies, access infrastructure, in-home Wi-Fi solutions, and cloud and virtualization services; IP network solutions, which delivers IP edge routing and data center networking solutions for residential, mobi",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (sector='Technology' + keywords[data center]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 71847215104,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/NOKIA.HE"
+   },
+   "private_data": null,
+   "size_eur": 71847215104,
+   "sources": [
+    "https://finance.yahoo.com/quote/NOKIA.HE"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.69,
+   "classified_at": "2026-06-08",
+   "rationale": "sector='Technology' + keywords[data center]",
+   "affiliations": []
+  },
+  {
+   "id": "octave-intelligence",
+   "name": "Octave Intelligence Plc SDB",
+   "hq_country": "United States",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "OCTV-SDB",
+   "yahoo_ticker": "OCTV-SDB.ST",
+   "exchange": "Nasdaq Stockholm",
+   "currency": "SEK",
+   "description": "Octave Intelligence plc provides various software solutions. Its solutions helps organizations to better understand and manage the environments in which they design, build, operate, and protect their assets, people, and critical infrastructure. Its platform connects data, events, and workflows across various environments and applies context-aware intelligence to help customers understand what is happening, what may happen next, and how actions in one area affect conditions in another. The company serves power generation and utilities, data centers and IT infrastructure operators, heavy constru",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (sector='Technology' + keywords[data center]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": null,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/OCTV-SDB.ST"
+   },
+   "private_data": null,
+   "size_eur": null,
+   "sources": [
+    "https://finance.yahoo.com/quote/OCTV-SDB.ST"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.69,
+   "classified_at": "2026-06-08",
+   "rationale": "sector='Technology' + keywords[data center]",
+   "affiliations": []
+  },
+  {
+   "id": "orange",
+   "name": "Orange S.A.",
+   "hq_country": "France",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "ORA",
+   "yahoo_ticker": "ORA.PA",
+   "exchange": "Euronext Paris",
+   "currency": "EUR",
+   "description": "Orange S.A. operates as a telecommunications operator in France and internationally. The company offers mobile services, such as voice, SMS, and data; and fixed broadband and narrowband services, as well as B2B fixed solutions and network services, including voice and data services. It also sells handsets, broadband equipment, connected devices, and accessories. In addition, it provides IT and integration services comprising unified communication and collaboration services, such as LAN and telephony, consultancy, integration, and project management; hosting and infrastructure services, includi",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (sector='Communication Services' + keywords[cloud computing]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 47335235584,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/ORA.PA"
+   },
+   "private_data": null,
+   "size_eur": 47335235584,
+   "sources": [
+    "https://finance.yahoo.com/quote/ORA.PA"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.69,
+   "classified_at": "2026-06-08",
+   "rationale": "sector='Communication Services' + keywords[cloud computing]",
+   "affiliations": []
+  },
+  {
+   "id": "reply",
+   "name": "Reply S.p.A.",
+   "hq_country": "Italy",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "REY",
+   "yahoo_ticker": "REY.MI",
+   "exchange": "Borsa Italiana",
+   "currency": "EUR",
+   "description": "Reply S.p.A. provides consulting, system integration, and digital services based on communication channels and digital media in Italy and internationally. It offers Axulus Reply, an engineering platform for the industrial sector with generative AI functionalities; Brick Reply, a digital as a service platform that enables the transformation of industrial operations; Discovery Reply, a platform that centralizes and manages the life cycle of digital content, such as images, videos, audio, 3D models, and documents; and Lea Reply, platform for supply chain execution processes. The company also prov",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (sector='Technology' + keywords[generative ai]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 3871375104,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/REY.MI"
+   },
+   "private_data": null,
+   "size_eur": 3871375104,
+   "sources": [
+    "https://finance.yahoo.com/quote/REY.MI"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.69,
+   "classified_at": "2026-06-08",
+   "rationale": "sector='Technology' + keywords[generative ai]",
+   "affiliations": []
+  },
+  {
+   "id": "telenor",
+   "name": "Telenor ASA",
+   "hq_country": "Norway",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "TEL",
+   "yahoo_ticker": "TEL.OL",
+   "exchange": "Oslo Børs",
+   "currency": "NOK",
+   "description": "Telenor ASA, together with its subsidiaries, operates as a telecommunication company worldwide. It operates through four segments: Nordics, Asia, Infrastructure, and Amp. The company offers mobile and broadband telecom products and services, including mobile, broadband and TV services; other services, including solutions for business customers like managed services, virtual private networks, software defined networks, and network as a service; IoT solutions; and mobile maritime communication for cruise and ferry, fisheries, and oil and gas industry. It also provides hardware comprising mobile ",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (sector='Communication Services' + keywords[data centre]). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 18735823475,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/TEL.OL"
+   },
+   "private_data": null,
+   "size_eur": 18735823475,
+   "sources": [
+    "https://finance.yahoo.com/quote/TEL.OL"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.69,
+   "classified_at": "2026-06-08",
+   "rationale": "sector='Communication Services' + keywords[data centre]",
+   "affiliations": []
+  },
+  {
+   "id": "vend-marketplaces",
+   "name": "VEND MARKETPLACES ASA",
+   "hq_country": "Norway",
+   "domain": "Cloud & AI",
+   "founded": null,
+   "is_listed": true,
+   "ticker": "VEND",
+   "yahoo_ticker": "VEND.OL",
+   "exchange": "Oslo Børs",
+   "currency": "NOK",
+   "description": "Vend Marketplaces ASA, together with its subsidiaries, develops and operates various marketplaces in Norway, Sweden, Finland, and Denmark. The company operates through Mobility, Real Estate, Jobs, and Recommerce segments. Its marketplaces operations include online classified operations through FINN.no, blocket.se, tori.fi and oikotie.fi, and bilbasen.dk and dba.dk., which provide technology-based services to connect buyers and sellers and facilitate transactions, such as job offers, real estate, cars, travel, and consumer goods. The company's marketplaces operations also comprise adjacent busi",
+   "sovereignty_role": "Auto-classified by sector codes + keywords (industry='Internet Content & Information' + sector='Communication Services' + (code-only → capped at candidate)). Heuristic — operates in a targeted area, NOT a confirmed beneficiary.",
+   "financials": {
+    "market_cap_eur": 4712844060,
+    "revenue_eur": null,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2026-06-08",
+    "source_url": "https://finance.yahoo.com/quote/VEND.OL"
+   },
+   "private_data": null,
+   "size_eur": 4712844060,
+   "sources": [
+    "https://finance.yahoo.com/quote/VEND.OL"
+   ],
+   "uncertain": [
+    "Auto-classified (deterministic sector codes + keywords); not hand-curated. Financials point-in-time via yfinance."
+   ],
+   "source": "auto-sector",
+   "band": "candidate",
+   "confidence": 0.81,
+   "classified_at": "2026-06-08",
+   "rationale": "industry='Internet Content & Information' + sector='Communication Services' + (code-only → capped at candidate)",
+   "affiliations": []
   }
  ]
 }

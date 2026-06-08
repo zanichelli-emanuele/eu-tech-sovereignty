@@ -577,40 +577,6 @@
    ]
   },
   {
-   "id": "iqe",
-   "name": "IQE plc",
-   "hq_country": "United Kingdom",
-   "domain": "Semiconductors",
-   "founded": 1988,
-   "is_listed": true,
-   "ticker": "IQE",
-   "yahoo_ticker": "IQE.L",
-   "exchange": "London Stock Exchange (AIM)",
-   "currency": "GBP",
-   "description": "A leading supplier of compound-semiconductor epitaxial wafers ('epi-wafers') for RF/wireless, photonics (VCSELs/lasers) and advanced sensing, from sites in the UK, US and Taiwan.",
-   "sovereignty_role": "Europe's principal independent compound-semiconductor epitaxy supplier, an enabling upstream materials layer for RF and photonics.",
-   "financials": {
-    "market_cap_eur": 560000000,
-    "revenue_eur": 112700000,
-    "revenue_growth_pct": 0.1,
-    "gross_margin_pct": 1.4,
-    "net_margin_pct": -37.7,
-    "pe_ratio": null,
-    "net_debt_eur": null,
-    "employees": null,
-    "as_of_date": "2026-06-05",
-    "source_url": "https://www.iqep.com/investors/"
-   },
-   "private_data": null,
-   "size_eur": 560000000,
-   "sources": [
-    "https://www.iqep.com/investors/"
-   ],
-   "uncertain": [
-    "UK AIM micro-cap, extremely volatile; market cap ~GBP440-540M (~EUR510-625M) on 2026-06-08 — figure approximate. FY2025 ran a strategic review / GBP81m raise that removed bank debt; still listed."
-   ]
-  },
-  {
    "id": "ovhcloud",
    "name": "OVHcloud",
    "hq_country": "France",
@@ -869,41 +835,6 @@
    ],
    "uncertain": [
     "Latest priced round May 2024; may be stale."
-   ]
-  },
-  {
-   "id": "helsing",
-   "name": "Helsing",
-   "hq_country": "Germany",
-   "domain": "Cloud & AI",
-   "founded": 2021,
-   "is_listed": false,
-   "ticker": null,
-   "yahoo_ticker": null,
-   "exchange": null,
-   "currency": "EUR",
-   "description": "Munich-based defence-AI company building AI software and autonomous systems (strike drones, sensor-fusion for Eurofighter/Gripen) for air, land, sea and sub-surface domains; supplies systems to Ukraine.",
-   "sovereignty_role": "Europe's pre-eminent sovereign defence-AI company, explicitly framed around European technological sovereignty, with large European government drone/defence contracts.",
-   "financials": null,
-   "private_data": {
-    "last_valuation_eur": 12000000000,
-    "total_funding_eur": 1370000000,
-    "key_investors": [
-     "Prima Materia / Daniel Ek",
-     "General Catalyst",
-     "Lightspeed",
-     "Accel",
-     "Saab (5%)"
-    ],
-    "as_of_date": "2025-06-17",
-    "source_url": "https://helsing.ai/newsroom/helsing-raises-eur600m-to-invest-in-european-technological-sovereignty"
-   },
-   "size_eur": 12000000000,
-   "sources": [
-    "https://helsing.ai/newsroom/helsing-raises-eur600m-to-invest-in-european-technological-sovereignty"
-   ],
-   "uncertain": [
-    "Larger ~$18bn round reported May 2026 but not yet closed; June-2025 figures used."
    ]
   },
   {
@@ -1848,6 +1779,852 @@
     "Total funding ~USD81m over 12 rounds (Tracxn); cumulative EUR total not cleanly disclosed",
     "No disclosed post-money valuation; key investors not reliably identified — left empty",
     "'AI' angle is via forecasting/optimisation software (partly inferred)"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "proxmox-server-solutions",
+   "name": "Proxmox Server Solutions GmbH",
+   "hq_country": "Austria",
+   "domain": "Open source",
+   "founded": 2005,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Vienna-based vendor of open-source enterprise server software — Proxmox Virtual Environment (virtualization), Backup Server and Mail Gateway, all under GNU AGPLv3.",
+   "sovereignty_role": "A fully open-source, self-hostable alternative to proprietary virtualization (e.g. VMware), supporting the EU Open Source Strategy's reduced-lock-in and public-sector sovereignty goals.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.proxmox.com/en/about/about-us/company"
+   },
+   "sources": [
+    "https://www.proxmox.com/en/about/about-us/company",
+    "https://www.crunchbase.com/organization/proxmox"
+   ],
+   "uncertain": [
+    "Appears bootstrapped/self-financed; no funding or valuation data found"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "open-xchange",
+   "name": "Open-Xchange AG",
+   "hq_country": "Germany",
+   "domain": "Open source",
+   "founded": 2005,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "German open-source company (Cologne/Nuremberg) behind OX App Suite email/collaboration and, via its 2015 Dovecot merger, the Dovecot IMAP server and PowerDNS; powers hosted email for hundreds of millions of users.",
+   "sovereignty_role": "Supplies open-source email/groupware/DNS used by European telcos as a sovereign alternative to US hyperscaler email — aligned with the EU Open Source Strategy.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "United Internet Ventures",
+     "IRIS Capital"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.unquote.com/dach/news/72681/united-internet-ventures-acquires-25-stake-in-open-xchange"
+   },
+   "sources": [
+    "https://www.open-xchange.com/about-ox/company/",
+    "https://en.wikipedia.org/wiki/Open-Xchange"
+   ],
+   "uncertain": [
+    "Current valuation/total funding not verified; investor list from secondary sources"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "enalean-tuleap",
+   "name": "Enalean SAS",
+   "hq_country": "France",
+   "domain": "Open source",
+   "founded": 2011,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "French company (near Chambéry) developing Tuleap, an open-source (GPLv2) application-lifecycle and agile project-management platform.",
+   "sovereignty_role": "Tuleap is an open-source European alternative to Atlassian (Jira/Confluence), reducing dependence on proprietary US SaaS — aligned with the EU Open Source Strategy.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.enalean.com/en/tuleap"
+   },
+   "sources": [
+    "https://www.enalean.com/en/tuleap",
+    "https://en.wikipedia.org/wiki/Tuleap"
+   ],
+   "uncertain": [
+    "Appears self-funded; no external funding/valuation identified"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "zammad",
+   "name": "Zammad GmbH",
+   "hq_country": "Germany",
+   "domain": "Open source",
+   "founded": 2014,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Berlin-based company offering Zammad, an open-source web-based helpdesk/ticketing system; source code owned by the independent Zammad Foundation while the GmbH provides hosting/support.",
+   "sovereignty_role": "A GDPR-compliant, self-hostable open-source helpdesk as a European alternative to proprietary SaaS (e.g. Zendesk) — supports the EU Open Source Strategy's data-sovereignty aims.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [],
+    "as_of_date": "2026-06",
+    "source_url": "https://zammad.com/en/company"
+   },
+   "sources": [
+    "https://zammad.com/en/company",
+    "https://en.wikipedia.org/wiki/Zammad"
+   ],
+   "uncertain": [
+    "Founding 2014 (project) vs 2015 (legal entity)",
+    "Appears bootstrapped"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "linagora",
+   "name": "LINAGORA",
+   "hq_country": "France",
+   "domain": "Open source",
+   "founded": 2000,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "French open-source software publisher (Issy-les-Moulineaux) developing the Twake Workplace collaboration suite and OBM groupware, plus open-source AI work.",
+   "sovereignty_role": "Markets Twake as a 100% open-source sovereign European alternative to Microsoft 365 / Google Workspace — directly serving the EU Open Source Strategy.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "Groupe Chevrillon"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.groupechevrillon.com/investissements/linagora/?lang=en"
+   },
+   "sources": [
+    "https://en.wikipedia.org/wiki/Linagora",
+    "https://linagora.com/en"
+   ],
+   "uncertain": [
+    "Funding/valuation not disclosed; Groupe Chevrillon is a shareholder, stake unverified"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "passbolt",
+   "name": "Passbolt SA",
+   "hq_country": "Luxembourg",
+   "domain": "Open source",
+   "founded": 2014,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Luxembourg-based company behind Passbolt, an open-source, self-hostable password and secrets manager for team collaboration.",
+   "sovereignty_role": "An EU-based self-hostable open-source password/secrets manager — a sovereign alternative to US password managers, supporting the EU Open Source Strategy.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 13100000,
+    "key_investors": [
+     "Airbridge Equity Partners",
+     "Expon Capital",
+     "ScaleFund"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.eu-startups.com/2025/01/passwords-accesses-and-secrets-passbolt-raises-e7-6-million-to-secure-password-collaboration/"
+   },
+   "sources": [
+    "https://www.eu-startups.com/2025/01/passwords-accesses-and-secrets-passbolt-raises-e7-6-million-to-secure-password-collaboration/",
+    "https://www.passbolt.com/about"
+   ],
+   "uncertain": [
+    "Total funding ~EUR13.1M approximate (converted from ~$14.1M cumulative); valuation undisclosed"
+   ],
+   "size_eur": 13100000
+  },
+  {
+   "id": "kalray",
+   "name": "Kalray",
+   "hq_country": "France",
+   "domain": "Semiconductors",
+   "founded": 2008,
+   "is_listed": true,
+   "ticker": "ALKAL",
+   "yahoo_ticker": "ALKAL.PA",
+   "exchange": "Euronext Growth Paris",
+   "currency": "EUR",
+   "description": "Fabless semiconductor company (CEA spin-off, Grenoble) designing manycore DPU processors and acceleration solutions for intensive data processing from cloud to edge.",
+   "sovereignty_role": "One of few EU-HQ fabless designers of high-performance data-processing silicon, relevant to Chips Act 2.0's sovereign compute/AI design goals; investors include NXP, CEA, Safran, Bpifrance.",
+   "financials": {
+    "market_cap_eur": 191296480,
+    "revenue_eur": 16451000,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": 215,
+    "as_of_date": "2025-12",
+    "source_url": "https://www.actusnews.com/en/kalray/pr/2026/04/23/2025-annual-results-ebitda-of-eur-6_2-million-on-the-new-scope-positive-free-cash-flow-major-new-contract-currently-being"
+   },
+   "private_data": null,
+   "sources": [
+    "https://www.actusnews.com/en/kalray/pr/2026/04/23/2025-annual-results",
+    "https://live.euronext.com/en/product/equities/FR0010722819-ALXP"
+   ],
+   "uncertain": [
+    "FY2025 consolidated revenue ~EUR16.45M not like-for-like vs FY2024 (~EUR24.8M) after the Data Acceleration business was sold Feb 2025; growth left null",
+    "Employees ~215 reduced after the Feb 2025 divestiture"
+   ],
+   "size_eur": 191296480
+  },
+  {
+   "id": "axelera-ai",
+   "name": "Axelera AI",
+   "hq_country": "Netherlands",
+   "domain": "Semiconductors",
+   "founded": 2021,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Eindhoven-based fabless startup developing energy-efficient AI inference chips (Metis AIPU, the Europa chip) for edge and data-centre workloads using in-memory compute and RISC-V.",
+   "sovereignty_role": "Europe's best-funded AI-chip startup and a flagship of EU efforts to build sovereign AI inference silicon; central to Chips Act 2.0 ambitions.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "Innovation Industries",
+     "BlackRock",
+     "Samsung Catalyst Fund",
+     "Invest-NL",
+     "EIC Fund"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://tech.eu/2026/02/24/dutch-ai-inference-chipmaker-axelera-ai-raises-250m/"
+   },
+   "sources": [
+    "https://tech.eu/2026/02/24/dutch-ai-inference-chipmaker-axelera-ai-raises-250m/",
+    "https://axelera.ai/news/axelera-ai-secures-more-than-250-million-funding-on-global-commercial-growth"
+   ],
+   "uncertain": [
+    "Feb 2026 round ~$250M; total ~$450M incl. debt/grants not cleanly confirmed in EUR — left null",
+    "Valuation undisclosed (press implies $1-2B)"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "black-semiconductor",
+   "name": "Black Semiconductor",
+   "hq_country": "Germany",
+   "domain": "Semiconductors",
+   "founded": 2020,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Aachen-based deep-tech (RWTH Aachen spin-out) developing graphene-based photonic interconnects for high-bandwidth optical chip-to-chip/chiplet communication on conventional semiconductor platforms.",
+   "sovereignty_role": "Targets a strategic gap in advanced packaging/interconnect; largely backed by the German federal government and NRW, building an EU graphene-photonics pilot line — aligned with Chips Act 2.0 advanced-packaging/materials goals.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 254400000,
+    "key_investors": [
+     "German Federal Government (BMWK)",
+     "State of North Rhine-Westphalia",
+     "Porsche Ventures",
+     "Project A Ventures"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://blacksemi.com/2024/10/18/we-secured-eur-254-4-million-in-funding/"
+   },
+   "sources": [
+    "https://blacksemi.com/2024/10/18/we-secured-eur-254-4-million-in-funding/",
+    "https://techcrunch.com/2024/06/12/germanys-black-semiconductor-raises-273m-for-graphene-based-chip-tech/"
+   ],
+   "uncertain": [
+    "EUR254.4M (Jun 2024) is mostly public funding; ~EUR25.7M private"
+   ],
+   "size_eur": 254400000
+  },
+  {
+   "id": "vsora",
+   "name": "VSORA",
+   "hq_country": "France",
+   "domain": "Semiconductors",
+   "founded": 2015,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Meudon-based fabless company designing high-performance AI inference chips (chiplet-based Jotunn8) and DSP/AI silicon for data-centre inference, autonomous driving and edge AI.",
+   "sovereignty_role": "An EU-HQ designer of high-end AI inference accelerators positioned as a European alternative to US data-centre inference silicon; backed by the EIC and France 2030.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "Otium Capital",
+     "Omnes Capital",
+     "Adelie Capital",
+     "EIC Fund"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.globenewswire.com/news-release/2025/04/29/3070480/0/en/VSORA-Raises-46-Million-to-Bring-World-s-Most-Powerful-AI-Inference-Chip-to-Market.html"
+   },
+   "sources": [
+    "https://www.globenewswire.com/news-release/2025/04/29/3070480/0/en/VSORA-Raises-46-Million",
+    "https://vsora.com/vsora-to-receive-e12-5-million-in-funding-from-the-european-innovation-council-accelerator-program/"
+   ],
+   "uncertain": [
+    "Apr 2025 round EUR40M; cumulative funding not cleanly aggregated — left null",
+    "Valuation undisclosed"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "aledia",
+   "name": "Aledia",
+   "hq_country": "France",
+   "domain": "Semiconductors",
+   "founded": 2011,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Grenoble-based CEA-Leti spin-off developing 3D GaN-on-silicon nanowire microLED technology and microdisplays for AR and next-gen displays, on 200/300mm silicon wafers.",
+   "sovereignty_role": "Brings advanced GaN/microLED display semiconductor manufacturing onto silicon within the EU — supporting Chips Act 2.0 photonics/advanced-materials goals; investors include Intel and Ikea (Ingka).",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "Intel Capital",
+     "Ikea (Ingka Group)",
+     "Bpifrance",
+     "Valeo"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.microled-info.com/aledia"
+   },
+   "sources": [
+    "https://www.microled-info.com/aledia",
+    "https://www.eenewseurope.com/en/aledia-opens-french-200m-microled-display-line/"
+   ],
+   "uncertain": [
+    "~$600M raised cumulatively reported; USD/EUR mixed, not precisely confirmed — total left null"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "greenwaves-technologies",
+   "name": "GreenWaves Technologies",
+   "hq_country": "France",
+   "domain": "Semiconductors",
+   "founded": 2014,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Grenoble-based fabless startup designing ultra-low-power RISC-V-based AI/DSP application processors (GAP8/GAP9) for battery-operated edge and IoT devices.",
+   "sovereignty_role": "An EU-HQ fabless designer building on open RISC-V for sovereign, energy-efficient edge-AI silicon; backed by Soitec, Thales, Innovacom and the French MoD's Definvest.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 50000000,
+    "key_investors": [
+     "Soitec",
+     "Thales",
+     "Innovacom",
+     "Definvest (French MoD)"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.design-reuse.com/news/53415/greenwaves-funding.html"
+   },
+   "sources": [
+    "https://www.design-reuse.com/news/53415/greenwaves-funding.html"
+   ],
+   "uncertain": [
+    "~EUR50M total raised reported; more recent funding not confirmed",
+    "Valuation undisclosed"
+   ],
+   "size_eur": 50000000
+  },
+  {
+   "id": "nexperia",
+   "name": "Nexperia",
+   "hq_country": "Netherlands",
+   "domain": "Semiconductors",
+   "founded": 2017,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Nijmegen-based IDM (former NXP Standard Products, spun out 2017) producing very high volumes of discrete, logic and MOSFET/power semiconductors for automotive and industrial markets, with fabs in Hamburg and Manchester.",
+   "sovereignty_role": "A major EU-based high-volume chipmaker critical to European automotive/industrial supply chains; in Oct 2025 the Dutch government invoked the Goods Availability Act to take control of its governance — a central EU economic-security case for Chips Act 2.0.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "Wingtech Technology (China, owner)"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.cnbc.com/2025/10/13/dutch-government-takes-control-of-chinese-owned-chipmaker-nexperia.html"
+   },
+   "sources": [
+    "https://www.cnbc.com/2025/10/13/dutch-government-takes-control-of-chinese-owned-chipmaker-nexperia.html",
+    "https://www.nexperia.com/about/news-events/press-releases/Nexperia-reports-resilient-2024-performance"
+   ],
+   "uncertain": [
+    "EU-HQ but ultimately Chinese-owned (Wingtech, since 2019); under Dutch government control over governance since Oct 2025",
+    "Subsidiary, not separately listed; 2024 revenue ~$2.06B, ~12,500 staff globally (not all EU)"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "psi-software",
+   "name": "PSI Software SE",
+   "hq_country": "Germany",
+   "domain": "AI in energy",
+   "founded": 1969,
+   "is_listed": true,
+   "ticker": "PSAN",
+   "yahoo_ticker": "PSAN.DE",
+   "exchange": "XETRA",
+   "currency": "EUR",
+   "description": "Berlin-based software company and European leader in energy management systems for electricity, gas, heat and water — grid control (SCADA/EMS/DMS), virtual power plant, energy trading and storage optimization software.",
+   "sovereignty_role": "Core EU supplier of network control and optimization software used by TSOs and DSOs — directly underpinning the grid digitalisation and AI-driven grid management the EU roadmap targets.",
+   "financials": {
+    "market_cap_eur": 706510611,
+    "revenue_eur": 260800000,
+    "revenue_growth_pct": null,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": null,
+    "as_of_date": "2024-12",
+    "source_url": "https://www.psi.de/en/company/company-profile"
+   },
+   "private_data": null,
+   "sources": [
+    "https://www.psi.de/en/company/company-profile",
+    "https://warburgpincus.com/2025/10/13/psi-software-se-and-warburg-pincus-enter-into-an-investment-agreement-warburg-pincus-announces-public-takeover-offer/"
+   ],
+   "uncertain": [
+    "Take-private in progress: Warburg Pincus reached ~83% by Jan 2026 and intends to delist from XETRA in Q1 2026 — PSAN.DE listing/financials may no longer be live; verify",
+    "2024 group revenue EUR260.8M spans 3 segments; only Energy Management is grid/energy software"
+   ],
+   "size_eur": 706510611
+  },
+  {
+   "id": "gridbeyond",
+   "name": "GridBeyond",
+   "hq_country": "Ireland",
+   "domain": "AI in energy",
+   "founded": 2010,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Dublin-HQ energy-technology company whose AI platform orchestrates distributed energy resources — C&I demand, batteries, grid-scale storage — for forecasting, optimization and automated dispatch into energy and balancing markets.",
+   "sovereignty_role": "AI-driven flexibility aggregation and automated energy trading integrating distributed assets into grid services — supports the roadmap's demand-response, DER and AI-for-grid-balancing goals.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 80000000,
+    "key_investors": [
+     "Energy Impact Partners",
+     "ABB",
+     "Yokogawa Electric",
+     "Enterprise Ireland"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.energy-storage.news/ai-driven-optimiser-gridbeyond-raises-e52-million-from-investors-including-abb-energy-impact-partners/"
+   },
+   "sources": [
+    "https://www.energy-storage.news/ai-driven-optimiser-gridbeyond-raises-e52-million-from-investors-including-abb-energy-impact-partners/"
+   ],
+   "uncertain": [
+    "Dublin-HQ; also has UK/US offices",
+    "Total funding ~EUR80M approximate; Crunchbase ~$89.9M"
+   ],
+   "size_eur": 80000000
+  },
+  {
+   "id": "voltalis",
+   "name": "Voltalis",
+   "hq_country": "France",
+   "domain": "AI in energy",
+   "founded": 2006,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Paris-based European leader in residential/commercial demand-side response, running a platform connecting over 1.5 million appliances to dynamically reduce and shift electricity consumption in real time.",
+   "sovereignty_role": "Operates one of Europe's largest distributed demand-response/flexibility platforms — the consumer-side flexibility the roadmap identifies as essential for AI-balanced grids.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 215000000,
+    "key_investors": [
+     "Meridiam",
+     "Edmond de Rothschild (BRIDGE)",
+     "CIC Private Debt"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://group.voltalis.com/en/content-type/press-releases/voltalis-closes-the-financing-of-1-4-gwp-of-demand-response-capacity-for-a-total-amount-of-215-me-7964"
+   },
+   "sources": [
+    "https://group.voltalis.com/en/content-type/press-releases/voltalis-closes-the-financing-of-1-4-gwp-of-demand-response-capacity-for-a-total-amount-of-215-me-7964"
+   ],
+   "uncertain": [
+    "~EUR215M is largely project/debt financing, not equity; no public equity valuation",
+    "Majority-owned by infrastructure investor Meridiam"
+   ],
+   "size_eur": 215000000
+  },
+  {
+   "id": "enode",
+   "name": "Enode",
+   "hq_country": "Norway",
+   "domain": "AI in energy",
+   "founded": 2019,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Oslo-based SaaS offering a single API to connect and control distributed energy hardware — EVs, chargers, solar inverters, home batteries, HVAC — enabling third parties to build flexibility products and VPPs.",
+   "sovereignty_role": "Supplies the interoperability/control layer for distributed energy resources — connective infrastructure the roadmap needs to mobilise consumer assets for flexibility markets and AI grid balancing.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 16000000,
+    "key_investors": [
+     "Creandum",
+     "Lowercarbon Capital",
+     "Y Combinator"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://arcticstartup.com/enode-raises-15m-series-a/"
+   },
+   "sources": [
+    "https://arcticstartup.com/enode-raises-15m-series-a/",
+    "https://app.dealroom.co/companies/enode"
+   ],
+   "uncertain": [
+    "~EUR16M converted from ~$17.4M; valuation undisclosed"
+   ],
+   "size_eur": 16000000
+  },
+  {
+   "id": "flexidao",
+   "name": "FlexiDAO",
+   "hq_country": "Spain",
+   "domain": "AI in energy",
+   "founded": 2017,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Barcelona-based SaaS whose platform tracks electricity consumption, production and energy attribute certificates hourly to enable verifiable 24/7 carbon-free energy claims and CSRD-grade emissions reporting.",
+   "sovereignty_role": "Granular, auditable electricity-and-carbon traceability software underpinning hourly clean-energy matching — aligned with the roadmap's data-driven energy markets.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 6100000,
+    "key_investors": [
+     "SET Ventures",
+     "Google",
+     "Microsoft Climate Innovation Fund",
+     "EIT InnoEnergy"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.eu-startups.com/2022/07/barcelona-based-flexidao-raises-e6-3-million-to-enable-24-7-clean-energy/"
+   },
+   "sources": [
+    "https://www.eu-startups.com/2022/07/barcelona-based-flexidao-raises-e6-3-million-to-enable-24-7-clean-energy/"
+   ],
+   "uncertain": [
+    "EUR6.1M reflects 2022 Series A; cumulative may be higher, no reliable updated figure",
+    "Google and Microsoft are both investors and customers"
+   ],
+   "size_eur": 6100000
+  },
+  {
+   "id": "dexter-energy",
+   "name": "Dexter Energy",
+   "hq_country": "Netherlands",
+   "domain": "AI in energy",
+   "founded": 2017,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Amsterdam-based climate-tech providing AI/ML forecasting and trade-optimization software that dispatches renewables and batteries across day-ahead, intraday and imbalance power markets.",
+   "sovereignty_role": "Applies AI to short-term power-market forecasting and automated asset control for wind, solar and storage — serves the roadmap's focus on AI for renewable integration and power-market optimisation.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 36000000,
+    "key_investors": [
+     "Klima Energy Transition Fund (Alantra)",
+     "Mirova",
+     "ETF Partners",
+     "Newion"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://dexterenergy.ai/news/dexter-energy-raises-23-million-in-series-c-funding/"
+   },
+   "sources": [
+    "https://dexterenergy.ai/news/dexter-energy-raises-23-million-in-series-c-funding/"
+   ],
+   "uncertain": [
+    "~EUR36M converted from ~$39.6M cumulative (incl. EUR23M Series C, Jul 2025); valuation undisclosed"
+   ],
+   "size_eur": 36000000
+  },
+  {
+   "id": "energy-pool",
+   "name": "Energy Pool",
+   "hq_country": "France",
+   "domain": "AI in energy",
+   "founded": 2009,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "France-based demand-response and flexibility aggregator whose DRMS software optimizes and aggregates industrial loads, distributed generation and storage from real-time frequency regulation to long-term planning.",
+   "sovereignty_role": "DRMS/flexibility-aggregation software for TSOs and DSOs to run demand-response programs and microgrids — the grid-flexibility orchestration the roadmap targets.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "Mitsubishi Corporation"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://energy-pool.com/"
+   },
+   "sources": [
+    "https://energy-pool.com/",
+    "https://emfl.eu/energy-pool/"
+   ],
+   "uncertain": [
+    "Funding/valuation not reliably found; reported majority-owned by Mitsubishi Corporation (verify)",
+    "Operations span Europe, MENA and Asia — not all EU-based"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "nebius-group",
+   "name": "Nebius Group",
+   "hq_country": "Netherlands",
+   "domain": "Cloud & AI",
+   "founded": 2024,
+   "is_listed": true,
+   "ticker": "NBIS",
+   "yahoo_ticker": "NBIS",
+   "exchange": "NASDAQ",
+   "currency": "USD",
+   "description": "Amsterdam-HQ AI infrastructure company providing GPU-backed cloud compute, managed Kubernetes, storage and large-scale data-centre capacity across Europe and the US. Spun out of the former Yandex N.V. and relisted on NASDAQ in 2024.",
+   "sovereignty_role": "A rare EU-domiciled, publicly listed full-stack AI cloud / GPU operator building large-scale European data-centre capacity — directly relevant to CADA's goal of tripling EU cloud capacity and providing sovereign frontier-AI compute.",
+   "financials": {
+    "market_cap_eur": 50290617456,
+    "revenue_eur": 489000000,
+    "revenue_growth_pct": 479,
+    "gross_margin_pct": null,
+    "net_margin_pct": null,
+    "pe_ratio": null,
+    "net_debt_eur": null,
+    "employees": 1543,
+    "as_of_date": "2025-12-31",
+    "source_url": "https://nebius.com/newsroom/nebius-reports-fourth-quarter-and-full-year-2025-financial-results"
+   },
+   "private_data": null,
+   "sources": [
+    "https://nebius.com/newsroom/nebius-reports-fourth-quarter-and-full-year-2025-financial-results",
+    "https://en.wikipedia.org/wiki/Nebius_Group"
+   ],
+   "uncertain": [
+    "FY2025 revenue USD529.8m (+479%); EUR ~489m approximate conversion",
+    "NL-incorporated but substantial US data-centre ops and US NASDAQ listing; Yandex heritage divested 2024"
+   ],
+   "size_eur": 50290617456
+  },
+  {
+   "id": "gcore",
+   "name": "Gcore",
+   "hq_country": "Luxembourg",
+   "domain": "Cloud & AI",
+   "founded": 2014,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Luxembourg-HQ edge AI, cloud, CDN and security provider with 180+ points of presence, offering NVIDIA-GPU cloud for AI training and inference.",
+   "sovereignty_role": "EU-domiciled GPU cloud and edge-AI infrastructure offering European AI compute/inference capacity — aligned with CADA's sovereign-cloud and frontier-AI push.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": 55000000,
+    "key_investors": [
+     "Wargaming",
+     "Constructor Capital",
+     "Han River Partners"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://gcore.com/press-releases/gcore-raises-60-million-in-series-a-funding-to-drive-ai-innovation-and-global-expansion"
+   },
+   "sources": [
+    "https://gcore.com/press-releases/gcore-raises-60-million-in-series-a-funding-to-drive-ai-innovation-and-global-expansion",
+    "https://en.wikipedia.org/wiki/Gcore"
+   ],
+   "uncertain": [
+    "Funding shown is the single $60M Series A (~EUR55M); valuation undisclosed",
+    "Third-party revenue estimates unaudited — left null"
+   ],
+   "size_eur": 55000000
+  },
+  {
+   "id": "plusserver",
+   "name": "plusserver",
+   "hq_country": "Germany",
+   "domain": "Cloud & AI",
+   "founded": 1999,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Cologne-HQ German managed-cloud provider offering a GDPR-compliant OpenStack-based 'sovereign' cloud (pluscloud open) on the Sovereign Cloud Stack, with four German data centres. Founding member of Gaia-X.",
+   "sovereignty_role": "A flagship 'made in Germany' sovereign-cloud operator and Gaia-X founder, explicitly positioned on data sovereignty and open-source cloud — matching CADA's sovereign-cloud framework and open-source-first stance.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "BC Partners"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.bcpartners.com/news/bc-partners-to-acquire-plusserver-market-leader-in-the-managed-hosting-segment-in-germany/"
+   },
+   "sources": [
+    "https://www.plusserver.com/en/company/about-us/",
+    "https://www.bcpartners.com/news/bc-partners-to-acquire-plusserver-market-leader-in-the-managed-hosting-segment-in-germany/"
+   ],
+   "uncertain": [
+    "PE-owned by BC Partners (acquired from GoDaddy 2017, ~EUR385-397M); not independent",
+    "Revenue from third-party estimators — left null"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "sesterce",
+   "name": "Sesterce",
+   "hq_country": "France",
+   "domain": "Cloud & AI",
+   "founded": 2018,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Marseille-HQ French GPU cloud provider focused on NVIDIA-GPU capacity for AI training and inference (formerly crypto-miner BiTech), building large French AI data-centre capacity incl. a EUR450m first-phase site in Valence.",
+   "sovereignty_role": "Positions itself as the reference cloud for sovereign AI in France, building domestic GPU data-centre capacity — aligned with CADA's data-centre buildout and sovereign frontier-AI compute.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [],
+    "as_of_date": "2026-06",
+    "source_url": "https://www.datacenterdynamics.com/en/news/sesterce-invests-450m-in-ai-data-center-in-valence-france/"
+   },
+   "sources": [
+    "https://www.datacenterdynamics.com/en/news/sesterce-invests-450m-in-ai-data-center-in-valence-france/",
+    "https://www.sesterce.com/"
+   ],
+   "uncertain": [
+    "No verified equity round/valuation; the EUR450M (Valence) is announced capex, not capital raised — left null",
+    "Founded ~2018 (rebranded from BiTech)"
+   ],
+   "size_eur": null
+  },
+  {
+   "id": "pleias",
+   "name": "Pleias",
+   "hq_country": "France",
+   "domain": "Cloud & AI",
+   "founded": 2024,
+   "is_listed": false,
+   "ticker": null,
+   "yahoo_ticker": null,
+   "exchange": null,
+   "currency": null,
+   "description": "Paris-HQ AI lab (Station F) building small, energy-efficient LLMs trained exclusively on open data, and coordinator of Common Corpus (~2 trillion tokens). Models released under Apache 2.0.",
+   "sovereignty_role": "Develops EU-legislation-compliant, fully open-data foundation models emphasising traceability — embodying CADA's open-source-first stance and Europe's sovereign frontier-AI ambitions.",
+   "financials": null,
+   "private_data": {
+    "last_valuation_eur": null,
+    "total_funding_eur": null,
+    "key_investors": [
+     "Mozilla Builders Accelerator"
+    ],
+    "as_of_date": "2026-06",
+    "source_url": "https://builders.mozilla.org/project/pleias/"
+   },
+   "sources": [
+    "https://pleias.ai/",
+    "https://builders.mozilla.org/project/pleias/"
+   ],
+   "uncertain": [
+    "No traditional VC funding found (Mozilla Builders Accelerator only) — left null",
+    "Early-stage; revenue/headcount not disclosed"
    ],
    "size_eur": null
   }

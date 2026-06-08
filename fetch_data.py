@@ -31,7 +31,7 @@ except ImportError:
 
 # ---- currency handling ---------------------------------------------------
 # price currency by Yahoo suffix / symbol; .L quotes in pence (GBp -> /100)
-FX_SYMBOL = {"USD": "EURUSD=X", "GBP": "EURGBP=X", "SEK": "EURSEK=X", "NOK": "EURNOK=X"}
+FX_SYMBOL = {"USD": "EURUSD=X", "GBP": "EURGBP=X", "SEK": "EURSEK=X", "NOK": "EURNOK=X", "CHF": "EURCHF=X", "DKK": "EURDKK=X"}
 _fx_cache = {}
 
 def price_currency(yt):

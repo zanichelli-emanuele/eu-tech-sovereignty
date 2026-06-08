@@ -1,48 +1,384 @@
 {
-  "meta": {
-    "note": "Conservative, well-documented edges only; each carries a source. Direction = provider -> consumer (supply_chain, customer) or owner -> owned (ownership); partnership is undirected. Many real links to non-EU/out-of-universe entities (TSMC, Microsoft, NVIDIA, SES, Hispasat) are omitted because the counterparty is not a node here.",
-    "types": {
-      "supply_chain": "source supplies a critical input to target (e.g. Zeiss SMT optics -> ASML)",
-      "ownership": "source owns / controls (a stake in) target (e.g. Iliad -> Scaleway)",
-      "partnership": "joint venture, consortium or strategic partnership (undirected)",
-      "customer": "source provides product/service that target depends on (stack dependency)"
-    }
+ "meta": {
+  "note": "Conservative, well-documented edges only; each carries a source. Direction = provider -> consumer (supply_chain, customer) or owner -> owned (ownership); partnership is undirected. Many real links to non-EU/out-of-universe entities (TSMC, Microsoft, NVIDIA, SES, Hispasat) are omitted because the counterparty is not a node here.",
+  "types": {
+   "supply_chain": "source supplies a critical input to target (e.g. Zeiss SMT optics -> ASML)",
+   "ownership": "source owns / controls (a stake in) target (e.g. Iliad -> Scaleway)",
+   "partnership": "joint venture, consortium or strategic partnership (undirected)",
+   "customer": "source provides product/service that target depends on (stack dependency)"
+  }
+ },
+ "relationships": [
+  {
+   "source_id": "zeiss-smt",
+   "target_id": "asml",
+   "type": "supply_chain",
+   "note": "Carl Zeiss SMT is the sole supplier of the projection optics at the heart of ASML's DUV and EUV/High-NA lithography scanners.",
+   "source_url": "https://www.asml.com/en/news/press-releases/2016/zeiss-and-asml-strengthen-partnership-for-next-generation-of-euv-lithography"
   },
-  "relationships": [
-    {"source_id":"zeiss-smt","target_id":"asml","type":"supply_chain","note":"Carl Zeiss SMT is the sole supplier of the projection optics at the heart of ASML's DUV and EUV/High-NA lithography scanners.","source_url":"https://www.asml.com/en/news/press-releases/2016/zeiss-and-asml-strengthen-partnership-for-next-generation-of-euv-lithography"},
-    {"source_id":"asml","target_id":"zeiss-smt","type":"ownership","note":"ASML holds a 24.9% minority stake in Carl Zeiss SMT (€1bn, 2016/17), deepening the EUV optics partnership.","source_url":"https://www.asml.com/en/news/press-releases/2016/zeiss-and-asml-strengthen-partnership-for-next-generation-of-euv-lithography"},
-    {"source_id":"siltronic","target_id":"infineon","type":"supply_chain","note":"Siltronic supplies hyperpure silicon wafers to major chipmakers under long-term contracts; Infineon is among named customers.","source_url":"https://www.encyclopedia.com/books/politics-and-business-magazines/siltronic-ag"},
-    {"source_id":"soitec","target_id":"stmicroelectronics","type":"supply_chain","note":"STMicroelectronics uses Soitec's FD-SOI / SOI engineered substrates; the two collaborate closely under France's IPCEI/France 2030 programmes.","source_url":"https://www.soitec.com/en/products/fd-soi"},
-    {"source_id":"iliad","target_id":"scaleway","type":"ownership","note":"Scaleway is a wholly-owned subsidiary of the iliad Group; its cloud/AI build-out is part of iliad's ~€3bn cloud & AI programme.","source_url":"https://www.iliad.fr/en/actualites/article/scaleway-part-of-the-iliad-group-launches-a-new-cloud-region-in-italy"},
-    {"source_id":"ericsson","target_id":"orange","type":"customer","note":"Orange relies on Ericsson for 5G RAN; Ericsson supplies roughly half of Orange France's RAN (Cloud/Open RAN evolution announced Nov 2025).","source_url":"https://www.ericsson.com/en/press-releases/3/2025/ericsson-leads-future-network-evolution-in-partnership-with-orange-france"},
-    {"source_id":"nokia","target_id":"orange","type":"customer","note":"Orange relies on Nokia for 5G network equipment; the two extended their 5G deal targeting Cloud RAN.","source_url":"https://www.mobileworldlive.com/orange/orange-nokia-extend-5g-deal-target-cloud-ran/"},
-    {"source_id":"nokia","target_id":"deutsche-telekom","type":"customer","note":"Deutsche Telekom awarded Nokia a multi-vendor Open RAN contract for 3,000+ German sites (replacing Huawei).","source_url":"https://www.sdxcentral.com/news/nokia-wins-open-ran-contract-with-deutsche-telekom/"},
-    {"source_id":"ericsson","target_id":"deutsche-telekom","type":"customer","note":"Deutsche Telekom relies on Ericsson for RAN across much of its German network alongside the newer Nokia Open RAN deal.","source_url":"https://www.lightreading.com/open-ran/deutsche-telekom-plans-30k-site-open-ran-after-nokia-success-vs-huawei"},
-    {"source_id":"orange","target_id":"capgemini","type":"partnership","note":"Orange and Capgemini jointly own 'Bleu', a SecNumCloud-targeted sovereign 'cloud de confiance' for the French state and critical sectors.","source_url":"https://www.capgemini.com/news/press-releases/capgemini-and-orange-are-pleased-to-announce-the-launch-of-commercial-activities-of-bleu-their-future-cloud-de-confiance-platform/"},
-    {"source_id":"stackit","target_id":"aleph-alpha","type":"partnership","note":"STACKIT offers Aleph Alpha's PhariaAI on its sovereign cloud (Schwarz Digits TECH Conference, May 2025) — pairing German sovereign cloud with a German sovereign model provider.","source_url":"https://schwarz-digits.de/en/presse/archive/2025/tech-conference-2025-schwarz-digits-expands-own-sovereign-cloud-stackit-into-a-german-hyperscaler"},
-    {"source_id":"stackit","target_id":"sap","type":"partnership","note":"STACKIT supports 'RISE with SAP' workloads on its sovereign cloud (announced May 2025).","source_url":"https://schwarz-digits.de/en/presse/archive/2025/tech-conference-2025-schwarz-digits-expands-own-sovereign-cloud-stackit-into-a-german-hyperscaler"},
-    {"source_id":"asml","target_id":"mistral","type":"ownership","note":"ASML led Mistral AI's Sept-2025 Series C (~€1.3bn of €1.7bn) for an ~11% stake and a strategic-committee seat — anchoring a European AI/semiconductor value chain.","source_url":"https://www.asml.com/en/news/press-releases/2025/asml-mistral-ai-enter-strategic-partnership"},
-    {"source_id":"mistral","target_id":"helsing","type":"partnership","note":"Mistral AI and Helsing partnered (Feb 2025) to build vision-language-action models for Helsing's defence platforms.","source_url":"https://helsing.ai/newsroom/helsing-and-mistral-announce-strategic-partnership-in-defence-ai"},
-    {"source_id":"saab","target_id":"helsing","type":"ownership","note":"Saab took a ~5% stake in Helsing (€75m, 2023) and integrates Helsing's AI into systems such as the Arexis EW suite for the German Eurofighter.","source_url":"https://www.saab.com/newsroom/press-releases/2023/saab-signs-strategic-cooperation-agreement-and-makes-investment-in-helsing"},
-    {"source_id":"airbus","target_id":"helsing","type":"partnership","note":"Airbus and Helsing partnered (2024) to integrate Helsing's AI into the unmanned 'Wingman' loyal-wingman concept; joint AI dogfight trials in 2025.","source_url":"https://en.wikipedia.org/wiki/Helsing_(company)"},
-    {"source_id":"mistral","target_id":"orange","type":"partnership","note":"Orange and Mistral AI partnered (Feb 2025) on European AI: network R&D and embedding Mistral models in Orange's sovereign generative-AI offerings.","source_url":"https://newsroom.orange.com/orange-and-mistral-ai-join-forces-to-accelerate-artificial-intelligence-development-in-europe/"},
-    {"source_id":"quandela","target_id":"ovhcloud","type":"partnership","note":"Quandela and OVHcloud partnered (Nov 2025) to offer Quandela's photonic quantum processors on OVHcloud's European sovereign cloud from mid-2026.","source_url":"https://www.ovhcloud.com/en/about-us/quantum-computing/"},
-    {"source_id":"thales","target_id":"thales-alenia-space","type":"ownership","note":"Thales owns 67% of the Thales Alenia Space satellite joint venture.","source_url":"https://en.wikipedia.org/wiki/Thales_Alenia_Space"},
-    {"source_id":"leonardo","target_id":"thales-alenia-space","type":"ownership","note":"Leonardo owns 33% of Thales Alenia Space.","source_url":"https://en.wikipedia.org/wiki/Thales_Alenia_Space"},
-    {"source_id":"thales-alenia-space","target_id":"eutelsat","type":"partnership","note":"IRIS²: Eutelsat is a core SpaceRISE operator and Thales Alenia Space a key industrial subcontractor building the EU secure-connectivity constellation.","source_url":"https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"},
-    {"source_id":"thales-alenia-space","target_id":"ohb","type":"partnership","note":"IRIS²: Thales Alenia Space and OHB are both named industrial subcontractors in the SpaceRISE consortium.","source_url":"https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"},
-    {"source_id":"airbus","target_id":"eutelsat","type":"partnership","note":"IRIS²: Airbus Defence and Space is a core industrial subcontractor in the SpaceRISE consortium led by operators including Eutelsat.","source_url":"https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"},
-    {"source_id":"eutelsat","target_id":"thales","type":"partnership","note":"IRIS²: Thales (Thales SIX) is a named industrial subcontractor alongside core operator Eutelsat on the EU concession.","source_url":"https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"},
-    {"source_id":"leonardo","target_id":"eutelsat","type":"partnership","note":"IRIS² (indirect): Leonardo participates via Telespazio (Leonardo/Thales JV) and its 33% of Thales Alenia Space within the Eutelsat-anchored consortium.","source_url":"https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"},
-    {"source_id":"saab","target_id":"airbus","type":"supply_chain","note":"Saab supplies the Arexis electronic-warfare sensor suite (~€549m of orders) to Airbus Defence and Space for German Eurofighters.","source_url":"https://www.saab.com/newsroom/press-releases/2025/saab-receives-orders-for-arexis-system-for-german-eurofighter"},
-    {"source_id":"renk","target_id":"knds","type":"customer","note":"KNDS is a key customer for RENK transmissions (e.g. Leopard tank gearboxes); RENK calls KNDS one of its most important customers.","source_url":"https://www.ad-hoc-news.de/boerse/news/ueberblick/knds-raises-262m-from-renk-and-locks-in-8bn-state-backing-as-ipo/69394462"},
-    {"source_id":"knds","target_id":"renk","type":"ownership","note":"KNDS holds ~10% of RENK Group after trimming its post-IPO stake.","source_url":"https://www.marketscreener.com/news/defense-giant-knds-trims-renk-stake-ahead-of-ipo-ce7f5ad9da89f424"},
-    {"source_id":"airbus","target_id":"dassault-aviation","type":"ownership","note":"Airbus holds ~10.65% of Dassault Aviation; the two also partner on the Future Combat Air System (FCAS/SCAF).","source_url":"https://www.dassault-aviation.com/en/group/about-us/shareholding-structure-and-organization-chart/"},
-    {"source_id":"black-forest-labs","target_id":"deutsche-telekom","type":"customer","note":"Deutsche Telekom is among enterprise partners integrating Black Forest Labs' FLUX image models.","source_url":"https://news.crunchbase.com/ai/image-generator-europe-unicorn-black-forest-labs-raise/"},
-    {"source_id":"iliad","target_id":"h-company","type":"ownership","note":"iliad founder Xavier Niel is among H Company's named backers (recurring anchor of the French sovereign-AI ecosystem).","source_url":"https://www.euronews.com/next/2024/11/23/what-is-h-and-why-is-the-french-start-up-creating-a-buzz-in-ai"},
-    {"source_id":"planqc","target_id":"infineon","type":"partnership","note":"planqc's QIAPO project (2026) collaborates with Infineon (with BMW and Saarland University) on quantum-related work.","source_url":"https://en.wikipedia.org/wiki/Planqc"},
-    {"source_id":"alice-and-bob","target_id":"thales","type":"partnership","note":"Alice & Bob and Thales both participate in France's PROQCIMA national fault-tolerant-quantum programme.","source_url":"https://thequantuminsider.com/2026/05/31/french-national-quantum-update-may-2026/"},
-    {"source_id":"scaleway","target_id":"mistral","type":"customer","note":"Mistral AI uses Scaleway's (iliad) GPU sovereign-cloud infrastructure for training/serving.","source_url":"https://www.scaleway.com/en/ai-supercomputer/"},
-    {"source_id":"ovhcloud","target_id":"mistral","type":"partnership","note":"OVHcloud offers sovereign-cloud deployment of Mistral models (reference architecture for Mistral Large) under EU jurisdiction.","source_url":"https://blog.ovhcloud.com/reference-architecture-deploy-mistral-large-model-in-sovereign-environment-ovhcloud/"}
-  ]
+  {
+   "source_id": "asml",
+   "target_id": "zeiss-smt",
+   "type": "ownership",
+   "note": "ASML holds a 24.9% minority stake in Carl Zeiss SMT (€1bn, 2016/17), deepening the EUV optics partnership.",
+   "source_url": "https://www.asml.com/en/news/press-releases/2016/zeiss-and-asml-strengthen-partnership-for-next-generation-of-euv-lithography"
+  },
+  {
+   "source_id": "siltronic",
+   "target_id": "infineon",
+   "type": "supply_chain",
+   "note": "Siltronic supplies hyperpure silicon wafers to major chipmakers under long-term contracts; Infineon is among named customers.",
+   "source_url": "https://www.encyclopedia.com/books/politics-and-business-magazines/siltronic-ag"
+  },
+  {
+   "source_id": "soitec",
+   "target_id": "stmicroelectronics",
+   "type": "supply_chain",
+   "note": "STMicroelectronics uses Soitec's FD-SOI / SOI engineered substrates; the two collaborate closely under France's IPCEI/France 2030 programmes.",
+   "source_url": "https://www.soitec.com/en/products/fd-soi"
+  },
+  {
+   "source_id": "iliad",
+   "target_id": "scaleway",
+   "type": "ownership",
+   "note": "Scaleway is a wholly-owned subsidiary of the iliad Group; its cloud/AI build-out is part of iliad's ~€3bn cloud & AI programme.",
+   "source_url": "https://www.iliad.fr/en/actualites/article/scaleway-part-of-the-iliad-group-launches-a-new-cloud-region-in-italy"
+  },
+  {
+   "source_id": "ericsson",
+   "target_id": "orange",
+   "type": "customer",
+   "note": "Orange relies on Ericsson for 5G RAN; Ericsson supplies roughly half of Orange France's RAN (Cloud/Open RAN evolution announced Nov 2025).",
+   "source_url": "https://www.ericsson.com/en/press-releases/3/2025/ericsson-leads-future-network-evolution-in-partnership-with-orange-france"
+  },
+  {
+   "source_id": "nokia",
+   "target_id": "orange",
+   "type": "customer",
+   "note": "Orange relies on Nokia for 5G network equipment; the two extended their 5G deal targeting Cloud RAN.",
+   "source_url": "https://www.mobileworldlive.com/orange/orange-nokia-extend-5g-deal-target-cloud-ran/"
+  },
+  {
+   "source_id": "nokia",
+   "target_id": "deutsche-telekom",
+   "type": "customer",
+   "note": "Deutsche Telekom awarded Nokia a multi-vendor Open RAN contract for 3,000+ German sites (replacing Huawei).",
+   "source_url": "https://www.sdxcentral.com/news/nokia-wins-open-ran-contract-with-deutsche-telekom/"
+  },
+  {
+   "source_id": "ericsson",
+   "target_id": "deutsche-telekom",
+   "type": "customer",
+   "note": "Deutsche Telekom relies on Ericsson for RAN across much of its German network alongside the newer Nokia Open RAN deal.",
+   "source_url": "https://www.lightreading.com/open-ran/deutsche-telekom-plans-30k-site-open-ran-after-nokia-success-vs-huawei"
+  },
+  {
+   "source_id": "orange",
+   "target_id": "capgemini",
+   "type": "partnership",
+   "note": "Orange and Capgemini jointly own 'Bleu', a SecNumCloud-targeted sovereign 'cloud de confiance' for the French state and critical sectors.",
+   "source_url": "https://www.capgemini.com/news/press-releases/capgemini-and-orange-are-pleased-to-announce-the-launch-of-commercial-activities-of-bleu-their-future-cloud-de-confiance-platform/"
+  },
+  {
+   "source_id": "stackit",
+   "target_id": "aleph-alpha",
+   "type": "partnership",
+   "note": "STACKIT offers Aleph Alpha's PhariaAI on its sovereign cloud (Schwarz Digits TECH Conference, May 2025) — pairing German sovereign cloud with a German sovereign model provider.",
+   "source_url": "https://schwarz-digits.de/en/presse/archive/2025/tech-conference-2025-schwarz-digits-expands-own-sovereign-cloud-stackit-into-a-german-hyperscaler"
+  },
+  {
+   "source_id": "stackit",
+   "target_id": "sap",
+   "type": "partnership",
+   "note": "STACKIT supports 'RISE with SAP' workloads on its sovereign cloud (announced May 2025).",
+   "source_url": "https://schwarz-digits.de/en/presse/archive/2025/tech-conference-2025-schwarz-digits-expands-own-sovereign-cloud-stackit-into-a-german-hyperscaler"
+  },
+  {
+   "source_id": "asml",
+   "target_id": "mistral",
+   "type": "ownership",
+   "note": "ASML led Mistral AI's Sept-2025 Series C (~€1.3bn of €1.7bn) for an ~11% stake and a strategic-committee seat — anchoring a European AI/semiconductor value chain.",
+   "source_url": "https://www.asml.com/en/news/press-releases/2025/asml-mistral-ai-enter-strategic-partnership"
+  },
+  {
+   "source_id": "mistral",
+   "target_id": "helsing",
+   "type": "partnership",
+   "note": "Mistral AI and Helsing partnered (Feb 2025) to build vision-language-action models for Helsing's defence platforms.",
+   "source_url": "https://helsing.ai/newsroom/helsing-and-mistral-announce-strategic-partnership-in-defence-ai"
+  },
+  {
+   "source_id": "saab",
+   "target_id": "helsing",
+   "type": "ownership",
+   "note": "Saab took a ~5% stake in Helsing (€75m, 2023) and integrates Helsing's AI into systems such as the Arexis EW suite for the German Eurofighter.",
+   "source_url": "https://www.saab.com/newsroom/press-releases/2023/saab-signs-strategic-cooperation-agreement-and-makes-investment-in-helsing"
+  },
+  {
+   "source_id": "airbus",
+   "target_id": "helsing",
+   "type": "partnership",
+   "note": "Airbus and Helsing partnered (2024) to integrate Helsing's AI into the unmanned 'Wingman' loyal-wingman concept; joint AI dogfight trials in 2025.",
+   "source_url": "https://en.wikipedia.org/wiki/Helsing_(company)"
+  },
+  {
+   "source_id": "mistral",
+   "target_id": "orange",
+   "type": "partnership",
+   "note": "Orange and Mistral AI partnered (Feb 2025) on European AI: network R&D and embedding Mistral models in Orange's sovereign generative-AI offerings.",
+   "source_url": "https://newsroom.orange.com/orange-and-mistral-ai-join-forces-to-accelerate-artificial-intelligence-development-in-europe/"
+  },
+  {
+   "source_id": "quandela",
+   "target_id": "ovhcloud",
+   "type": "partnership",
+   "note": "Quandela and OVHcloud partnered (Nov 2025) to offer Quandela's photonic quantum processors on OVHcloud's European sovereign cloud from mid-2026.",
+   "source_url": "https://www.ovhcloud.com/en/about-us/quantum-computing/"
+  },
+  {
+   "source_id": "thales",
+   "target_id": "thales-alenia-space",
+   "type": "ownership",
+   "note": "Thales owns 67% of the Thales Alenia Space satellite joint venture.",
+   "source_url": "https://en.wikipedia.org/wiki/Thales_Alenia_Space"
+  },
+  {
+   "source_id": "leonardo",
+   "target_id": "thales-alenia-space",
+   "type": "ownership",
+   "note": "Leonardo owns 33% of Thales Alenia Space.",
+   "source_url": "https://en.wikipedia.org/wiki/Thales_Alenia_Space"
+  },
+  {
+   "source_id": "thales-alenia-space",
+   "target_id": "eutelsat",
+   "type": "partnership",
+   "note": "IRIS²: Eutelsat is a core SpaceRISE operator and Thales Alenia Space a key industrial subcontractor building the EU secure-connectivity constellation.",
+   "source_url": "https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"
+  },
+  {
+   "source_id": "thales-alenia-space",
+   "target_id": "ohb",
+   "type": "partnership",
+   "note": "IRIS²: Thales Alenia Space and OHB are both named industrial subcontractors in the SpaceRISE consortium.",
+   "source_url": "https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"
+  },
+  {
+   "source_id": "airbus",
+   "target_id": "eutelsat",
+   "type": "partnership",
+   "note": "IRIS²: Airbus Defence and Space is a core industrial subcontractor in the SpaceRISE consortium led by operators including Eutelsat.",
+   "source_url": "https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"
+  },
+  {
+   "source_id": "eutelsat",
+   "target_id": "thales",
+   "type": "partnership",
+   "note": "IRIS²: Thales (Thales SIX) is a named industrial subcontractor alongside core operator Eutelsat on the EU concession.",
+   "source_url": "https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"
+  },
+  {
+   "source_id": "leonardo",
+   "target_id": "eutelsat",
+   "type": "partnership",
+   "note": "IRIS² (indirect): Leonardo participates via Telespazio (Leonardo/Thales JV) and its 33% of Thales Alenia Space within the Eutelsat-anchored consortium.",
+   "source_url": "https://defence-industry-space.ec.europa.eu/iris2-european-commission-awards-concession-contract-spacerise-consortium-2024-10-31_en"
+  },
+  {
+   "source_id": "saab",
+   "target_id": "airbus",
+   "type": "supply_chain",
+   "note": "Saab supplies the Arexis electronic-warfare sensor suite (~€549m of orders) to Airbus Defence and Space for German Eurofighters.",
+   "source_url": "https://www.saab.com/newsroom/press-releases/2025/saab-receives-orders-for-arexis-system-for-german-eurofighter"
+  },
+  {
+   "source_id": "renk",
+   "target_id": "knds",
+   "type": "customer",
+   "note": "KNDS is a key customer for RENK transmissions (e.g. Leopard tank gearboxes); RENK calls KNDS one of its most important customers.",
+   "source_url": "https://www.ad-hoc-news.de/boerse/news/ueberblick/knds-raises-262m-from-renk-and-locks-in-8bn-state-backing-as-ipo/69394462"
+  },
+  {
+   "source_id": "knds",
+   "target_id": "renk",
+   "type": "ownership",
+   "note": "KNDS holds ~10% of RENK Group after trimming its post-IPO stake.",
+   "source_url": "https://www.marketscreener.com/news/defense-giant-knds-trims-renk-stake-ahead-of-ipo-ce7f5ad9da89f424"
+  },
+  {
+   "source_id": "airbus",
+   "target_id": "dassault-aviation",
+   "type": "ownership",
+   "note": "Airbus holds ~10.65% of Dassault Aviation; the two also partner on the Future Combat Air System (FCAS/SCAF).",
+   "source_url": "https://www.dassault-aviation.com/en/group/about-us/shareholding-structure-and-organization-chart/"
+  },
+  {
+   "source_id": "black-forest-labs",
+   "target_id": "deutsche-telekom",
+   "type": "customer",
+   "note": "Deutsche Telekom is among enterprise partners integrating Black Forest Labs' FLUX image models.",
+   "source_url": "https://news.crunchbase.com/ai/image-generator-europe-unicorn-black-forest-labs-raise/"
+  },
+  {
+   "source_id": "iliad",
+   "target_id": "h-company",
+   "type": "ownership",
+   "note": "iliad founder Xavier Niel is among H Company's named backers (recurring anchor of the French sovereign-AI ecosystem).",
+   "source_url": "https://www.euronews.com/next/2024/11/23/what-is-h-and-why-is-the-french-start-up-creating-a-buzz-in-ai"
+  },
+  {
+   "source_id": "planqc",
+   "target_id": "infineon",
+   "type": "partnership",
+   "note": "planqc's QIAPO project (2026) collaborates with Infineon (with BMW and Saarland University) on quantum-related work.",
+   "source_url": "https://en.wikipedia.org/wiki/Planqc"
+  },
+  {
+   "source_id": "alice-and-bob",
+   "target_id": "thales",
+   "type": "partnership",
+   "note": "Alice & Bob and Thales both participate in France's PROQCIMA national fault-tolerant-quantum programme.",
+   "source_url": "https://thequantuminsider.com/2026/05/31/french-national-quantum-update-may-2026/"
+  },
+  {
+   "source_id": "scaleway",
+   "target_id": "mistral",
+   "type": "customer",
+   "note": "Mistral AI uses Scaleway's (iliad) GPU sovereign-cloud infrastructure for training/serving.",
+   "source_url": "https://www.scaleway.com/en/ai-supercomputer/"
+  },
+  {
+   "source_id": "ovhcloud",
+   "target_id": "mistral",
+   "type": "partnership",
+   "note": "OVHcloud offers sovereign-cloud deployment of Mistral models (reference architecture for Mistral Large) under EU jurisdiction.",
+   "source_url": "https://blog.ovhcloud.com/reference-architecture-deploy-mistral-large-model-in-sovereign-environment-ovhcloud/"
+  },
+  {
+   "source_id": "jenoptik",
+   "target_id": "asml",
+   "type": "supply_chain",
+   "note": "Jenoptik supplies precision micro-optics/photonic subsystems used in semiconductor lithography toolchains (ASML/Zeiss ecosystem).",
+   "source_url": "https://stockanalysis.com/quote/etr/JEN/"
+  },
+  {
+   "source_id": "safran",
+   "target_id": "airbus",
+   "type": "partnership",
+   "note": "Safran and Airbus jointly own ArianeGroup (50/50), Europe's launcher prime (Ariane 6); also partners across aerospace programmes.",
+   "source_url": "https://www.safran-group.com/companies/arianegroup"
+  },
+  {
+   "source_id": "airbus",
+   "target_id": "mbda",
+   "type": "ownership",
+   "note": "Airbus holds 37.5% of the pan-European missile JV MBDA (with BAE Systems 37.5% and Leonardo 25%).",
+   "source_url": "https://www.defensenews.com/global/europe/2025/03/18/europes-top-missile-maker-mbda-boosts-output-33-amid-record-orders/"
+  },
+  {
+   "source_id": "leonardo",
+   "target_id": "mbda",
+   "type": "ownership",
+   "note": "Leonardo holds 25% of MBDA, Europe's primary complex-weapons house.",
+   "source_url": "https://www.defensenews.com/global/europe/2025/03/18/europes-top-missile-maker-mbda-boosts-output-33-amid-record-orders/"
+  },
+  {
+   "source_id": "exosens",
+   "target_id": "theon-international",
+   "type": "supply_chain",
+   "note": "Exosens (Photonis) supplies image-intensifier tubes used in night-vision goggles built by Theon and other European integrators.",
+   "source_url": "https://live.euronext.com/en/products/equities/company-news/2026-02-23-exosens-exceeds-2025-guidance-driven-strong-defense"
+  },
+  {
+   "source_id": "theon-international",
+   "target_id": "exosens",
+   "type": "ownership",
+   "note": "Theon International acquired a ~9.8% strategic stake in Exosens, linking the two European optronics/night-vision players.",
+   "source_url": "https://stockanalysis.com/quote/ams/THEON/market-cap/"
+  },
+  {
+   "source_id": "kongsberg-gruppen",
+   "target_id": "patria",
+   "type": "ownership",
+   "note": "Kongsberg Defence & Aerospace owns 49.9% of Finland's Patria (State of Finland holds 50.1%).",
+   "source_url": "https://en.wikipedia.org/wiki/Patria_(company)"
+  },
+  {
+   "source_id": "leonardo",
+   "target_id": "telespazio",
+   "type": "ownership",
+   "note": "Telespazio is a Leonardo/Thales 'Space Alliance' JV owned 67% by Leonardo.",
+   "source_url": "https://space.leonardo.com/en/space-alliance"
+  },
+  {
+   "source_id": "thales",
+   "target_id": "telespazio",
+   "type": "ownership",
+   "note": "Thales holds 33% of the Telespazio JV (sister company to Thales Alenia Space).",
+   "source_url": "https://www.telespazio.com/en/company/profile"
+  },
+  {
+   "source_id": "telespazio",
+   "target_id": "thales-alenia-space",
+   "type": "partnership",
+   "note": "Telespazio (services) and Thales Alenia Space (manufacturing) are the two halves of the Leonardo/Thales Space Alliance.",
+   "source_url": "https://space.leonardo.com/en/space-alliance"
+  },
+  {
+   "source_id": "ohb",
+   "target_id": "rocket-factory-augsburg",
+   "type": "ownership",
+   "note": "RFA is OHB's majority-held micro-launcher venture.",
+   "source_url": "https://www.rfa.space/"
+  },
+  {
+   "source_id": "airbus",
+   "target_id": "hisdesat",
+   "type": "ownership",
+   "note": "Airbus Defence & Space holds 15% of Hisdesat.",
+   "source_url": "https://www.hisdesat.es/en/hisdesat_estructura/"
+  },
+  {
+   "source_id": "indra-sistemas",
+   "target_id": "hisdesat",
+   "type": "ownership",
+   "note": "Indra holds 7.1% of Hisdesat directly and (via its ~89.7% Hispasat stake, which owns 43%) is moving toward effective control.",
+   "source_url": "https://www.hisdesat.es/en/hisdesat_estructura/"
+  },
+  {
+   "source_id": "avio",
+   "target_id": "airbus",
+   "type": "supply_chain",
+   "note": "Avio's P120C/P160C solid boosters are used as strap-on stages on Ariane 6 (built by ArianeGroup, the Airbus/Safran JV).",
+   "source_url": "https://www.avio.com/press-release/fy-2025-results-record-high-order-backlog-and-revenues-growth-path-continue-2026"
+  },
+  {
+   "source_id": "sap",
+   "target_id": "n8n",
+   "type": "ownership",
+   "note": "SAP invested in n8n (May 2026, ~$5.2bn valuation) and embedded it as the agent-orchestration layer in SAP Joule Studio.",
+   "source_url": "https://www.bloomberg.com/news/articles/2026-05-12/sap-invests-in-ai-automation-startup-n8n-at-5-2-billion-value"
+  },
+  {
+   "source_id": "iliad",
+   "target_id": "kyutai",
+   "type": "ownership",
+   "note": "Iliad (Xavier Niel) is a founding backer of the Kyutai non-profit AI lab (~EUR300m 5-yr commitment with CMA CGM and Schmidt Sciences).",
+   "source_url": "https://techcrunch.com/2023/11/17/kyutai-is-an-french-ai-research-lab-with-a-330-million-budget-that-will-make-everything-open-source/"
+  },
+  {
+   "source_id": "stackit",
+   "target_id": "cancom",
+   "type": "partnership",
+   "note": "CANCOM integrated STACKIT's sovereign-cloud portfolio into its Cloud Marketplace (Nov 2025).",
+   "source_url": "https://newsroom.cancom.com/news/cancom-integrates-stackits-sovereign-cloud-services-into-the-cloud-marketplace"
+  },
+  {
+   "source_id": "harfanglab",
+   "target_id": "sekoia",
+   "type": "partnership",
+   "note": "HarfangLab (EDR) and Sekoia.io (SOC/XDR) jointly build a sovereign 'European Defense Platform'.",
+   "source_url": "https://harfanglab.io/blog/product/european-defense-platform/"
+  }
+ ]
 }

@@ -14,12 +14,18 @@ export const EDGE_TYPES={ supply_chain:{color:"#ff9e3d",label:"Supply",dash:[],a
 
 const $=id=>document.getElementById(id);
 const growth=c=>c.is_listed&&c.financials?c.financials.revenue_growth_pct:null;
+// provenance badge for a record (drives table + SECURITY styling). curated entries are pinned/curated.
+const prov=c=>{ const s=c.source||"curated";
+  if(s==="auto-sector"&&c.band==="candidate") return {cls:"cand",tag:"CAND",full:"CANDIDATE — UNVERIFIED",detail:c.rationale||""};
+  if(s==="auto-sector") return {cls:"auto",tag:"AUTO",full:"AUTO-SECTOR · conf "+(c.confidence??0).toFixed(2),detail:c.rationale||""};
+  if(s==="auto-theme") return {cls:"theme",tag:"THEME",full:"AUTO-THEME · "+((c.affiliations||[])[0]||""),detail:c.rationale||""};
+  return {cls:"curated",tag:"",full:"CURATED",detail:""}; };
 
-let companies=[], rels=[], byId={}, metaAsOf="", instruments=[];
+let companies=[], rels=[], byId={}, metaAsOf="", instruments=[], meta={};
 const state={ selectedId:null, filters:{domains:new Set(DOMAINS), listed:true, priv:true}, sort:{k:"size_eur",dir:-1}, tab:"map" };
 
 const ctx={ get companies(){return companies}, byId, get rels(){return rels}, DOMAINS, DOMAIN_COLORS, DOM_ABBR, EDGE_TYPES, state,
-  select, visible, neighbors, renderActive, fmtEur, get instruments(){return instruments}, instrumentFor };
+  select, visible, neighbors, renderActive, fmtEur, prov, get instruments(){return instruments}, instrumentFor };
 function instrumentFor(domain){ return instruments.find(i=>(i.domains||[]).includes(domain))||null; }
 
 function visible(c){ return state.filters.domains.has(c.domain) && ((c.is_listed&&state.filters.listed)||(!c.is_listed&&state.filters.priv)); }
@@ -36,7 +42,7 @@ function select(id){ state.selectedId=id; try{history.replaceState(null,"","#"+i
     const [cR,rR]=await Promise.all([fetch("data/companies.json"),fetch("data/relationships.json")]);
     const cj=await cR.json(); rels=(await rR.json()).relationships; companies=cj.companies;
     companies.forEach(c=>byId[c.id]=c);
-    metaAsOf=cj.meta?.as_of||""; instruments=cj.meta?.instruments||[]; $("asof").textContent="AS OF "+metaAsOf;
+    metaAsOf=cj.meta?.as_of||""; instruments=cj.meta?.instruments||[]; meta=cj.meta||{}; $("asof").textContent="AS OF "+metaAsOf;
     initSecurity(ctx); initMap(ctx,$("map-canvas"),$("tip")); initMatrix(ctx,$("matrix-canvas"),$("tip"));
     buildFilters(); buildTable(); buildDatalist(); buildEdgeLegend(); buildStatus(); buildTabs(); buildPlan(); clock();
     applyLiveSnapshot(true);
@@ -80,6 +86,7 @@ function sortedCompanies(){
   arr.sort((a,b)=>{ let va,vb;
     if(k==="size_eur"){ va=a.size_eur||0; vb=b.size_eur||0; }
     else if(k==="growth"){ va=growth(a)??-999; vb=growth(b)??-999; }
+    else if(k==="day"){ va=a._liveChange??-999; vb=b._liveChange??-999; }
     else if(k==="ticker"){ va=(a.ticker||"ZZZ").toUpperCase(); vb=(b.ticker||"ZZZ").toUpperCase(); }
     else { va=(a[k]||"").toString().toUpperCase(); vb=(b[k]||"").toString().toUpperCase(); }
     return va<vb?-1*dir:va>vb?1*dir:0; });
@@ -87,13 +94,14 @@ function sortedCompanies(){
 }
 function buildTable(){
   const body=$("uni-body"); body.innerHTML="";
-  sortedCompanies().forEach(c=>{ const g=growth(c);
-    const tr=document.createElement("tr"); tr.dataset.id=c.id;
+  sortedCompanies().forEach(c=>{ const g=growth(c), d=c._liveChange, p=prov(c);
+    const tr=document.createElement("tr"); tr.dataset.id=c.id; if(p.cls!=="curated") tr.classList.add("pr-"+p.cls);
     tr.innerHTML=`<td class="c-dom"><span class="bar" style="background:${DOMAIN_COLORS[c.domain]}"></span></td>`
       +`<td class="c-code">${c.is_listed?(c.ticker||""):'<span class="pvt">PVT</span>'}</td>`
-      +`<td class="c-name" title="${c.name}">${c.name}</td>`
+      +`<td class="c-name" title="${c.name}${p.tag?' — '+p.full+(p.detail?': '+p.detail.replace(/"/g,'&quot;'):''):''}">${p.tag?`<span class="pbadge ${p.cls}">${p.tag}</span> `:""}${c.name}</td>`
       +`<td class="c-mkt num">${fmtEur(c.size_eur)}</td>`
-      +`<td class="num ${g>0?'pos':g<0?'neg':'muted'}">${g==null?"·":(g>0?"+":"")+g.toFixed(1)}</td>`;
+      +`<td class="num ${g>0?'pos':g<0?'neg':'muted'}">${g==null?"·":(g>0?"+":"")+g.toFixed(1)}</td>`
+      +`<td class="num ${d>0?'pos':d<0?'neg':'muted'}">${d==null?"·":(d>0?"+":"")+d.toFixed(2)}</td>`;
     tr.onclick=()=>select(c.id); body.appendChild(tr); });
   document.querySelectorAll("#uni-table thead th[data-k]").forEach(th=>{ th.onclick=()=>{ const k=th.dataset.k;
     if(state.sort.k===k)state.sort.dir*=-1; else { state.sort.k=k; state.sort.dir=(k==="name"||k==="ticker")?1:-1; }
@@ -139,7 +147,18 @@ function onKey(e){
 function buildEdgeLegend(){ $("edge-legend").innerHTML=Object.values(EDGE_TYPES).map(t=>
   `<span class="ek"><span class="el" style="border-top:2px ${t.dash.length?'dashed':'solid'} ${t.color}"></span>${t.label}</span>`).join(""); }
 function buildStatus(){
-  $("stat-counts").textContent=`${companies.length} COS · ${DOMAINS.length} DOMAINS · ${rels.length} LINKS · ${companies.filter(c=>c.is_listed).length} LISTED`;
+  const cur=companies.filter(c=>(c.source||"curated")==="curated").length;
+  const as=companies.filter(c=>c.source==="auto-sector"&&c.band!=="candidate").length;
+  const at=companies.filter(c=>c.source==="auto-theme").length;
+  const cand=companies.filter(c=>c.band==="candidate").length;
+  $("stat-counts").innerHTML=`${companies.length} COS · ${rels.length} LINKS — `
+    +`<b>${cur} curated</b> · ${as} auto-sector · ${at} auto-theme · <span class="cand-tag">${cand} CANDIDATE</span>`;
+  const u=meta.universe||{};
+  const sr=$("stat-runs");
+  if(sr){ const bits=[];
+    if(u.last_discovery) bits.push(`sector auto · discovery ${u.last_discovery}`);
+    bits.push(`thematic <span class="muted" title="Thematic entries are maintainer-curated with citations — NOT live-discovered.">curated${u.thematic&&u.thematic.last_checked?` · checked ${u.thematic.last_checked}`:""}</span>`);
+    sr.innerHTML=bits.join(" · "); }
   $("legend").innerHTML=DOMAINS.map(d=>`<span class="lg"><span class="sq" style="background:${DOMAIN_COLORS[d]}"></span>${DOM_ABBR[d]}</span>`).join("");
   $("keys").innerHTML=`<span class="k"><b>/</b> search</span><span class="k"><b>↑↓</b> nav</span><span class="k"><b>M/X</b> view</span><span class="k"><b>1-9</b> domain</span>`;
 }

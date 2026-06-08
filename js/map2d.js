@@ -80,6 +80,7 @@ function draw(){
       g.globalAlpha=al*0.4; g.fillStyle=col; g.beginPath(); g.arc(P.x,P.y,rpx,0,7); g.fill(); }
     else { g.fillStyle=col; g.beginPath(); g.arc(P.x,P.y,rpx,0,7); g.fill(); g.shadowBlur=0;
       g.globalAlpha=Math.min(1,al+0.2); g.strokeStyle="#05070b"; g.lineWidth=1; g.stroke(); }
+    if(c.band==="candidate"&&vis){ g.globalAlpha=al; g.strokeStyle="#ffb020"; g.lineWidth=1.4; g.setLineDash([2,2]); g.beginPath(); g.arc(P.x,P.y,rpx+2,0,7); g.stroke(); g.setLineDash([]); }
     if(id===C.state.selectedId){ g.globalAlpha=1; g.strokeStyle="#ff9e3d"; g.lineWidth=2.2; g.beginPath(); g.arc(P.x,P.y,rpx+4,0,7); g.stroke(); }
   });
   g.shadowBlur=0; g.globalAlpha=1;

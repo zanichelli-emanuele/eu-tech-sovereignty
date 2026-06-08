@@ -37,7 +37,8 @@
             <th data-k="ticker">CODE</th>
             <th data-k="name">NAME</th>
             <th data-k="size_eur" class="num">MKT€</th>
-            <th data-k="growth" class="num">Δ%</th>
+            <th data-k="growth" class="num" title="annual revenue growth (fundamental)">REV Δ%</th>
+            <th data-k="day" class="num" title="live daily price change (Yahoo ~15-min delayed)">DAY%</th>
           </tr></thead>
           <tbody id="uni-body"></tbody>
         </table>
@@ -80,6 +81,7 @@
   <footer id="status">
     <span class="disc">● INFORMATIONAL — NOT INVESTMENT ADVICE · verify live quotes</span>
     <span id="stat-counts" class="muted"></span>
+    <span id="stat-runs" class="muted statruns"></span>
     <span id="legend" class="legend"></span>
     <span id="keys" class="keys"></span>
   </footer>

@@ -17,6 +17,7 @@ export function clearSecurity(){ stopLive(); current=null; $("sec-content").hidd
 
 export async function showCompany(c){
   current=c; const color=ctx.DOMAIN_COLORS[c.domain]||"#ff9e3d"; const inst=ctx.instrumentFor?ctx.instrumentFor(c.domain):null;
+  const p=ctx.prov?ctx.prov(c):{cls:"curated",full:"CURATED",tag:"",detail:""};
   $("sec-empty").hidden=true; $("sec-content").hidden=false;
   $("sec-id").textContent = c.is_listed ? (c.ticker||"") : "PRIVATE";
   const warn=(c.uncertain||[]).find(u=>/distress|delist|restructur|taken private|pending|thin free float/i.test(u));
@@ -30,11 +31,16 @@ export async function showCompany(c){
         <div class="sh-name">${c.name}</div>
         <div class="sh-meta">
           <span class="tag ${c.is_listed?'listed':'private'}">${c.is_listed?'LISTED':'PRIVATE'}</span>
+          <span class="tag prov-${p.cls}" title="${(p.detail||'').replace(/"/g,'&quot;')}">${p.full}</span>
+          ${(c.affiliations||[]).map(a=>`<span class="tag aff" title="roster membership (citation)">⛓ ${a}</span>`).join("")}
           ${warn?`<span class="tag warn" title="${warn.replace(/"/g,'&quot;')}">⚠ STATUS</span>`:''}
           <span style="color:${color}">${c.domain}</span> · ${c.hq_country||'—'} ${c.founded?'· EST '+c.founded:''}
         </div>
       </div>
     </div>
+    ${p.cls==="cand"?`<div class="cand-banner">⚠ CANDIDATE — UNVERIFIED · auto-classified by sector heuristics (${(p.detail||'').replace(/"/g,'&quot;')}), not reviewed — may not belong in this domain.</div>`:''}
+    ${p.cls==="auto"?`<div class="auto-banner">● AUTO-SECTOR · added by the weekly pipeline (codes + keywords, conf ${(c.confidence??0).toFixed(2)}), not hand-curated.</div>`:''}
+    ${p.cls==="theme"?`<div class="auto-banner">● AUTO-THEME · included via roster membership (${(c.affiliations||[]).join(', ')}); maintainer-curated citation.</div>`:''}
     ${inst?`<div class="sec-inst"><span class="si-k">EU&nbsp;INSTRUMENT</span><div class="si-body"><a class="si-name" href="${inst.source_url}" target="_blank" rel="noopener">${inst.name} ↗</a><span class="si-st">${inst.status}</span></div></div>`:''}
     <div id="sec-live" class="sec-live" hidden></div>
     <div class="sec-sec"><h4>${c.is_listed?'Financials':'Private company'}</h4><div class="fin" id="sec-fin"></div><div class="src" id="sec-fin-src"></div></div>

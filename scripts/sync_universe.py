@@ -193,9 +193,9 @@ def main():
         newrecs = [c for c in proposed if str(c.get("source", "")).startswith("auto")]
         # verify curated are byte-identical except the added source field
         orig = {c["id"]: c for c in companies}
+        nosrc = lambda r: {k: v for k, v in r.items() if k != "source"}
         changed = [c["id"] for c in proposed if c.get("source") == "curated"
-                   and orig.get(c["id"]) is not None
-                   and {k: v for k, v in c.items() if k != "source"} != orig[c["id"]]]
+                   and orig.get(c["id"]) is not None and nosrc(c) != nosrc(orig[c["id"]])]
         print(f"\n=== {'APPLY' if APPLY else 'APPLY PREVIEW'} ===")
         print(f"curated stamped source='curated': {n_cur}/{len(companies)}  |  curated with changes beyond +source: {len(changed)} {changed[:8]}")
         print(f"new auto records: {len(newrecs)}")
@@ -210,6 +210,16 @@ def main():
             if prior_auto and len(newrecs) < MIN_AUTO_FRACTION * prior_auto:
                 sys.exit(f"ABORT empty-file guard: new auto={len(newrecs)} < ½ prior auto={prior_auto}.")
             d = load("companies.json"); d["companies"] = proposed
+            aff = load("affiliations.json", {})
+            checks = [r.get("last_checked") for k, b in aff.items() if not k.startswith("_")
+                      for r in b.get("rosters", []) if r.get("last_checked")]
+            d.setdefault("meta", {})["universe"] = {
+                "last_discovery": TODAY,
+                "thematic": {"mode": "maintainer-curated (citations)", "last_checked": max(checks) if checks else None},
+                "counts": {"curated": n_cur,
+                           "auto_sector": sum(1 for c in proposed if c.get("source") == "auto-sector" and c.get("band") != "candidate"),
+                           "auto_theme": sum(1 for c in proposed if c.get("source") == "auto-theme"),
+                           "candidate": sum(1 for c in proposed if c.get("band") == "candidate")}}
             json.dump(d, open(os.path.join(DATA, "companies.json"), "w"), ensure_ascii=False, indent=1)
             print(f"WROTE companies.json: {len(proposed)} ({n_cur} curated + {len(newrecs)} auto)")
         else:

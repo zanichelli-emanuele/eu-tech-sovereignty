@@ -98,7 +98,20 @@
     ],
     "source_url": "https://digital-strategy.ec.europa.eu/en/policies/eu-tech-sovereignty"
    }
-  ]
+  ],
+  "universe": {
+   "last_discovery": "2026-06-08",
+   "thematic": {
+    "mode": "maintainer-curated (citations)",
+    "last_checked": "2026-06-08"
+   },
+   "counts": {
+    "curated": 76,
+    "auto_sector": 1,
+    "auto_theme": 0,
+    "candidate": 12
+   }
+  }
  },
  "companies": [
   {

@@ -1,0 +1,135 @@
+{
+ "generated_at": "2026-06-08T16:52:29.221662+00:00",
+ "dry_run": false,
+ "cap_eur": 20000000000.0,
+ "added": [
+  {
+   "name": "Technoprobe S.p.A.",
+   "ticker": "TPRO.MI",
+   "domain": "Semiconductors",
+   "source": "auto-sector",
+   "confidence": 0.93,
+   "rationale": "industry='Semiconductors' + sector='Technology' + keywords[semiconductor]",
+   "affiliations": [],
+   "market_cap_eur": 19734642688
+  }
+ ],
+ "candidates": [
+  {
+   "name": "Adyen N.V.",
+   "ticker": "ADYEN.AS",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.81,
+   "rationale": "industry='Software - Infrastructure' + sector='Technology' + (code-only → capped at candidate)",
+   "market_cap_eur": 26279524352
+  },
+  {
+   "name": "Bechtle AG",
+   "ticker": "BC8.DE",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.69,
+   "rationale": "sector='Technology' + keywords[data center]",
+   "market_cap_eur": 4137840128
+  },
+  {
+   "name": "Capgemini SE",
+   "ticker": "CAP.PA",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.69,
+   "rationale": "sector='Technology' + keywords[data center]",
+   "market_cap_eur": 17115179008
+  },
+  {
+   "name": "Deutsche Telekom AG",
+   "ticker": "DTE.DE",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.69,
+   "rationale": "sector='Communication Services' + keywords[data center]",
+   "market_cap_eur": 133674565632
+  },
+  {
+   "name": "Scout24 SE",
+   "ticker": "G24.DE",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.81,
+   "rationale": "industry='Internet Content & Information' + sector='Communication Services' + (code-only → capped at candidate)",
+   "market_cap_eur": 5310732288
+  },
+  {
+   "name": "Nexi S.p.A.",
+   "ticker": "NEXI.MI",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.81,
+   "rationale": "industry='Software - Infrastructure' + sector='Technology' + (code-only → capped at candidate)",
+   "market_cap_eur": 3904481536
+  },
+  {
+   "name": "Nokia Oyj",
+   "ticker": "NOKIA.HE",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.69,
+   "rationale": "sector='Technology' + keywords[data center]",
+   "market_cap_eur": 71847215104
+  },
+  {
+   "name": "Octave Intelligence Plc SDB",
+   "ticker": "OCTV-SDB.ST",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.69,
+   "rationale": "sector='Technology' + keywords[data center]",
+   "market_cap_eur": null
+  },
+  {
+   "name": "Orange S.A.",
+   "ticker": "ORA.PA",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.69,
+   "rationale": "sector='Communication Services' + keywords[cloud computing]",
+   "market_cap_eur": 47335235584
+  },
+  {
+   "name": "Reply S.p.A.",
+   "ticker": "REY.MI",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.69,
+   "rationale": "sector='Technology' + keywords[generative ai]",
+   "market_cap_eur": 3871375104
+  },
+  {
+   "name": "Telenor ASA",
+   "ticker": "TEL.OL",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.69,
+   "rationale": "sector='Communication Services' + keywords[data centre]",
+   "market_cap_eur": 18735823475
+  },
+  {
+   "name": "VEND MARKETPLACES ASA",
+   "ticker": "VEND.OL",
+   "domain": "Cloud & AI",
+   "source": "auto-sector",
+   "confidence": 0.81,
+   "rationale": "industry='Internet Content & Information' + sector='Communication Services' + (code-only → capped at candidate)",
+   "market_cap_eur": 4712844060
+  }
+ ],
+ "tags_added": [],
+ "sector_wins": [],
+ "cap_demotions": [],
+ "removed": [],
+ "reclassified": [],
+ "warnings": [],
+ "curated_pinned": 76,
+ "thematic_members": 0
+}

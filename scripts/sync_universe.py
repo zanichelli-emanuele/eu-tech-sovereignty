@@ -151,11 +151,18 @@ def main():
                                  "affiliations": [t["roster"]]})
 
     # lifecycle: removes (auto entries whose ticker no longer resolves) + warnings (curated unresolved)
+    # degraded-discovery guard: if a run resolves abnormally few tickers (e.g. Yahoo throttling a CI
+    # datacenter IP), skip ALL removals so a transient failure can't silently delete real companies.
+    discovery_ok = len(resolved) >= int(os.environ.get("REMOVE_MIN_RESOLVED", "200"))
+    if not discovery_ok:
+        log["warnings"].append({"note": f"DISCOVERY DEGRADED — only {len(resolved)} tickers resolved (< REMOVE_MIN_RESOLVED); ALL removals skipped this run to avoid false deletions."})
     for c in companies:
         if not c.get("is_listed") or not c.get("yahoo_ticker"): continue
         if c["yahoo_ticker"] in resolved: continue
         if str(c.get("source", "curated")).startswith("auto"):
-            log["removed"].append({"name": c["name"], "ticker": c["yahoo_ticker"], "reason": "ticker no longer resolves (delisted/acquired)"})
+            if discovery_ok:
+                log["removed"].append({"name": c["name"], "ticker": c["yahoo_ticker"], "reason": "ticker no longer resolves (delisted/acquired)"})
+            # else: protected by the degraded-discovery guard (logged above)
         else:
             log["warnings"].append({"name": c["name"], "ticker": c["yahoo_ticker"], "note": "curated ticker did not resolve this run (pinned — not removed; may be sampled-out or delisted — review)"})
 

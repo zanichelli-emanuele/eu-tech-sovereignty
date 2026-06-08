@@ -3,8 +3,8 @@ __pycache__/
 *.pyc
 .cache/
 *.log
-data/candidates.json
+# committed on purpose: candidates.json = keep-last-good cache for CI discovery;
+# universe_log.json = the add/remove/reclassify audit trail.
 data/classified_sector.json
 data/classified_theme.json
-data/universe_log.json
 data/companies.proposed.json

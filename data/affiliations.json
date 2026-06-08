@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "purpose": "Deterministic, KEYLESS, LIST-BASED classification for the two THEMATIC instruments (EU Open Source Strategy -> 'Open source', Strategic Roadmap for Digitalisation & AI in Energy -> 'AI in energy'). These are THEMES, not equity sectors, so they are NOT keyword-guessed off the screener. A company is classified iff it appears on one of the rosters below. Used by scripts/classify_theme.py.",
+    "why_lists": "Membership is the credibility line: 'included because it is an Eclipse Foundation member' / 'a smartEn flexibility member' is a citable, falsifiable claim — not a heuristic guess. Thematic companies may be added even if absent from STOXX 600.",
+    "rules": {
+      "match": "A roster member is classified into the roster's category. rationale = 'Member of <roster.list>'. confidence = 1.0 (membership is binary).",
+      "ticker_cross_reference": "For each member, classify_theme.py resolves a Yahoo ticker via yfinance where the entity is a listed equity (so Layer-1 live financials work). If private / a foundation / a public body, it is added as a static, clearly-labeled non-listed entry (is_listed:false, financials:null) — never invented price data.",
+      "provenance": "source = 'auto-theme'; rationale = roster name; confidence = 1.0. sovereignty_role on the created record is set to the auto rationale and labeled auto-derived.",
+      "reconciliation": "On each run, classify_theme.py refreshes each roster's members[] from its source_url — a PLAIN HTTP fetch + parse of the public member directory, NOT a model call — and updates last_checked. A member that drops off the live roster is demoted/removed on the next run (logged in universe_log.json).",
+      "seed_status": "members[] below are intentionally EMPTY in this first commit. The rosters, scopes, and source URLs are what you sanity-check now; classify_theme.py populates verified members from source_url on the first run after your OK. See member_schema for the entry shape."
+    },
+    "member_schema": {
+      "name": "Company or organisation legal name",
+      "hq_country": "EU/EEA country (members outside EU/EEA are dropped)",
+      "is_listed": "true | false | \"unknown\"  (resolved via yfinance)",
+      "yahoo_ticker": "Yahoo symbol incl. suffix, or null for private/foundation/public-body",
+      "roster_source_url": "the parent roster's source_url (carried onto the record's sources[])",
+      "verified": "true once confirmed against source_url on a run; false in hand-seeds",
+      "note": "optional, e.g. membership tier or relevance",
+      "example_only_illustrative": {
+        "name": "<example, not asserted>", "hq_country": "DE", "is_listed": false,
+        "yahoo_ticker": null, "verified": false, "note": "shape illustration only"
+      }
+    }
+  },
+
+  "Open source": {
+    "instrument": "open-source-strategy",
+    "rosters": [
+      {
+        "list": "Eclipse Foundation members",
+        "scope": "EU/EEA corporate members (Brussels-based foundation)",
+        "source_url": "https://www.eclipse.org/membership/exploreMembership.php",
+        "last_checked": "2026-06-08",
+        "members": []
+      },
+      {
+        "list": "Linux Foundation Europe members",
+        "scope": "EU/EEA members",
+        "source_url": "https://linuxfoundation.eu/members",
+        "last_checked": "2026-06-08",
+        "members": []
+      },
+      {
+        "list": "OpenForum Europe (OFE) supporters",
+        "scope": "EU/EEA open-source advocacy supporters",
+        "source_url": "https://openforumeurope.org/who-we-are/",
+        "last_checked": "2026-06-08",
+        "members": []
+      }
+    ]
+  },
+
+  "AI in energy": {
+    "instrument": "ai-in-energy",
+    "rosters": [
+      {
+        "list": "smartEn (Smart Energy Europe) members",
+        "scope": "EU/EEA demand-side flexibility, DER and smart-grid software members",
+        "source_url": "https://smarten.eu/members/",
+        "last_checked": "2026-06-08",
+        "members": []
+      },
+      {
+        "list": "IPCEI participants (energy / microelectronics, energy-digitalisation-relevant)",
+        "scope": "EU/EEA companies named as direct/indirect participants in approved IPCEIs touching energy digitalisation",
+        "source_url": "https://competition-policy.ec.europa.eu/state-aid/ipcei_en",
+        "last_checked": "2026-06-08",
+        "members": []
+      },
+      {
+        "list": "EU Digitalisation & AI in Energy roadmap — named organisations",
+        "scope": "organisations explicitly named in the roadmap / its annexes",
+        "source_url": "https://digital-strategy.ec.europa.eu/en/policies/eu-tech-sovereignty",
+        "last_checked": "2026-06-08",
+        "members": []
+      }
+    ],
+    "notes": "ENTSO-E membership is national TSOs (grid operators, mostly state-owned, not listed software vendors) — deliberately NOT used as a roster here; smartEn is the right software/flexibility roster. Can be added later if you want TSOs in scope."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "_meta": {
+    "purpose": "Deterministic, KEYLESS sector classification for the two SECTOR-SHAPED instruments (Chips Act 2.0 -> 'Semiconductors', CADA -> 'Cloud & AI'). No model calls. A candidate is scored per domain from (a) its sector/industry name and (b) a keyword pass over its business summary. Used by scripts/classify_sector.py.",
+    "inputs": "sector + industry names and longBusinessSummary come from yfinance asset_profile (Yahoo taxonomy, GICS-aligned). When the FMP SOURCE is enabled later, FMP GICS sector/industry strings map onto the same fields; numeric GICS/ICB codes can be added under optional 'gics_codes' without code changes.",
+    "matching": "Case-insensitive, word-boundary (\\b<term>\\w*) regex over the lowercased summary. Multi-word terms match as phrases. Each distinct term counts at most once.",
+    "scoring": {
+      "industry_match_weight": 2,
+      "sector_match_weight": 1,
+      "keyword_weight_each": 1,
+      "exclude_is_veto": true,
+      "formula": "score = 2*(industry name in industry_match) + 1*(sector name in sector_match) + 1*(# distinct keyword hits); if ANY exclude_keyword hits, score := 0 (domain vetoed).",
+      "promote_score": 3,
+      "candidate_score": 2,
+      "below_candidate": "not classified in this domain",
+      "tie_break": "assign to the highest-scoring sector domain; equal scores -> the one with the industry_match hit, else neither (left for theme/none).",
+      "confidence_formula": "round(min(0.95, 0.45 + 0.12*score), 2)  -- a transparent function of matched signals, NOT a model probability",
+      "note": "All weights/thresholds here are tunable; sync_universe.py reads promote_score/candidate_score to set the bands. THRESHOLD env var can override promote_score at runtime."
+    },
+    "examples": {
+      "industry='Semiconductors' + summary has 'fabless'+'risc-v'": "score 2+2 = 4 -> promote, conf 0.93",
+      "industry='Software-Infrastructure' + summary has 'sovereign cloud'": "score 2+1 = 3 -> promote, conf 0.81",
+      "sector='Technology' only, no industry/keyword match": "score 1 -> not classified",
+      "summary has 'cloud' but also 'IT consulting'": "exclude veto -> score 0"
+    }
+  },
+
+  "Semiconductors": {
+    "instrument": "chips-act-2",
+    "sector_match": ["Technology"],
+    "industry_match": ["Semiconductors", "Semiconductor Equipment & Materials"],
+    "keywords": [
+      "semiconductor", "lithography", "foundry", "wafer", "euv", "photonic", "photonics",
+      "fabless", "integrated device manufacturer", "electronic design automation", "eda tool",
+      "advanced packaging", "chiplet", "substrate", "microcontroller", "analog ic",
+      "power semiconductor", "compound semiconductor", "risc-v", "silicon carbide",
+      "gallium nitride", "epitaxial", "microchip", "die bonding", "memory chip", "ai accelerator chip"
+    ],
+    "exclude_keywords": [
+      "contract electronics manufacturing", "ems provider", "pcb assembly",
+      "printed circuit board assembly", "electronics distributor", "component distributor",
+      "consumer electronics retailer", "reseller"
+    ]
+  },
+
+  "Cloud & AI": {
+    "instrument": "cada",
+    "sector_match": ["Technology", "Communication Services"],
+    "industry_match": ["Software—Infrastructure", "Software - Infrastructure", "Internet Content & Information"],
+    "keywords": [
+      "cloud computing", "cloud platform", "data center", "data centre", "hyperscale",
+      "infrastructure as a service", "platform as a service", "iaas", "paas",
+      "gpu cloud", "ai inference", "inference", "foundation model", "large language model",
+      "generative ai", "frontier ai", "industrial ai", "machine learning platform",
+      "sovereign cloud", "kubernetes", "object storage", "ai compute", "neural network accelerator"
+    ],
+    "exclude_keywords": [
+      "it consulting", "management consulting", "staffing", "systems integrator",
+      "system integration services", "managed it services", "value-added reseller",
+      "defence", "defense", "military", "weapon"
+    ]
+  }
+}

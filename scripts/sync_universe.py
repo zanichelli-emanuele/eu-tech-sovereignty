@@ -65,8 +65,11 @@ def build_auto_record(r, cand, band):
     }
 
 def build_proposed(companies, log, cands):
+    removed = {r["ticker"] for r in log["removed"] if r.get("ticker")}
     out = []
     for c in companies:                         # PIN curated: copy verbatim, only stamp source
+        if str(c.get("source", "")).startswith("auto") and c.get("yahoo_ticker") in removed:
+            continue                            # drop removed auto entries (curated is never removed)
         c2 = dict(c); c2.setdefault("source", "curated"); out.append(c2)
     have = {c.get("yahoo_ticker") for c in companies}
     for r in [x for x in log["added"] if x.get("ticker")] + log["candidates"]:
@@ -165,6 +168,15 @@ def main():
             # else: protected by the degraded-discovery guard (logged above)
         else:
             log["warnings"].append({"name": c["name"], "ticker": c["yahoo_ticker"], "note": "curated ticker did not resolve this run (pinned — not removed; may be sampled-out or delisted — review)"})
+    # auto-sector entries that STILL resolve but NO LONGER classify (e.g. tightened rules) -> remove (guarded)
+    sector_tickers = set(sec_by)
+    if discovery_ok:
+        for c in companies:
+            if c.get("source") != "auto-sector": continue
+            yt = c.get("yahoo_ticker")
+            if not yt or yt not in resolved or yt in sector_tickers: continue
+            log["removed"].append({"name": c["name"], "ticker": yt, "domain": c.get("domain"),
+                                   "reason": "no longer classifies into a sector (below threshold / excluded by refined rules)"})
 
     log["curated_pinned"] = sum(1 for c in companies if c.get("source", "curated") == "curated")
     json.dump(log, open(os.path.join(DATA, "universe_log.json"), "w"), ensure_ascii=False, indent=1)
@@ -187,7 +199,7 @@ def main():
          lambda r: f"{r['ticker'] or '-':11} €{(r['market_cap_eur'] or 0)/1e9:.0f}B  {r['name'][:30]:30} rosters={r['rosters']}")
     show("(c) affiliation TAGS added", log["tags_added"],
          lambda r: f"{r['ticker']:11} +{r['tags']} (pinned={r['pinned']}, domain={r['current_domain']})  {r['name'][:30]}")
-    show("(d) REMOVE (auto, ticker unresolved)", log["removed"], lambda r: f"{r['ticker']:11} {r['name'][:34]:34} ⟵ {r['reason']}")
+    show("(d) REMOVE (auto — unresolved ticker OR no longer classifies)", log["removed"], lambda r: f"{r['ticker']:11} {r['name'][:34]:34} ⟵ {r['reason']}")
     show("(d') WARN (curated ticker unresolved — pinned)", log["warnings"], lambda r: f"{r['ticker']:11} {r['name'][:34]:34} ⟵ {r['note']}")
     print(f"\nsummary: add={len([r for r in log['added'] if r.get('ticker')])} add-nonlisted={len([r for r in log['added'] if not r.get('ticker')])} "
           f"candidate={len(log['candidates'])} sector-wins={len(log['sector_wins'])} cap-demotions={len(log['cap_demotions'])} "
@@ -208,15 +220,15 @@ def main():
         print(f"new auto records: {len(newrecs)}")
         for c in newrecs:
             print(f"  +{c['source']}/{c['band']:9} {c['domain']:13} {c['yahoo_ticker']:11} conf {c['confidence']:.2f}  mc=€{(c['size_eur'] or 0)/1e9:.1f}B  {c['name'][:30]}")
-        # guards: never drop below input size, and preserve the curated set exactly (pinned)
+        # guards: curated is pinned (all present, unchanged) and is the floor; legitimate auto pruning is allowed.
         in_curated = sum(1 for c in companies if (c.get("source") or "curated") == "curated")
-        if len(proposed) < len(companies) or n_cur != in_curated:
-            sys.exit(f"ABORT guard: proposed={len(proposed)} curated_out={n_cur} vs curated_in={in_curated} / existing={len(companies)} — refusing degenerate write.")
+        if n_cur != in_curated or len(proposed) < in_curated:
+            sys.exit(f"ABORT guard: curated_out={n_cur} vs curated_in={in_curated}, proposed={len(proposed)} — refusing to drop/mutate the curated set.")
         if changed:
             sys.exit(f"ABORT: curated records would change beyond +source ({changed}). Investigate before writing.")
         if APPLY:
-            if prior_auto and len(newrecs) < MIN_AUTO_FRACTION * prior_auto:
-                sys.exit(f"ABORT empty-file guard: new auto={len(newrecs)} < ½ prior auto={prior_auto}.")
+            if not discovery_ok and prior_auto and len(newrecs) < MIN_AUTO_FRACTION * prior_auto:
+                sys.exit(f"ABORT: discovery degraded AND auto collapsed (new auto={len(newrecs)} < ½ prior={prior_auto}) — refusing.")
             d = load("companies.json"); d["companies"] = proposed
             aff = load("affiliations.json", {})
             checks = [r.get("last_checked") for k, b in aff.items() if not k.startswith("_")

@@ -38,6 +38,8 @@ jobs:
         env:
           SOURCE: stoxx
           WORKERS: "8"
+      - name: Refresh thematic roster staging (keyless; staging only, never enters the universe)
+        run: python3 scripts/fetch_rosters.py
       - name: Classify (sector codes+keywords, thematic rosters) + sync
         run: |
           python3 scripts/classify_sector.py
@@ -49,7 +51,7 @@ jobs:
         run: |
           git config user.name  "eusov-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/companies.json data/candidates.json data/universe_log.json data/live_snapshot.json
+          git add data/companies.json data/candidates.json data/universe_log.json data/live_snapshot.json data/roster_candidates.json
           if ! git diff --cached --quiet; then
             git commit -m "weekly universe scan $(date -u +%Y-%m-%d)"
             git push
